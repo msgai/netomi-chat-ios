@@ -1,0 +1,17 @@
+{
+    "typingTextView": {
+        "background": "color4",
+        "borderColor": "color3",
+        "borderColorToHighlightError": "color2",
+        "borderWidth": 1.0,
+        "cornerRadius": 0.0,
+        "placeholderTextColor": "color5",
+        "textColor": "color1",
+        "fontFamily": "font1",
+        "fontStyle": "medium",
+        "fontSize": "medium",
+        "letterSpacing": "normal",
+        "lineHeight": "medium",
+        "lineSpacing": "medium"
+    }
+}

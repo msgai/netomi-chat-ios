@@ -1,0 +1,59 @@
+{
+    "lightColors": {
+        "primaryColor": "#FF000000",
+        "secondaryColor": "#FFC32727",
+        "navigationColor": "#FFE6E6E6",
+        "navigationTitleColor": "#FFFFFFFF",
+        "sendMsgColor": "#FFB1B1B1",
+        "receivedMsgColor": "#FFB1B1B1",
+        "typingMsgColor": "#FFB1B1B1",
+    },
+    
+    "darkColors": {
+        "primaryColor": "#FF000000",
+        "secondaryColor": "#FFC32727",
+        "navigationColor": "#FFE6E6E6",
+        "navigationTitleColor": "#FFFFFFFF",
+        "sendMsgColor": "#FFB1B1B1",
+        "receivedMsgColor": "#FFB1B1B1",
+        "typingMsgColor": "#FFB1B1B1",
+        }.
+    "fontFamilies": {
+        "font1": "BrandonText"
+    },
+    "fontStyles": {
+        "bold": "-Bold",
+        "medium": "-Medium"
+    },
+    "fontSizes": {
+        "extraSmall": 9.0,
+        "small": 10.0,
+        "medium": 12.0,
+        "medium14": 14.0,
+        "medium16": 16.0,
+        "large": 18.0,
+        "large19": 19.0,
+        "large22": 22.0,
+        "large24": 24.0,
+        "extraLarge": 25.0
+    },
+    "letterSpacings": {
+        "normal": 0.0,
+        "extraSmall": 0.2,
+        "small": 0.5,
+        "medium": 1.0
+    },
+    "lineSpacings": {
+        "medium": 1.42
+    },
+    "lineHeights": {
+        "extraSmall": 13.0,
+        "small": 14.0,
+        "medium": 17.0,
+        "large": 22.0,
+        "large24": 24.0,
+        "extraLarge": 25.0,
+        "extraLarge29": 29.0,
+        "extraExtraLarge": 35.0
+    }
+}

@@ -1,0 +1,11 @@
+framework module Netomi {
+  umbrella header "Netomi.h"
+  export *
+
+  module * { export * }
+}
+
+module Netomi.Swift {
+  header "Netomi-Swift.h"
+  requires objc
+}

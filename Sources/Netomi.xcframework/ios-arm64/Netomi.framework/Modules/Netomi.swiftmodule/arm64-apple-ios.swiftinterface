@@ -1,0 +1,2319 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-bare-slash-regex -module-name Netomi
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import AVKit
+import AWSIoT
+import Combine
+import Compression
+import CoreFoundation
+import CoreGraphics
+import CoreText
+import DeveloperToolsSupport
+import Foundation
+import MobileCoreServices
+@_exported import Netomi
+import QuartzCore
+import SafariServices
+import Swift
+import SwiftUI
+import SwiftUICore
+import SystemConfiguration
+import UIKit.UIColor
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import zlib
+public enum NCWFloatingButtonPosition {
+  case topLeft
+  case topRight
+  case bottomLeft
+  case bottomRight
+  case custom(x: CoreFoundation.CGFloat, y: CoreFoundation.CGFloat, width: CoreFoundation.CGFloat, height: CoreFoundation.CGFloat)
+}
+public struct ButtonStyle : Swift.Codable {
+  public var backgroundColorNormal: UIKit.UIColor? {
+    get
+  }
+  public var backgroundColorDisabled: UIKit.UIColor? {
+    get
+  }
+  public var backgroundColorSelected: UIKit.UIColor? {
+    get
+  }
+  public var borderColorNormal: UIKit.UIColor? {
+    get
+  }
+  public var borderColorDisabled: UIKit.UIColor? {
+    get
+  }
+  public var borderColorSelected: UIKit.UIColor? {
+    get
+  }
+  public var borderWidth: CoreFoundation.CGFloat? {
+    get
+  }
+  public var cornerRadius: CoreFoundation.CGFloat? {
+    get
+  }
+  public var textColorNormal: UIKit.UIColor? {
+    get
+  }
+  public var textColorSelected: UIKit.UIColor? {
+    get
+  }
+  public var textColorDisabled: UIKit.UIColor? {
+    get
+  }
+  public var fontName: Swift.String? {
+    get
+  }
+  public var fontSize: CoreFoundation.CGFloat? {
+    get
+  }
+  public var letterSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineHeight: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public var labelStyle: Netomi.LabelStyle?
+  public init(from decoder: any Swift.Decoder) throws
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Swift.String {
+  public func attributed(with style: Netomi.LabelStyle, textAlignment: UIKit.NSTextAlignment) -> Foundation.NSAttributedString
+}
+public struct NCWBotConfiguration {
+  public var quickReplyTextColor: UIKit.UIColor!
+  public var quickReplyBorderColor: UIKit.UIColor!
+  public var textColor: UIKit.UIColor!
+  public var backgroundColor: UIKit.UIColor!
+  public var quickReplyBackgroundColor: UIKit.UIColor!
+  public var botImage: UIKit.UIImage?
+  public var isFeedbackEnabled: Swift.Bool
+  public init()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class NetomiChat : ObjectiveC.NSObject {
+  @_Concurrency.MainActor public static let shared: Netomi.NetomiChat
+  @_Concurrency.MainActor final public func initialize(botRefId: Swift.String, env: Netomi.NCWEnvironment)
+  @_Concurrency.MainActor final public func launch(jwt: Swift.String? = nil)
+  @objc deinit
+}
+extension Netomi.NetomiChat {
+  @_Concurrency.MainActor final public func updateHeaderConfiguration(config: Netomi.NCWHeaderConfiguration)
+  @_Concurrency.MainActor final public func updateFooterConfiguration(config: Netomi.NCWFooterConfiguration)
+  @_Concurrency.MainActor final public func updateBotConfiguration(config: Netomi.NCWBotConfiguration)
+  @_Concurrency.MainActor final public func updateUserConfiguration(config: Netomi.NCWUserConfiguration)
+  @_Concurrency.MainActor final public func updateBubbleConfiguration(config: Netomi.NCWBubbleConfiguration)
+  @_Concurrency.MainActor final public func updateChatWindowConfiguration(config: Netomi.NCWChatWindowConfiguration)
+  @_Concurrency.MainActor final public func updateOtherConfiguration(config: Netomi.NCWOtherConfiguration)
+}
+extension UIKit.UIButton {
+  @_Concurrency.MainActor @preconcurrency public func applyStyle(_ style: Netomi.ButtonStyle, text: Swift.String? = nil, textAlignment: UIKit.NSTextAlignment = .center, shouldUnderline: Swift.Bool = false, isNewUnderline: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public func underlineText(with color: UIKit.UIColor? = Style.commonSreenConfig.underLineColor)
+  @_Concurrency.MainActor @preconcurrency public func updateStyle(_ style: Netomi.ButtonStyle, textAlignment: UIKit.NSTextAlignment = .center)
+  @_Concurrency.MainActor @preconcurrency public func setSelected(_ isSelected: Swift.Bool, with style: Netomi.ButtonStyle, textAlignment: UIKit.NSTextAlignment = .center)
+  @_Concurrency.MainActor @preconcurrency public func setEnabled(_ isEnabled: Swift.Bool, with style: Netomi.ButtonStyle, textAlignment: UIKit.NSTextAlignment = .center)
+  @_Concurrency.MainActor @preconcurrency public func applyCornerRadius(_ cornerRadius: CoreFoundation.CGFloat?)
+}
+public struct NCWOtherConfiguration {
+  public var titleColor: UIKit.UIColor!
+  public var descriptionColor: UIKit.UIColor!
+  public var backgroundColor: UIKit.UIColor!
+  public init()
+}
+public enum AppThemeHelper : Swift.Sendable {
+  nonisolated(unsafe) public static let variables: [Swift.String : Any]?
+  nonisolated(unsafe) public static let labelStylesDictionary: [Swift.String : Any]
+  nonisolated(unsafe) public static let buttonStylesDictionary: [Swift.String : Any]
+  nonisolated(unsafe) public static let textFieldStylesDictionary: [Swift.String : Any]
+  nonisolated(unsafe) public static let textViewStylesDictionary: [Swift.String : Any]
+  nonisolated(unsafe) public static let tabBarButtonStyles: Netomi.TabBarButtonStyles
+  public static var labelStyles: [Swift.String : Netomi.LabelStyle] {
+    get
+  }
+  public static var buttonStyles: [Swift.String : Netomi.ButtonStyle] {
+    get
+  }
+  public static var textFieldStyles: [Swift.String : Netomi.TextFieldStyle] {
+    get
+  }
+  public static var textViewStyles: [Swift.String : Netomi.TextViewStyle] {
+    get
+  }
+}
+public enum JsonFileName : Swift.String {
+  case variables
+  case labelStyles
+  case buttonStyles
+  case textFieldStyles
+  case textViewStyles
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StylingAttributeKeys : Swift.String {
+  case lightColors, darkColors, fontFamilies, fontStyles, fontSizes, letterSpacings, lineSpacings, lineHeights
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum JSONHelper {
+  public static func mapFromJSON<T>(to type: T.Type, from fileName: Swift.String? = nil, inDirectory: Swift.String? = nil, inBundle: Foundation.Bundle? = nil) -> T? where T : Swift.Decodable
+  public static func dictionaryFrom(_ fileName: Swift.String, inDirectory: Swift.String? = nil) -> [Swift.String : Any]?
+}
+extension UIKit.UITabBarItem {
+  @_Concurrency.MainActor @preconcurrency public func applyStyle(_ style: Netomi.TabBarButtonStyle, text: Swift.String? = nil)
+}
+public protocol ViewModelLoader {
+  var viewModel: ObjectiveC.NSObject! { get set }
+}
+public struct TextViewStyle : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct NCWHeaderConfiguration {
+  public var backgroundColor: UIKit.UIColor!
+  public var tintColor: UIKit.UIColor!
+  public var iconBackgroundColor: UIKit.UIColor!
+  public var titleFont: UIKit.UIFont!
+  public var support: UIKit.UIImage!
+  public var dismiss: UIKit.UIImage!
+  public var navigationIcon: UIKit.UIImage?
+  public var gradientColor: [Swift.String]!
+  public var isGradientAppied: Swift.Bool!
+  public var isBackPressPopupEnabed: Swift.Bool!
+  public var prefersLargeTitles: Swift.Bool!
+  public init()
+}
+public struct NCWFooterConfiguration {
+  public var backgroundColor: UIKit.UIColor!
+  public var tintColor: UIKit.UIColor!
+  public var inputBoxBackgroundColor: UIKit.UIColor!
+  public var inputBoxTextColor: UIKit.UIColor!
+  public var isFooterHidden: Swift.Bool!
+  public var isNetomiBrandingEnabled: Swift.Bool!
+  public var netomiBrandingText: Swift.String!
+  public var netomiBrandingTextColor: UIKit.UIColor!
+  public var sendButtonColor: UIKit.UIColor!
+  public var sendBackgroundColor: UIKit.UIColor!
+  public var typingMessageCornerRadius: CoreFoundation.CGFloat
+  public init()
+}
+extension UIKit.UILabel {
+  @_Concurrency.MainActor @preconcurrency public func applyStyle(_ style: Netomi.LabelStyle, text: Swift.String? = nil, textAlignment: UIKit.NSTextAlignment = .left)
+  @_Concurrency.MainActor @preconcurrency public func updateStyle(_ style: Netomi.LabelStyle, textAlignment: UIKit.NSTextAlignment = .left)
+  @_Concurrency.MainActor @preconcurrency public func strikeThroughText(with color: UIKit.UIColor? = Style.commonSreenConfig.strikeThroughTextColor)
+}
+public struct NCWChatWindowConfiguration {
+  public var chatWindowBackgroundColor: UIKit.UIColor!
+  public init()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency final public class AnimationSubview : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  public var lottieColorValue: Netomi.LottieColor {
+    get
+  }
+}
+infix operator +| : DefaultPrecedence
+infix operator +- : DefaultPrecedence
+@_hasMissingDesignatedInitializers public class Asset : Swift.Codable {
+  required public init(from decoder: any Swift.Decoder) throws
+  final public let id: Swift.String
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Netomi.Asset : @unchecked Swift.Sendable {
+}
+extension Netomi.LottieAnimation {
+  public typealias DownloadClosure = (Netomi.LottieAnimation?) -> Swift.Void
+  final public var duration: Foundation.TimeInterval {
+    get
+  }
+  final public var bounds: CoreFoundation.CGRect {
+    get
+  }
+  final public var size: CoreFoundation.CGSize {
+    get
+  }
+  public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared) -> Netomi.LottieAnimation?
+  public static func filepath(_ filepath: Swift.String, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared) -> Netomi.LottieAnimation?
+  public static func asset(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared) -> Netomi.LottieAnimation?
+  public static func from(data: Foundation.Data, strategy: Netomi.DecodingStrategy = LottieConfiguration.shared.decodingStrategy) throws -> Netomi.LottieAnimation
+  public static func loadedFrom(url: Foundation.URL, session: Foundation.URLSession = .shared, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared) async -> Netomi.LottieAnimation?
+  public static func loadedFrom(url: Foundation.URL, session: Foundation.URLSession = .shared, closure: @escaping Netomi.LottieAnimation.DownloadClosure, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared)
+  final public func progressTime(forMarker named: Swift.String) -> Netomi.AnimationProgressTime?
+  final public func frameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  final public func durationFrameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  final public func progressTime(forFrame frameTime: Netomi.AnimationFrameTime, clamped: Swift.Bool = true) -> Netomi.AnimationProgressTime
+  final public func frameTime(forProgress progressTime: Netomi.AnimationProgressTime) -> Netomi.AnimationFrameTime
+  final public func time(forFrame frameTime: Netomi.AnimationFrameTime) -> Foundation.TimeInterval
+  final public func frameTime(forTime time: Foundation.TimeInterval) -> Netomi.AnimationFrameTime
+}
+extension Foundation.Bundle : @unchecked Swift.Sendable {
+}
+public protocol Interpolatable : Netomi.AnyInterpolatable {
+  func interpolate(to: Self, amount: CoreFoundation.CGFloat) -> Self
+}
+public protocol SpatialInterpolatable : Netomi.AnyInterpolatable {
+  func interpolate(to: Self, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> Self
+}
+public protocol AnyInterpolatable {
+  func _interpolate(to: Self, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> Self
+}
+extension Netomi.Interpolatable {
+  public func _interpolate(to: Self, amount: CoreFoundation.CGFloat, spatialOutTangent _: CoreFoundation.CGPoint?, spatialInTangent _: CoreFoundation.CGPoint?) -> Self
+}
+extension Netomi.SpatialInterpolatable {
+  public func interpolate(to: Self, amount: CoreFoundation.CGFloat) -> Self
+  public func _interpolate(to: Self, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> Self
+}
+extension Swift.Double : Netomi.Interpolatable {
+}
+extension CoreFoundation.CGFloat : Netomi.Interpolatable {
+}
+extension Swift.Float : Netomi.Interpolatable {
+}
+extension Netomi.Interpolatable where Self : Swift.BinaryFloatingPoint {
+  public func interpolate(to: Self, amount: CoreFoundation.CGFloat) -> Self
+}
+extension CoreFoundation.CGRect : Netomi.Interpolatable {
+  public func interpolate(to: CoreFoundation.CGRect, amount: CoreFoundation.CGFloat) -> CoreFoundation.CGRect
+}
+extension CoreFoundation.CGSize : Netomi.Interpolatable {
+  public func interpolate(to: CoreFoundation.CGSize, amount: CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+}
+extension CoreFoundation.CGPoint : Netomi.SpatialInterpolatable {
+  public func interpolate(to: CoreFoundation.CGPoint, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> CoreFoundation.CGPoint
+}
+extension Netomi.LottieColor : Netomi.Interpolatable {
+  public func interpolate(to: Netomi.LottieColor, amount: CoreFoundation.CGFloat) -> Netomi.LottieColor
+}
+extension Netomi.LottieVector1D : Netomi.Interpolatable {
+  public func interpolate(to: Netomi.LottieVector1D, amount: CoreFoundation.CGFloat) -> Netomi.LottieVector1D
+}
+extension Netomi.LottieVector2D : Netomi.SpatialInterpolatable {
+  public func interpolate(to: Netomi.LottieVector2D, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> Netomi.LottieVector2D
+}
+extension Netomi.LottieVector3D : Netomi.SpatialInterpolatable {
+  public func interpolate(to: Netomi.LottieVector3D, amount: CoreFoundation.CGFloat, spatialOutTangent: CoreFoundation.CGPoint?, spatialInTangent: CoreFoundation.CGPoint?) -> Netomi.LottieVector3D
+}
+extension Swift.Array : Netomi.Interpolatable, Netomi.AnyInterpolatable where Element : Netomi.Interpolatable {
+  public func interpolate(to: [Element], amount: CoreFoundation.CGFloat) -> [Element]
+}
+#if compiler(>=5.3) && $NoncopyableGenerics
+extension Swift.Optional : Netomi.Interpolatable, Netomi.AnyInterpolatable where Wrapped : Netomi.Interpolatable {
+  public func interpolate(to: Wrapped?, amount: CoreFoundation.CGFloat) -> Wrapped?
+}
+#else
+extension Swift.Optional : Netomi.Interpolatable, Netomi.AnyInterpolatable where Wrapped : Netomi.Interpolatable {
+  public func interpolate(to: Wrapped?, amount: CoreFoundation.CGFloat) -> Wrapped?
+}
+#endif
+public protocol DotLottieCacheProvider : Swift.Sendable {
+  func file(forKey: Swift.String) -> Netomi.DotLottieFile?
+  func setFile(_ lottie: Netomi.DotLottieFile, forKey: Swift.String)
+  func clearCache()
+}
+extension Netomi.DotLottieFile {
+  public enum SynchronouslyBlockingCurrentThread {
+    public static func loadedFrom(filepath: Swift.String, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) -> Swift.Result<Netomi.DotLottieFile, any Swift.Error>
+    public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) -> Swift.Result<Netomi.DotLottieFile, any Swift.Error>
+    public static func loadedFrom(data: Foundation.Data, filename: Swift.String) -> Swift.Result<Netomi.DotLottieFile, any Swift.Error>
+  }
+  public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) async throws -> Netomi.DotLottieFile
+  public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, dispatchQueue: Dispatch.DispatchQueue = .dotLottie, handleResult: @escaping (Swift.Result<Netomi.DotLottieFile, any Swift.Error>) -> Swift.Void)
+  public static func loadedFrom(filepath: Swift.String, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) async throws -> Netomi.DotLottieFile
+  public static func loadedFrom(filepath: Swift.String, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, dispatchQueue: Dispatch.DispatchQueue = .dotLottie, handleResult: @escaping (Swift.Result<Netomi.DotLottieFile, any Swift.Error>) -> Swift.Void)
+  public static func asset(named name: Swift.String, bundle: Foundation.Bundle = Bundle.main, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) async throws -> Netomi.DotLottieFile
+  public static func asset(named name: Swift.String, bundle: Foundation.Bundle = Bundle.main, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, dispatchQueue: Dispatch.DispatchQueue = .dotLottie, handleResult: @escaping (Swift.Result<Netomi.DotLottieFile, any Swift.Error>) -> Swift.Void)
+  public static func loadedFrom(url: Foundation.URL, session: Foundation.URLSession = .shared, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache) async throws -> Netomi.DotLottieFile
+  public static func loadedFrom(url: Foundation.URL, session: Foundation.URLSession = .shared, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, handleResult: @escaping (Swift.Result<Netomi.DotLottieFile, any Swift.Error>) -> Swift.Void)
+  public static func loadedFrom(data: Foundation.Data, filename: Swift.String, dispatchQueue: Dispatch.DispatchQueue = .dotLottie, handleResult: @escaping (Swift.Result<Netomi.DotLottieFile, any Swift.Error>) -> Swift.Void)
+  public static func loadedFrom(data: Foundation.Data, filename: Swift.String, dispatchQueue: Dispatch.DispatchQueue = .dotLottie) async throws -> Netomi.DotLottieFile
+}
+extension Dispatch.DispatchQueue {
+  public static let dotLottie: Dispatch.DispatchQueue
+}
+@_Concurrency.MainActor @preconcurrency public struct LottieButton {
+  @_Concurrency.MainActor @preconcurrency public init(animation: Netomi.LottieAnimation?, action: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public func configure(_ configure: @escaping (Netomi.AnimatedButton) -> Swift.Void) -> Netomi.LottieButton
+  @_Concurrency.MainActor @preconcurrency public func configuration(_ configuration: Netomi.LottieConfiguration) -> Netomi.LottieButton
+  @_Concurrency.MainActor @preconcurrency public func animate(fromProgress: Netomi.AnimationProgressTime, toProgress: Netomi.AnimationProgressTime, on event: Netomi.LottieControlEvent) -> Netomi.LottieButton
+  @_Concurrency.MainActor @preconcurrency public func animate(fromMarker: Swift.String, toMarker: Swift.String, on event: Netomi.LottieControlEvent) -> Netomi.LottieButton
+  @_Concurrency.MainActor @preconcurrency public func valueProvider<ValueProvider>(_ valueProvider: ValueProvider, for keypath: Netomi.AnimationKeypath) -> Netomi.LottieButton where ValueProvider : Netomi.AnyValueProvider, ValueProvider : Swift.Equatable
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s6Netomi12LottieButtonV4bodyQrvp", 0) __
+}
+public class DefaultAnimationCache : Netomi.AnimationCacheProvider {
+  public init()
+  public static let sharedCache: Netomi.DefaultAnimationCache
+  public var cacheSize: Swift.Int {
+    get
+    set
+  }
+  public func clearCache()
+  public func animation(forKey key: Swift.String) -> Netomi.LottieAnimation?
+  public func setAnimation(_ animation: Netomi.LottieAnimation, forKey key: Swift.String)
+  @objc deinit
+}
+extension Netomi.DefaultAnimationCache : @unchecked Swift.Sendable {
+}
+final public class Keyframe<T> {
+  public init(_ value: T, spatialInTangent: Netomi.LottieVector3D? = nil, spatialOutTangent: Netomi.LottieVector3D? = nil)
+  public init(value: T, time: Netomi.AnimationFrameTime, isHold: Swift.Bool = false, inTangent: Netomi.LottieVector2D? = nil, outTangent: Netomi.LottieVector2D? = nil, spatialInTangent: Netomi.LottieVector3D? = nil, spatialOutTangent: Netomi.LottieVector3D? = nil)
+  final public let value: T
+  final public let time: Netomi.AnimationFrameTime
+  final public let isHold: Swift.Bool
+  final public let inTangent: Netomi.LottieVector2D?
+  final public let outTangent: Netomi.LottieVector2D?
+  final public let spatialInTangent: Netomi.LottieVector3D?
+  final public let spatialOutTangent: Netomi.LottieVector3D?
+  @objc deinit
+}
+extension Netomi.Keyframe : Swift.Equatable where T : Swift.Equatable {
+  public static func == (lhs: Netomi.Keyframe<T>, rhs: Netomi.Keyframe<T>) -> Swift.Bool
+}
+extension Netomi.Keyframe : Swift.Hashable where T : Swift.Hashable {
+  final public func hash(into hasher: inout Swift.Hasher)
+  final public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.Keyframe : Swift.Sendable where T : Swift.Sendable {
+}
+extension Netomi.LottieVector1D : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct LottieVector2D : Swift.Codable, Swift.Hashable, Swift.Sendable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottieVector2D, b: Netomi.LottieVector2D) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.LottieVector3D : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Netomi.LottieVector3D {
+  public var pointValue: CoreFoundation.CGPoint {
+    get
+  }
+  public var sizeValue: CoreFoundation.CGSize {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers public class LottieAnimationLayer : QuartzCore.CALayer {
+  public init(animation: Netomi.LottieAnimation?, imageProvider: (any Netomi.AnimationImageProvider)? = nil, textProvider: any Netomi.AnimationKeypathTextProvider = DefaultTextProvider(), fontProvider: any Netomi.AnimationFontProvider = DefaultFontProvider(), configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  public init(dotLottie: Netomi.DotLottieFile?, animationId: Swift.String? = nil, textProvider: any Netomi.AnimationKeypathTextProvider = DefaultTextProvider(), fontProvider: any Netomi.AnimationFontProvider = DefaultFontProvider(), configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  public init(configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  open func play(completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(fromProgress: Netomi.AnimationProgressTime? = nil, toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(fromFrame: Netomi.AnimationFrameTime? = nil, toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(fromMarker: Swift.String? = nil, toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(marker: Swift.String, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(markers: [Swift.String], completion: Netomi.LottieCompletionBlock? = nil)
+  open func stop()
+  open func pause()
+  open func pause(at state: Netomi.LottiePlaybackMode.PausedState)
+  @available(*, deprecated, renamed: "setPlaybackMode(_:completion:)", message: "Will be removed in a future major release.")
+  open func play(_ playbackMode: Netomi.LottiePlaybackMode, animationCompletionHandler: Netomi.LottieCompletionBlock? = nil)
+  open func setPlaybackMode(_ playbackMode: Netomi.LottiePlaybackMode, completion: Netomi.LottieCompletionBlock? = nil)
+  open func play(_ playbackMode: Netomi.LottiePlaybackMode.PlaybackMode, completion: Netomi.LottieCompletionBlock? = nil)
+  public var currentPlaybackMode: Netomi.LottiePlaybackMode? {
+    get
+  }
+  public var valueProviders: [Netomi.AnimationKeypath : any Netomi.AnyValueProvider] {
+    get
+  }
+  public var animationLayerDidLoad: ((_ animationLayer: Netomi.LottieAnimationLayer, _ renderingEngine: Netomi.RenderingEngineOption) -> Swift.Void)?
+  public var configuration: Netomi.LottieConfiguration {
+    get
+    set
+  }
+  public var animationLayer: QuartzCore.CALayer? {
+    get
+  }
+  public var screenScale: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var backgroundBehavior: Netomi.LottieBackgroundBehavior {
+    get
+    set
+  }
+  public var animation: Netomi.LottieAnimation? {
+    get
+    set
+  }
+  public var animationLoaded: ((_ animationLayer: Netomi.LottieAnimationLayer, _ animation: Netomi.LottieAnimation) -> Swift.Void)? {
+    get
+    set
+  }
+  public var imageProvider: any Netomi.AnimationImageProvider {
+    get
+    set
+  }
+  public var textProvider: any Netomi.AnimationKeypathTextProvider {
+    get
+    set
+  }
+  public var fontProvider: any Netomi.AnimationFontProvider {
+    get
+    set
+  }
+  public var maskAnimationToBounds: Swift.Bool {
+    get
+    set
+  }
+  public var isAnimationPlaying: Swift.Bool {
+    get
+  }
+  public var loopMode: Netomi.LottieLoopMode {
+    get
+    set
+  }
+  public var shouldRasterizeWhenIdle: Swift.Bool {
+    get
+    set
+  }
+  public var currentProgress: Netomi.AnimationProgressTime {
+    get
+    set
+  }
+  public var currentTime: Foundation.TimeInterval {
+    get
+    set
+  }
+  public var currentFrame: Netomi.AnimationFrameTime {
+    get
+    set
+  }
+  public var realtimeAnimationFrame: Netomi.AnimationFrameTime {
+    get
+  }
+  public var realtimeAnimationProgress: Netomi.AnimationProgressTime {
+    get
+  }
+  public var animationSpeed: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  public var respectAnimationFrameRate: Swift.Bool {
+    get
+    set
+  }
+  public var currentRenderingEngine: Netomi.RenderingEngine? {
+    get
+  }
+  public var mainThreadRenderingEngineShouldForceDisplayUpdateOnEachFrame: Swift.Bool {
+    get
+    set
+  }
+  public func loadAnimation(_ animationId: Swift.String? = nil, from dotLottieFile: Netomi.DotLottieFile)
+  public func loadAnimation(atIndex index: Swift.Int, from dotLottieFile: Netomi.DotLottieFile)
+  public func reloadImages()
+  public func forceDisplayUpdate()
+  public func setValueProvider(_ valueProvider: any Netomi.AnyValueProvider, keypath: Netomi.AnimationKeypath)
+  public func removeValueProvider(for keypath: Netomi.AnimationKeypath)
+  public func getValue(for keypath: Netomi.AnimationKeypath, atFrame: Netomi.AnimationFrameTime?) -> Any?
+  public func getOriginalValue(for keypath: Netomi.AnimationKeypath, atFrame: Netomi.AnimationFrameTime?) -> Any?
+  public func logHierarchyKeypaths()
+  public func allHierarchyKeypaths() -> [Swift.String]
+  public func convert(_ rect: CoreFoundation.CGRect, toLayerAt keypath: Netomi.AnimationKeypath?) -> CoreFoundation.CGRect?
+  public func convert(_ point: CoreFoundation.CGPoint, toLayerAt keypath: Netomi.AnimationKeypath?) -> CoreFoundation.CGPoint?
+  public func setNodeIsEnabled(isEnabled: Swift.Bool, keypath: Netomi.AnimationKeypath)
+  public func progressTime(forMarker named: Swift.String) -> Netomi.AnimationProgressTime?
+  public func frameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  public func durationFrameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  public func updateAnimationForBackgroundState()
+  public func updateAnimationForForegroundState(wasWaitingToPlayAnimation: Swift.Bool)
+  @objc deinit
+}
+final public class GradientValueProvider {
+  public init(block: @escaping Netomi.GradientValueProvider.ColorsValueBlock, locations: Netomi.GradientValueProvider.ColorLocationsBlock? = nil)
+  public init(_ colors: [Netomi.LottieColor], locations: [Swift.Double] = [])
+  public typealias ColorsValueBlock = (CoreFoundation.CGFloat) -> [Netomi.LottieColor]
+  public typealias ColorLocationsBlock = (CoreFoundation.CGFloat) -> [Swift.Double]
+  final public var colors: [Netomi.LottieColor] {
+    get
+    set
+  }
+  final public var locations: [Swift.Double] {
+    get
+    set
+  }
+  final public var valueType: any Any.Type {
+    get
+  }
+  final public var storage: Netomi.ValueProviderStorage<[Swift.Double]> {
+    get
+  }
+  final public func hasUpdate(frame _: CoreFoundation.CGFloat) -> Swift.Bool
+  @objc deinit
+}
+extension Netomi.GradientValueProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.GradientValueProvider, rhs: Netomi.GradientValueProvider) -> Swift.Bool
+}
+public enum ReducedMotionOption {
+  case specific(Netomi.ReducedMotionMode)
+  case dynamic(any Netomi.ReducedMotionOptionProvider, dataID: Swift.AnyHashable)
+}
+extension Netomi.ReducedMotionOption {
+  public static var standardMotion: Netomi.ReducedMotionOption {
+    get
+  }
+  public static var reducedMotion: Netomi.ReducedMotionOption {
+    get
+  }
+  public static var systemReducedMotionToggle: Netomi.ReducedMotionOption {
+    get
+  }
+}
+extension Netomi.ReducedMotionOption {
+  public var currentReducedMotionMode: Netomi.ReducedMotionMode {
+    get
+  }
+}
+extension Netomi.ReducedMotionOption : Swift.Hashable {
+  public static func == (lhs: Netomi.ReducedMotionOption, rhs: Netomi.ReducedMotionOption) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ReducedMotionMode : Swift.Hashable {
+  case standardMotion
+  case reducedMotion
+  public static func == (a: Netomi.ReducedMotionMode, b: Netomi.ReducedMotionMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ReducedMotionOptionProvider {
+  var currentReducedMotionMode: Netomi.ReducedMotionMode { get }
+}
+public struct SystemReducedMotionOptionProvider : Netomi.ReducedMotionOptionProvider {
+  public init()
+  public var currentReducedMotionMode: Netomi.ReducedMotionMode {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class LottieAnimationViewBase : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToWindow()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol AnimationImageProvider {
+  var cacheEligible: Swift.Bool { get }
+  func imageForAsset(asset: Netomi.ImageAsset) -> CoreGraphics.CGImage?
+  func contentsGravity(for asset: Netomi.ImageAsset) -> QuartzCore.CALayerContentsGravity
+}
+extension Netomi.AnimationImageProvider {
+  public var cacheEligible: Swift.Bool {
+    get
+  }
+  public func contentsGravity(for _: Netomi.ImageAsset) -> QuartzCore.CALayerContentsGravity
+}
+public typealias LottieCompletionBlock = (_ completed: Swift.Bool) -> Swift.Void
+public class BundleImageProvider : Netomi.AnimationImageProvider {
+  public init(bundle: Foundation.Bundle, searchPath: Swift.String?, contentsGravity: QuartzCore.CALayerContentsGravity = .resize)
+  public func imageForAsset(asset: Netomi.ImageAsset) -> CoreGraphics.CGImage?
+  public func contentsGravity(for _: Netomi.ImageAsset) -> QuartzCore.CALayerContentsGravity
+  @objc deinit
+}
+extension Netomi.BundleImageProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.BundleImageProvider, rhs: Netomi.BundleImageProvider) -> Swift.Bool
+}
+public class FilepathImageProvider : Netomi.AnimationImageProvider {
+  public init(filepath: Swift.String, contentsGravity: QuartzCore.CALayerContentsGravity = .resize)
+  public init(filepath: Foundation.URL, contentsGravity: QuartzCore.CALayerContentsGravity = .resize)
+  public func imageForAsset(asset: Netomi.ImageAsset) -> CoreGraphics.CGImage?
+  public func contentsGravity(for _: Netomi.ImageAsset) -> QuartzCore.CALayerContentsGravity
+  @objc deinit
+}
+extension Netomi.FilepathImageProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.FilepathImageProvider, rhs: Netomi.FilepathImageProvider) -> Swift.Bool
+}
+public typealias AnimationFrameTime = CoreFoundation.CGFloat
+public typealias AnimationProgressTime = CoreFoundation.CGFloat
+final public class LottieLogger {
+  public init(assert: @escaping Netomi.LottieLogger.Assert = { condition, message, file, line in
+       
+       
+       
+      Swift.assert(condition(), message(), file: file, line: line)
+    }, assertionFailure: @escaping Netomi.LottieLogger.AssertionFailure = { message, file, line in
+       
+       
+       
+       
+      Swift.assertionFailure(message(), file: file, line: line)
+    }, warn: @escaping Netomi.LottieLogger.Warn = { message, _, _ in
+    }, info: @escaping Netomi.LottieLogger.Info = { message in
+    })
+  public typealias Assert = (_ condition: @autoclosure () -> Swift.Bool, _ message: @autoclosure () -> Swift.String, _ fileID: Swift.StaticString, _ line: Swift.UInt) -> Swift.Void
+  public typealias AssertionFailure = (_ message: @autoclosure () -> Swift.String, _ fileID: Swift.StaticString, _ line: Swift.UInt) -> Swift.Void
+  public typealias Warn = (_ message: @autoclosure () -> Swift.String, _ fileID: Swift.StaticString, _ line: Swift.UInt) -> Swift.Void
+  public typealias Info = (_ message: @autoclosure () -> Swift.String) -> Swift.Void
+  public static var shared: Netomi.LottieLogger
+  final public func assert(_ condition: @autoclosure () -> Swift.Bool, _ message: @autoclosure () -> Swift.String = String(), fileID: Swift.StaticString = #fileID, line: Swift.UInt = #line)
+  final public func assertionFailure(_ message: @autoclosure () -> Swift.String = String(), fileID: Swift.StaticString = #fileID, line: Swift.UInt = #line)
+  final public func warn(_ message: @autoclosure () -> Swift.String = String(), fileID: Swift.StaticString = #fileID, line: Swift.UInt = #line)
+  final public func info(_ message: @autoclosure () -> Swift.String = String())
+  @objc deinit
+}
+extension Netomi.LottieLogger {
+  public static var printToConsole: Netomi.LottieLogger {
+    get
+  }
+}
+extension QuartzCore.CALayer {
+  @nonobjc public func logLayerTree(withIndent: Swift.Int = 0)
+}
+@objc final public class CompatibleAnimationKeypath : ObjectiveC.NSObject {
+  @objc public init(keypath: Swift.String)
+  @objc public init(keys: [Swift.String])
+  final public let animationKeypath: Netomi.AnimationKeypath
+  @objc deinit
+}
+public enum DotLottieError : Swift.Error {
+  case noDataLoaded
+  case assetNotFound(name: Swift.String, bundle: Foundation.Bundle?)
+  case loadingFromAssetNotSupported
+  @available(*, deprecated, message: "Unused")
+  case invalidFileFormat
+  @available(*, deprecated, message: "Unused")
+  case invalidData
+  @available(*, deprecated, message: "Unused")
+  case animationNotAvailable
+}
+public protocol AnimationCacheProvider : AnyObject, Swift.Sendable {
+  func animation(forKey: Swift.String) -> Netomi.LottieAnimation?
+  func setAnimation(_ animation: Netomi.LottieAnimation, forKey: Swift.String)
+  func clearCache()
+}
+public enum LayerType : Swift.Int, Swift.Codable {
+  case precomp
+  case solid
+  case image
+  case null
+  case shape
+  case text
+  case unknown
+  public init(from decoder: any Swift.Decoder) throws
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum MatteType : Swift.Int, Swift.Codable {
+  case none
+  case add
+  case invert
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum BlendMode : Swift.Int, Swift.Codable {
+  case normal
+  case multiply
+  case screen
+  case overlay
+  case darken
+  case lighten
+  case colorDodge
+  case colorBurn
+  case hardLight
+  case softLight
+  case difference
+  case exclusion
+  case hue
+  case saturation
+  case color
+  case luminosity
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum LottiePlaybackMode : Swift.Hashable {
+  case paused(at: Netomi.LottiePlaybackMode.PausedState)
+  case playing(_: Netomi.LottiePlaybackMode.PlaybackMode)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.paused(at:)", message: "Will be removed in a future major release.")
+  case progress(_: Netomi.AnimationProgressTime)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.paused(at:)", message: "Will be removed in a future major release.")
+  case frame(_: Netomi.AnimationFrameTime)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.paused(at:)", message: "Will be removed in a future major release.")
+  case time(_: Foundation.TimeInterval)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.paused(at:)", message: "Will be removed in a future major release.")
+  case pause
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  case fromProgress(_: Netomi.AnimationProgressTime?, toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  case fromFrame(_: Netomi.AnimationFrameTime?, toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  case fromMarker(_: Swift.String?, toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  case marker(_: Swift.String, loopMode: Netomi.LottieLoopMode)
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  case markers(_: [Swift.String])
+  public enum PausedState : Swift.Hashable {
+    case currentFrame
+    case progress(_: Netomi.AnimationProgressTime)
+    case frame(_: Netomi.AnimationFrameTime)
+    case time(_: Foundation.TimeInterval)
+    case marker(_: Swift.String, position: Netomi.LottieMarkerPosition = .start)
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: Netomi.LottiePlaybackMode.PausedState, b: Netomi.LottiePlaybackMode.PausedState) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum PlaybackMode : Swift.Hashable {
+    case fromProgress(_: Netomi.AnimationProgressTime?, toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode)
+    case fromFrame(_: Netomi.AnimationFrameTime?, toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode)
+    case fromMarker(_: Swift.String?, toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode)
+    case marker(_: Swift.String, loopMode: Netomi.LottieLoopMode)
+    case markers(_: [Swift.String])
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: Netomi.LottiePlaybackMode.PlaybackMode, b: Netomi.LottiePlaybackMode.PlaybackMode) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottiePlaybackMode, b: Netomi.LottiePlaybackMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.LottiePlaybackMode {
+  public static var paused: Netomi.LottiePlaybackMode {
+    get
+  }
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  public static func toProgress(_ toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  public static func toFrame(_ toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode
+  @available(*, deprecated, renamed: "LottiePlaybackMode.playing(_:)", message: "Will be removed in a future major release.")
+  public static func toMarker(_ toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode
+}
+extension Netomi.LottiePlaybackMode.PlaybackMode {
+  public static func toProgress(_ toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode.PlaybackMode
+  public static func toFrame(_ toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode.PlaybackMode
+  public static func toMarker(_ toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode) -> Netomi.LottiePlaybackMode.PlaybackMode
+}
+public enum LottieMarkerPosition : Swift.Hashable {
+  case start
+  case end
+  public static func == (a: Netomi.LottieMarkerPosition, b: Netomi.LottieMarkerPosition) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct DotLottieConfiguration {
+  public var id: Swift.String
+  public var loopMode: Netomi.LottieLoopMode
+  public var speed: Swift.Double
+  public var imageProvider: (any Netomi.AnimationImageProvider)? {
+    get
+  }
+}
+public struct DotLottieConfigurationComponents : Swift.OptionSet {
+  public init(rawValue: Swift.Int)
+  public static let imageProvider: Netomi.DotLottieConfigurationComponents
+  public static let loopMode: Netomi.DotLottieConfigurationComponents
+  public static let animationSpeed: Netomi.DotLottieConfigurationComponents
+  public static let all: Netomi.DotLottieConfigurationComponents
+  public static let none: Netomi.DotLottieConfigurationComponents
+  public let rawValue: Swift.Int
+  public typealias ArrayLiteralElement = Netomi.DotLottieConfigurationComponents
+  public typealias Element = Netomi.DotLottieConfigurationComponents
+  public typealias RawValue = Swift.Int
+}
+@_Concurrency.MainActor @preconcurrency public struct LottieView<Placeholder> where Placeholder : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(animation: Netomi.LottieAnimation?) where Placeholder == SwiftUICore.EmptyView
+  @_Concurrency.MainActor @preconcurrency public init(dotLottieFile: Netomi.DotLottieFile?) where Placeholder == SwiftUICore.EmptyView
+  @_Concurrency.MainActor @preconcurrency public init(_ loadAnimation: @escaping () async throws -> Netomi.LottieAnimation?) where Placeholder == SwiftUICore.EmptyView
+  @_Concurrency.MainActor @preconcurrency public init(_ loadAnimation: @escaping () async throws -> Netomi.LottieAnimation?, @SwiftUICore.ViewBuilder placeholder: @escaping (() -> Placeholder))
+  @_Concurrency.MainActor @preconcurrency public init(_ loadDotLottieFile: @escaping () async throws -> Netomi.DotLottieFile?) where Placeholder == SwiftUICore.EmptyView
+  @_Concurrency.MainActor @preconcurrency public init(_ loadDotLottieFile: @escaping () async throws -> Netomi.DotLottieFile?, @SwiftUICore.ViewBuilder placeholder: @escaping (() -> Placeholder))
+  @_Concurrency.MainActor @preconcurrency public init(_ loadAnimation: @escaping () async throws -> Netomi.LottieAnimationSource?) where Placeholder == SwiftUICore.EmptyView
+  @_Concurrency.MainActor @preconcurrency public init(_ loadAnimation: @escaping () async throws -> Netomi.LottieAnimationSource?, @SwiftUICore.ViewBuilder placeholder: @escaping () -> Placeholder)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public func configure<Property>(_ property: Swift.ReferenceWritableKeyPath<Netomi.LottieAnimationView, Property>, to value: Property) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func configure<Property>(_ property: Swift.ReferenceWritableKeyPath<Netomi.LottieAnimationView, Property>, to value: Property) -> Netomi.LottieView<Placeholder> where Property : Swift.Equatable
+  @_Concurrency.MainActor @preconcurrency public func configure(_ configure: @escaping (Netomi.LottieAnimationView) -> Swift.Void) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func resizable() -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func intrinsicSize() -> Netomi.LottieView<Placeholder>
+  @available(*, deprecated, renamed: "playing()", message: "Will be removed in a future major release.")
+  @_Concurrency.MainActor @preconcurrency public func play() -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func looping() -> Netomi.LottieView<Placeholder>
+  @available(*, deprecated, renamed: "playing(_:)", message: "Will be removed in a future major release.")
+  @_Concurrency.MainActor @preconcurrency public func play(loopMode: Netomi.LottieLoopMode = .playOnce) -> Netomi.LottieView<Placeholder>
+  @available(*, deprecated, renamed: "playbackMode(_:)", message: "Will be removed in a future major release.")
+  @_Concurrency.MainActor @preconcurrency public func play(_ playbackMode: Netomi.LottiePlaybackMode) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func playing(_ mode: Netomi.LottiePlaybackMode.PlaybackMode) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func playing(loopMode: Netomi.LottieLoopMode) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func playing() -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func paused(at state: Netomi.LottiePlaybackMode.PausedState = .currentFrame) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func playbackMode(_ playbackMode: Netomi.LottiePlaybackMode) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func animationSpeed(_ animationSpeed: Swift.Double) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func animationDidLoad(_ animationDidLoad: @escaping (Netomi.LottieAnimationSource) -> Swift.Void) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func animationDidFinish(_ animationCompletionHandler: Netomi.LottieCompletionBlock?) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func backgroundBehavior(_ value: Netomi.LottieBackgroundBehavior) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func accessibilityLabel(_ accessibilityLabel: Swift.String?) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func configuration(_ configuration: Netomi.LottieConfiguration) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func logger(_ logger: Netomi.LottieLogger) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func imageProvider<ImageProvider>(_ imageProvider: ImageProvider) -> Netomi.LottieView<Placeholder> where ImageProvider : Netomi.AnimationImageProvider, ImageProvider : Swift.Equatable
+  @_Concurrency.MainActor @preconcurrency public func textProvider<TextProvider>(_ textProvider: TextProvider) -> Netomi.LottieView<Placeholder> where TextProvider : Netomi.AnimationKeypathTextProvider, TextProvider : Swift.Equatable
+  @_Concurrency.MainActor @preconcurrency public func fontProvider<FontProvider>(_ fontProvider: FontProvider) -> Netomi.LottieView<Placeholder> where FontProvider : Netomi.AnimationFontProvider, FontProvider : Swift.Equatable
+  @_Concurrency.MainActor @preconcurrency public func valueProvider<ValueProvider>(_ valueProvider: ValueProvider, for keypath: Netomi.AnimationKeypath) -> Netomi.LottieView<Placeholder> where ValueProvider : Netomi.AnyValueProvider, ValueProvider : Swift.Equatable
+  @_Concurrency.MainActor @preconcurrency public func currentProgress(_ currentProgress: Netomi.AnimationProgressTime?) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func currentFrame(_ currentFrame: Netomi.AnimationFrameTime?) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func currentTime(_ currentTime: Foundation.TimeInterval?) -> Netomi.LottieView<Placeholder>
+  @_Concurrency.MainActor @preconcurrency public func reloadAnimationTrigger(_ value: some Equatable, showPlaceholder: Swift.Bool = true) -> Netomi.LottieView<Placeholder>
+  @available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+  @_Concurrency.MainActor @preconcurrency public func getRealtimeAnimationProgress(_ realtimeAnimationProgress: SwiftUICore.Binding<Netomi.AnimationProgressTime>?) -> some SwiftUICore.View
+  
+  @available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+  @_Concurrency.MainActor @preconcurrency public func getRealtimeAnimationFrame(_ realtimeAnimationFrame: SwiftUICore.Binding<Netomi.AnimationFrameTime>?) -> some SwiftUICore.View
+  
+  @_Concurrency.MainActor @preconcurrency public func dotLottieConfigurationComponents(_ dotLottieConfigurationComponents: Netomi.DotLottieConfigurationComponents) -> Netomi.LottieView<Placeholder>
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s6Netomi10LottieViewV4bodyQrvp", 0) __<Placeholder>
+}
+final public class PointValueProvider {
+  public init(block: @escaping Netomi.PointValueProvider.PointValueBlock)
+  public init(_ point: CoreFoundation.CGPoint)
+  public typealias PointValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGPoint
+  final public var point: CoreFoundation.CGPoint {
+    get
+    set
+  }
+  final public var valueType: any Any.Type {
+    get
+  }
+  final public var storage: Netomi.ValueProviderStorage<Netomi.LottieVector3D> {
+    get
+  }
+  final public func hasUpdate(frame _: CoreFoundation.CGFloat) -> Swift.Bool
+  @objc deinit
+}
+extension Netomi.PointValueProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.PointValueProvider, rhs: Netomi.PointValueProvider) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct LottieSwitch {
+  @_Concurrency.MainActor @preconcurrency public init(animation: Netomi.LottieAnimation?)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public func configure(_ configure: @escaping (Netomi.AnimatedSwitch) -> Swift.Void) -> Netomi.LottieSwitch
+  @_Concurrency.MainActor @preconcurrency public func configuration(_ configuration: Netomi.LottieConfiguration) -> Netomi.LottieSwitch
+  @_Concurrency.MainActor @preconcurrency public func isOn(_ binding: SwiftUICore.Binding<Swift.Bool>) -> Netomi.LottieSwitch
+  @_Concurrency.MainActor @preconcurrency public func onAnimation(fromProgress onStartProgress: Netomi.AnimationProgressTime, toProgress onEndProgress: Netomi.AnimationProgressTime) -> Netomi.LottieSwitch
+  @_Concurrency.MainActor @preconcurrency public func offAnimation(fromProgress offStartProgress: Netomi.AnimationProgressTime, toProgress offEndProgress: Netomi.AnimationProgressTime) -> Netomi.LottieSwitch
+  @_Concurrency.MainActor @preconcurrency public func valueProvider<ValueProvider>(_ valueProvider: ValueProvider, for keypath: Netomi.AnimationKeypath) -> Netomi.LottieSwitch where ValueProvider : Netomi.AnyValueProvider, ValueProvider : Swift.Equatable
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s6Netomi12LottieSwitchV4bodyQrvp", 0) __
+}
+public enum DecodingStrategy : Swift.Hashable {
+  case legacyCodable
+  case dictionaryBased
+  public static func == (a: Netomi.DecodingStrategy, b: Netomi.DecodingStrategy) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol AnyValueProvider {
+  var valueType: any Any.Type { get }
+  var typeErasedStorage: Netomi.AnyValueProviderStorage { get }
+  func hasUpdate(frame: Netomi.AnimationFrameTime) -> Swift.Bool
+}
+extension Netomi.AnyValueProvider {
+  public func value(frame: Netomi.AnimationFrameTime) -> Any
+}
+public enum ValueProviderStorage<T> where T : Netomi.AnyInterpolatable {
+  case singleValue(T)
+  case keyframes([Netomi.Keyframe<T>])
+  case closure((Netomi.AnimationFrameTime) -> T)
+}
+public enum AnyValueProviderStorage {
+  case singleValue(Any)
+  case keyframes([Netomi.Keyframe<Any>], interpolate: (Netomi.AnimationFrameTime) -> Any)
+  case closure((Netomi.AnimationFrameTime) -> Any)
+}
+final public class SizeValueProvider {
+  public init(block: @escaping Netomi.SizeValueProvider.SizeValueBlock)
+  public init(_ size: CoreFoundation.CGSize)
+  public typealias SizeValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+  final public var size: CoreFoundation.CGSize {
+    get
+    set
+  }
+  final public var valueType: any Any.Type {
+    get
+  }
+  final public var storage: Netomi.ValueProviderStorage<Netomi.LottieVector3D> {
+    get
+  }
+  final public func hasUpdate(frame _: CoreFoundation.CGFloat) -> Swift.Bool
+  @objc deinit
+}
+extension Netomi.SizeValueProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.SizeValueProvider, rhs: Netomi.SizeValueProvider) -> Swift.Bool
+}
+public protocol AnimationFontProvider {
+  func fontFor(family: Swift.String, size: CoreFoundation.CGFloat) -> CoreText.CTFont?
+}
+final public class DefaultFontProvider : Netomi.AnimationFontProvider {
+  public init()
+  final public func fontFor(family: Swift.String, size: CoreFoundation.CGFloat) -> CoreText.CTFont?
+  @objc deinit
+}
+extension Netomi.DefaultFontProvider : Swift.Equatable {
+  public static func == (_: Netomi.DefaultFontProvider, _: Netomi.DefaultFontProvider) -> Swift.Bool
+}
+public enum LottieAnimationCache {
+  public static var shared: (any Netomi.AnimationCacheProvider)?
+}
+public enum ColorFormatDenominator : Swift.Hashable {
+  case One
+  case OneHundred
+  case TwoFiftyFive
+  public static func == (a: Netomi.ColorFormatDenominator, b: Netomi.ColorFormatDenominator) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct LottieColor : Swift.Hashable {
+  public var r: Swift.Double
+  public var g: Swift.Double
+  public var b: Swift.Double
+  public var a: Swift.Double
+  public init(r: Swift.Double, g: Swift.Double, b: Swift.Double, a: Swift.Double, denominator: Netomi.ColorFormatDenominator = .One)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottieColor, b: Netomi.LottieColor) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum LottieBackgroundBehavior {
+  case stop
+  case pause
+  case pauseAndRestore
+  case forceFinish
+  case continuePlaying
+  public static func `default`(for renderingEngine: Netomi.RenderingEngine) -> Netomi.LottieBackgroundBehavior
+  public static func == (a: Netomi.LottieBackgroundBehavior, b: Netomi.LottieBackgroundBehavior) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum LottieLoopMode : Swift.Hashable {
+  case playOnce
+  case loop
+  case autoReverse
+  case `repeat`(Swift.Float)
+  case repeatBackwards(Swift.Float)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.LottieLoopMode : Swift.Equatable {
+  public static func == (lhs: Netomi.LottieLoopMode, rhs: Netomi.LottieLoopMode) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor @preconcurrency open class LottieAnimationView : Netomi.LottieAnimationViewBase {
+  @_Concurrency.MainActor @preconcurrency public init(animation: Netomi.LottieAnimation?, imageProvider: (any Netomi.AnimationImageProvider)? = nil, textProvider: any Netomi.AnimationKeypathTextProvider = DefaultTextProvider(), fontProvider: any Netomi.AnimationFontProvider = DefaultFontProvider(), configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  @_Concurrency.MainActor @preconcurrency public init(dotLottie: Netomi.DotLottieFile?, animationId: Swift.String? = nil, textProvider: any Netomi.AnimationKeypathTextProvider = DefaultTextProvider(), fontProvider: any Netomi.AnimationFontProvider = DefaultFontProvider(), configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  @_Concurrency.MainActor @preconcurrency public init(configuration: Netomi.LottieConfiguration = .shared, logger: Netomi.LottieLogger = .shared)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency open func play(_ mode: Netomi.LottiePlaybackMode.PlaybackMode, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(fromProgress: Netomi.AnimationProgressTime? = nil, toProgress: Netomi.AnimationProgressTime, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(fromFrame: Netomi.AnimationFrameTime? = nil, toFrame: Netomi.AnimationFrameTime, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(fromMarker: Swift.String? = nil, toMarker: Swift.String, playEndMarkerFrame: Swift.Bool = true, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(marker: Swift.String, loopMode: Netomi.LottieLoopMode? = nil, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func play(markers: [Swift.String], completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func stop()
+  @_Concurrency.MainActor @preconcurrency open func pause()
+  @available(*, deprecated, renamed: "setPlaybackMode(_:completion:)", message: "Will be removed in a future major release.")
+  @_Concurrency.MainActor @preconcurrency open func play(_ playbackMode: Netomi.LottiePlaybackMode, animationCompletionHandler: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency open func setPlaybackMode(_ playbackMode: Netomi.LottiePlaybackMode, completion: Netomi.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor @preconcurrency public var animateLayoutChangesWithCurrentCoreAnimationContext: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var configuration: Netomi.LottieConfiguration {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var valueProviders: [Netomi.AnimationKeypath : any Netomi.AnyValueProvider] {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var backgroundBehavior: Netomi.LottieBackgroundBehavior {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var animation: Netomi.LottieAnimation? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var animationLoaded: ((_ animationView: Netomi.LottieAnimationView, _ animation: Netomi.LottieAnimation) -> Swift.Void)? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var imageProvider: any Netomi.AnimationImageProvider {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var textProvider: any Netomi.AnimationKeypathTextProvider {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var fontProvider: any Netomi.AnimationFontProvider {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var maskAnimationToBounds: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var isAnimationPlaying: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var isAnimationQueued: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var loopMode: Netomi.LottieLoopMode {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var shouldRasterizeWhenIdle: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var currentProgress: Netomi.AnimationProgressTime {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var currentTime: Foundation.TimeInterval {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var currentFrame: Netomi.AnimationFrameTime {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var realtimeAnimationFrame: Netomi.AnimationFrameTime {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var realtimeAnimationProgress: Netomi.AnimationProgressTime {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var animationSpeed: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var respectAnimationFrameRate: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var viewportFrame: CoreFoundation.CGRect? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency public var currentRenderingEngine: Netomi.RenderingEngine? {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var currentPlaybackMode: Netomi.LottiePlaybackMode? {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var mainThreadRenderingEngineShouldForceDisplayUpdateOnEachFrame: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public func loadAnimation(_ animationId: Swift.String? = nil, from dotLottieFile: Netomi.DotLottieFile)
+  @_Concurrency.MainActor @preconcurrency public func loadAnimation(atIndex index: Swift.Int, from dotLottieFile: Netomi.DotLottieFile)
+  @_Concurrency.MainActor @preconcurrency public func reloadImages()
+  @_Concurrency.MainActor @preconcurrency public func forceDisplayUpdate()
+  @_Concurrency.MainActor @preconcurrency public func setValueProvider(_ valueProvider: any Netomi.AnyValueProvider, keypath: Netomi.AnimationKeypath)
+  @_Concurrency.MainActor @preconcurrency public func removeValueProvider(for keypath: Netomi.AnimationKeypath)
+  @_Concurrency.MainActor @preconcurrency public func getValue(for keypath: Netomi.AnimationKeypath, atFrame: Netomi.AnimationFrameTime?) -> Any?
+  @_Concurrency.MainActor @preconcurrency public func getOriginalValue(for keypath: Netomi.AnimationKeypath, atFrame: Netomi.AnimationFrameTime?) -> Any?
+  @_Concurrency.MainActor @preconcurrency public func logHierarchyKeypaths()
+  @_Concurrency.MainActor @preconcurrency public func allHierarchyKeypaths() -> [Swift.String]
+  @_Concurrency.MainActor @preconcurrency public func addSubview(_ subview: Netomi.AnimationSubview, forLayerAt keypath: Netomi.AnimationKeypath)
+  @_Concurrency.MainActor @preconcurrency public func convert(_ rect: CoreFoundation.CGRect, toLayerAt keypath: Netomi.AnimationKeypath?) -> CoreFoundation.CGRect?
+  @_Concurrency.MainActor @preconcurrency public func convert(_ point: CoreFoundation.CGPoint, toLayerAt keypath: Netomi.AnimationKeypath?) -> CoreFoundation.CGPoint?
+  @_Concurrency.MainActor @preconcurrency public func setNodeIsEnabled(isEnabled: Swift.Bool, keypath: Netomi.AnimationKeypath)
+  @_Concurrency.MainActor @preconcurrency public func progressTime(forMarker named: Swift.String) -> Netomi.AnimationProgressTime?
+  @_Concurrency.MainActor @preconcurrency public func frameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  @_Concurrency.MainActor @preconcurrency public func durationFrameTime(forMarker named: Swift.String) -> Netomi.AnimationFrameTime?
+  @objc deinit
+}
+final public class ColorValueProvider {
+  public init(block: @escaping Netomi.ColorValueProvider.ColorValueBlock)
+  public init(_ color: Netomi.LottieColor)
+  public init(_ keyframes: [Netomi.Keyframe<Netomi.LottieColor>])
+  public typealias ColorValueBlock = (CoreFoundation.CGFloat) -> Netomi.LottieColor
+  final public var color: Netomi.LottieColor {
+    get
+    set
+  }
+  final public var valueType: any Any.Type {
+    get
+  }
+  final public var storage: Netomi.ValueProviderStorage<Netomi.LottieColor> {
+    get
+  }
+  final public func hasUpdate(frame _: CoreFoundation.CGFloat) -> Swift.Bool
+  @objc deinit
+}
+extension Netomi.ColorValueProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.ColorValueProvider, rhs: Netomi.ColorValueProvider) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers final public class DotLottieFile {
+  public struct Animation {
+    public let animation: Netomi.LottieAnimation
+    public let configuration: Netomi.DotLottieConfiguration
+  }
+  final public var animations: [Netomi.DotLottieFile.Animation] {
+    get
+  }
+  @objc deinit
+}
+extension Netomi.DotLottieFile : @unchecked Swift.Sendable {
+}
+final public class FloatValueProvider {
+  public init(block: @escaping Netomi.FloatValueProvider.CGFloatValueBlock)
+  public init(_ float: CoreFoundation.CGFloat)
+  public typealias CGFloatValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  final public var float: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  final public var valueType: any Any.Type {
+    get
+  }
+  final public var storage: Netomi.ValueProviderStorage<Netomi.LottieVector1D> {
+    get
+  }
+  final public func hasUpdate(frame _: CoreFoundation.CGFloat) -> Swift.Bool
+  @objc deinit
+}
+extension Netomi.FloatValueProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.FloatValueProvider, rhs: Netomi.FloatValueProvider) -> Swift.Bool
+}
+public protocol AnimationKeypathTextProvider : AnyObject {
+  func text(for keypath: Netomi.AnimationKeypath, sourceText: Swift.String) -> Swift.String?
+}
+@available(*, deprecated, message: "`AnimationKeypathTextProvider` has been deprecated and renamed to `LegacyAnimationTextProvider`. Instead, conform to `AnimationKeypathTextProvider` instead or conform to `LegacyAnimationTextProvider` explicitly.")
+public typealias AnimationTextProvider = Netomi.LegacyAnimationTextProvider
+public protocol LegacyAnimationTextProvider : Netomi.AnimationKeypathTextProvider {
+  func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
+}
+extension Netomi.LegacyAnimationTextProvider {
+  public func text(for _: Netomi.AnimationKeypath, sourceText _: Swift.String) -> Swift.String?
+}
+final public class DictionaryTextProvider : Netomi.AnimationKeypathTextProvider, Netomi.LegacyAnimationTextProvider {
+  public init(_ values: [Swift.String : Swift.String])
+  final public func text(for keypath: Netomi.AnimationKeypath, sourceText: Swift.String) -> Swift.String?
+  final public func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
+  @objc deinit
+}
+extension Netomi.DictionaryTextProvider : Swift.Equatable {
+  public static func == (lhs: Netomi.DictionaryTextProvider, rhs: Netomi.DictionaryTextProvider) -> Swift.Bool
+}
+final public class DefaultTextProvider : Netomi.AnimationKeypathTextProvider, Netomi.LegacyAnimationTextProvider {
+  public init()
+  final public func textFor(keypathName _: Swift.String, sourceText: Swift.String) -> Swift.String
+  final public func text(for _: Netomi.AnimationKeypath, sourceText: Swift.String) -> Swift.String
+  @objc deinit
+}
+extension Netomi.DefaultTextProvider : Swift.Equatable {
+  public static func == (_: Netomi.DefaultTextProvider, _: Netomi.DefaultTextProvider) -> Swift.Bool
+}
+public enum CoordinateSpace : Swift.Int, Swift.Codable, Swift.Sendable {
+  case type2d
+  case type3d
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+final public class LottieAnimation : Swift.Codable, Swift.Sendable {
+  required public init(from decoder: any Swift.Decoder) throws
+  public init(dictionary: [Swift.String : Any]) throws
+  final public let startFrame: Netomi.AnimationFrameTime
+  final public let endFrame: Netomi.AnimationFrameTime
+  final public let framerate: Swift.Double
+  final public var markerNames: [Swift.String] {
+    get
+  }
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct LottieConfiguration : Swift.Hashable {
+  public init(renderingEngine: Netomi.RenderingEngineOption = .automatic, decodingStrategy: Netomi.DecodingStrategy = .dictionaryBased, colorSpace: CoreGraphics.CGColorSpace = CGColorSpaceCreateDeviceRGB(), reducedMotionOption: Netomi.ReducedMotionOption = .systemReducedMotionToggle)
+  public static var shared: Netomi.LottieConfiguration
+  public var renderingEngine: Netomi.RenderingEngineOption
+  public var decodingStrategy: Netomi.DecodingStrategy
+  public var reducedMotionOption: Netomi.ReducedMotionOption
+  public var colorSpace: CoreGraphics.CGColorSpace
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottieConfiguration, b: Netomi.LottieConfiguration) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum RenderingEngineOption : Swift.Hashable {
+  case automatic
+  case specific(Netomi.RenderingEngine)
+  public static var mainThread: Netomi.RenderingEngineOption {
+    get
+  }
+  public static var coreAnimation: Netomi.RenderingEngineOption {
+    get
+  }
+}
+public enum RenderingEngine : Swift.Hashable {
+  case mainThread
+  case coreAnimation
+}
+extension Netomi.RenderingEngineOption : Swift.RawRepresentable, Swift.CustomStringConvertible {
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.String
+}
+extension Netomi.RenderingEngine : Swift.RawRepresentable, Swift.CustomStringConvertible {
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.String
+}
+extension Netomi.LottieAnimationView {
+  @_Concurrency.MainActor @preconcurrency convenience public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, imageProvider: (any Netomi.AnimationImageProvider)? = nil, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency convenience public init(filePath: Swift.String, imageProvider: (any Netomi.AnimationImageProvider)? = nil, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency convenience public init(url: Foundation.URL, imageProvider: (any Netomi.AnimationImageProvider)? = nil, session: Foundation.URLSession = .shared, closure: @escaping Netomi.LottieAnimationView.DownloadClosure, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency convenience public init(asset name: Swift.String, bundle: Foundation.Bundle = Bundle.main, imageProvider: (any Netomi.AnimationImageProvider)? = nil, animationCache: (any Netomi.AnimationCacheProvider)? = LottieAnimationCache.shared, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency convenience public init(dotLottieName name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, animationId: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, configuration: Netomi.LottieConfiguration = .shared, completion: ((Netomi.LottieAnimationView, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency convenience public init(dotLottieFilePath filePath: Swift.String, animationId: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, configuration: Netomi.LottieConfiguration = .shared, completion: ((Netomi.LottieAnimationView, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency convenience public init(dotLottieUrl url: Foundation.URL, animationId: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, configuration: Netomi.LottieConfiguration = .shared, session: Foundation.URLSession = .shared, completion: ((Netomi.LottieAnimationView, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency convenience public init(dotLottieAsset name: Swift.String, bundle: Foundation.Bundle = Bundle.main, animationId: Swift.String? = nil, dotLottieCache: (any Netomi.DotLottieCacheProvider)? = DotLottieCache.sharedCache, configuration: Netomi.LottieConfiguration = .shared, completion: ((Netomi.LottieAnimationView, (any Swift.Error)?) -> Swift.Void)? = nil)
+  public typealias DownloadClosure = ((any Swift.Error)?) -> Swift.Void
+}
+public enum LottieAnimationSource : Swift.Sendable {
+  case lottieAnimation(Netomi.LottieAnimation)
+  case dotLottieFile(Netomi.DotLottieFile)
+}
+extension Netomi.LottieAnimation {
+  final public var animationSource: Netomi.LottieAnimationSource {
+    get
+  }
+}
+extension Netomi.DotLottieFile {
+  final public var animationSource: Netomi.LottieAnimationSource {
+    get
+  }
+}
+public class DotLottieCache : Netomi.DotLottieCacheProvider {
+  public init()
+  public static let sharedCache: Netomi.DotLottieCache
+  public var cacheSize: Swift.Int {
+    get
+    set
+  }
+  public func clearCache()
+  public func file(forKey key: Swift.String) -> Netomi.DotLottieFile?
+  public func setFile(_ lottie: Netomi.DotLottieFile, forKey key: Swift.String)
+  @objc deinit
+}
+extension Netomi.DotLottieCache : @unchecked Swift.Sendable {
+}
+@available(*, deprecated, message: "Use DefaultAnimationCache instead, which is thread-safe and automatically responds to memory pressure.")
+public typealias LRUAnimationCache = Netomi.DefaultAnimationCache
+extension Netomi.LottieColor : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public typealias LottieControlType = UIKit.UIControl
+public typealias LottieControlState = UIKit.UIControl.State
+public typealias LottieControlEvent = UIKit.UIControl.Event
+@objc final public class CompatibleAnimation : ObjectiveC.NSObject {
+  @objc public init(name: Swift.String, subdirectory: Swift.String? = nil, bundle: Foundation.Bundle = Bundle.main)
+  @objc deinit
+}
+@objc public enum CompatibleRenderingEngineOption : Swift.Int {
+  case shared
+  case defaultEngine
+  case automatic
+  case mainThread
+  case coreAnimation
+  public static func generateLottieConfiguration(_ configuration: Netomi.CompatibleRenderingEngineOption) -> Netomi.LottieConfiguration
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum CompatibleBackgroundBehavior : Swift.Int {
+  case stop
+  case pause
+  case pauseAndRestore
+  case forceFinish
+  case continuePlaying
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor @preconcurrency final public class CompatibleAnimationView : UIKit.UIView {
+  @objc @_Concurrency.MainActor @preconcurrency convenience public init(compatibleAnimation: Netomi.CompatibleAnimation)
+  @objc @_Concurrency.MainActor @preconcurrency public init(compatibleAnimation: Netomi.CompatibleAnimation, compatibleRenderingEngineOption: Netomi.CompatibleRenderingEngineOption)
+  @objc @_Concurrency.MainActor @preconcurrency convenience public init(url: Foundation.URL)
+  @objc @_Concurrency.MainActor @preconcurrency public init(url: Foundation.URL, compatibleRenderingEngineOption: Netomi.CompatibleRenderingEngineOption)
+  @objc @_Concurrency.MainActor @preconcurrency convenience public init(data: Foundation.Data)
+  @objc @_Concurrency.MainActor @preconcurrency public init(data: Foundation.Data, compatibleRenderingEngineOption: Netomi.CompatibleRenderingEngineOption)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor @preconcurrency final public var compatibleAnimation: Netomi.CompatibleAnimation? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var loopAnimationCount: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var compatibleDictionaryTextProvider: Netomi.CompatibleDictionaryTextProvider? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override final public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var shouldRasterizeWhenIdle: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var currentProgress: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var duration: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var currentTime: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var currentFrame: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var realtimeAnimationFrame: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var realtimeAnimationProgress: CoreFoundation.CGFloat {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var animationSpeed: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var respectAnimationFrameRate: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var isAnimationPlaying: Swift.Bool {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public var backgroundMode: Netomi.CompatibleBackgroundBehavior {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency final public func play()
+  @objc @_Concurrency.MainActor @preconcurrency final public func play(completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc @_Concurrency.MainActor @preconcurrency final public func play(fromProgress: CoreFoundation.CGFloat, toProgress: CoreFoundation.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor @preconcurrency final public func play(fromFrame: CoreFoundation.CGFloat, toFrame: CoreFoundation.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor @preconcurrency final public func play(fromMarker: Swift.String, toMarker: Swift.String, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor @preconcurrency final public func play(marker: Swift.String, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor @preconcurrency final public func stop()
+  @objc @_Concurrency.MainActor @preconcurrency final public func pause()
+  @objc @_Concurrency.MainActor @preconcurrency final public func reloadImages()
+  @objc @_Concurrency.MainActor @preconcurrency final public func forceDisplayUpdate()
+  @objc @_Concurrency.MainActor @preconcurrency final public func getValue(for keypath: Netomi.CompatibleAnimationKeypath, atFrame: CoreFoundation.CGFloat) -> Any?
+  @objc @_Concurrency.MainActor @preconcurrency final public func logHierarchyKeypaths()
+  @objc @_Concurrency.MainActor @preconcurrency final public func setColorValue(_ color: UIKit.UIColor, forKeypath keypath: Netomi.CompatibleAnimationKeypath)
+  @objc @_Concurrency.MainActor @preconcurrency final public func getColorValue(for keypath: Netomi.CompatibleAnimationKeypath, atFrame: CoreFoundation.CGFloat) -> UIKit.UIColor?
+  @objc @_Concurrency.MainActor @preconcurrency final public func addSubview(_ subview: Netomi.AnimationSubview, forLayerAt keypath: Netomi.CompatibleAnimationKeypath)
+  @objc @_Concurrency.MainActor @preconcurrency final public func convert(rect: CoreFoundation.CGRect, toLayerAt keypath: Netomi.CompatibleAnimationKeypath?) -> CoreFoundation.CGRect
+  @objc @_Concurrency.MainActor @preconcurrency final public func convert(point: CoreFoundation.CGPoint, toLayerAt keypath: Netomi.CompatibleAnimationKeypath?) -> CoreFoundation.CGPoint
+  @objc @_Concurrency.MainActor @preconcurrency final public func progressTime(forMarker named: Swift.String) -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor @preconcurrency final public func frameTime(forMarker named: Swift.String) -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor @preconcurrency final public func durationFrameTime(forMarker named: Swift.String) -> CoreFoundation.CGFloat
+  @objc deinit
+}
+@objc final public class CompatibleDictionaryTextProvider : ObjectiveC.NSObject {
+  @objc public init(values: [Swift.String : Swift.String])
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class AnimatedSwitch : Netomi.AnimatedControl {
+  @_Concurrency.MainActor @preconcurrency override public init(animation: Netomi.LottieAnimation?, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency override open func animationDidSet()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  public enum CancelBehavior {
+    case reverse
+    case none
+    public static func == (a: Netomi.AnimatedSwitch.CancelBehavior, b: Netomi.AnimatedSwitch.CancelBehavior) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor @preconcurrency public var cancelBehavior: Netomi.AnimatedSwitch.CancelBehavior
+  @_Concurrency.MainActor @preconcurrency public var animateUpdateWhenChangingAnimation: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public var stateUpdated: ((_ isOn: Swift.Bool) -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var accessibilityTraits: UIKit.UIAccessibilityTraits {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency public var isOn: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public func setIsOn(_ isOn: Swift.Bool, animated: Swift.Bool, shouldFireHaptics: Swift.Bool = true)
+  @_Concurrency.MainActor @preconcurrency public func setProgressForState(fromProgress: Netomi.AnimationProgressTime, toProgress: Netomi.AnimationProgressTime, forOnState: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ImageAsset : Netomi.Asset {
+  final public let name: Swift.String
+  final public let directory: Swift.String
+  final public let width: Swift.Double
+  final public let height: Swift.Double
+  override final public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+extension Netomi.ImageAsset : @unchecked Swift.Sendable {
+}
+@objc @_Concurrency.MainActor @preconcurrency open class AnimatedControl : Netomi.LottieControlType {
+  @_Concurrency.MainActor @preconcurrency public init(animation: Netomi.LottieAnimation?, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func continueTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func cancelTracking(with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor @preconcurrency open func animationDidSet()
+  @_Concurrency.MainActor @preconcurrency final public let animationView: Netomi.LottieAnimationView
+  @_Concurrency.MainActor @preconcurrency public var animation: Netomi.LottieAnimation? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var animationSpeed: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public func setLayer(named: Swift.String, forState: Netomi.LottieControlState)
+  @_Concurrency.MainActor @preconcurrency public func setValueProvider(_ valueProvider: any Netomi.AnyValueProvider, keypath: Netomi.AnimationKeypath)
+  @_Concurrency.MainActor @preconcurrency public func removeValueProvider(for keypath: Netomi.AnimationKeypath)
+  @objc deinit
+}
+public struct LottieVector1D : Swift.Hashable, Swift.Sendable {
+  public init(_ value: Swift.Double)
+  public let value: Swift.Double
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottieVector1D, b: Netomi.LottieVector1D) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct LottieVector3D : Swift.Hashable, Swift.Sendable {
+  public let x: Swift.Double
+  public let y: Swift.Double
+  public let z: Swift.Double
+  public init(x: Swift.Double, y: Swift.Double, z: Swift.Double)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.LottieVector3D, b: Netomi.LottieVector3D) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class AnimatedButton : Netomi.AnimatedControl {
+  @_Concurrency.MainActor @preconcurrency override public init(animation: Netomi.LottieAnimation?, configuration: Netomi.LottieConfiguration = .shared)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor @preconcurrency public var performAction: (() -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var accessibilityTraits: UIKit.UIAccessibilityTraits {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency public func setPlayRange(fromProgress: Netomi.AnimationProgressTime, toProgress: Netomi.AnimationProgressTime, event: Netomi.LottieControlEvent)
+  @_Concurrency.MainActor @preconcurrency public func setPlayRange(fromMarker fromName: Swift.String, toMarker toName: Swift.String, event: Netomi.LottieControlEvent)
+  @objc deinit
+}
+public struct AnimationKeypath : Swift.Hashable, Swift.ExpressibleByStringLiteral {
+  public init(keypath: Swift.String)
+  public init(stringLiteral: Swift.String)
+  public init(keys: [Swift.String])
+  public var keys: [Swift.String] {
+    get
+  }
+  public var string: Swift.String {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.AnimationKeypath, b: Netomi.AnimationKeypath) -> Swift.Bool
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  public typealias StringLiteralType = Swift.String
+  public typealias UnicodeScalarLiteralType = Swift.String
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct NCWUserConfiguration {
+  public var quickReplyTextColor: UIKit.UIColor!
+  public var quickReplyBorderColor: UIKit.UIColor!
+  public var textColor: UIKit.UIColor!
+  public var backgroundColor: UIKit.UIColor!
+  public var quickReplyBackgroundColor: UIKit.UIColor!
+  public var retryColor: UIKit.UIColor
+  public init()
+}
+public struct NCWFloatingConfiguration {
+}
+public struct NCWBubbleConfiguration {
+  public var borderRadius: CoreFoundation.CGFloat!
+  public var timeStampColor: UIKit.UIColor!
+  public init()
+}
+public struct TabBarButtonStyles : Swift.Codable {
+  public var style1: Netomi.TabBarButtonStyle {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TabBarButtonStyle : Swift.Codable {
+  public var textColorNormal: UIKit.UIColor? {
+    get
+  }
+  public var textColorSelected: UIKit.UIColor? {
+    get
+  }
+  public var fontName: Swift.String? {
+    get
+  }
+  public var fontSize: CoreFoundation.CGFloat? {
+    get
+  }
+  public var letterSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineHeight: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public var barTintColor: UIKit.UIColor? {
+    get
+  }
+  public var labelStyle: Netomi.LabelStyle?
+  public init(from decoder: any Swift.Decoder) throws
+  public init()
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Netomi.Style {
+  public enum TabBarButton : Swift.String, Swift.Codable {
+    case tabBarButtonStyle1
+    public var value: Netomi.TabBarButtonStyle? {
+      get
+    }
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+@_Concurrency.MainActor public enum ColorMode {
+  case light
+  case dark
+  nonisolated public static func == (a: Netomi.ColorMode, b: Netomi.ColorMode) -> Swift.Bool
+  nonisolated public func hash(into hasher: inout Swift.Hasher)
+  nonisolated public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct HTTPHeaders : Swift.Sendable {
+  public init()
+  public init(_ headers: [Netomi.HTTPHeader])
+  public init(_ dictionary: [Swift.String : Swift.String])
+  public mutating func add(name: Swift.String, value: Swift.String)
+  public mutating func add(_ header: Netomi.HTTPHeader)
+  public mutating func update(name: Swift.String, value: Swift.String)
+  public mutating func update(_ header: Netomi.HTTPHeader)
+  public mutating func remove(name: Swift.String)
+  public mutating func sort()
+  public func sorted() -> Netomi.HTTPHeaders
+  public func value(for name: Swift.String) -> Swift.String?
+  public subscript(name: Swift.String) -> Swift.String? {
+    get
+    set
+  }
+  public var dictionary: [Swift.String : Swift.String] {
+    get
+  }
+}
+extension Netomi.HTTPHeaders : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Swift.String)...)
+  public typealias Key = Swift.String
+  public typealias Value = Swift.String
+}
+extension Netomi.HTTPHeaders : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Netomi.HTTPHeader...)
+  public typealias ArrayLiteralElement = Netomi.HTTPHeader
+}
+extension Netomi.HTTPHeaders : Swift.Sequence {
+  public func makeIterator() -> Swift.IndexingIterator<[Netomi.HTTPHeader]>
+  public typealias Element = Swift.IndexingIterator<[Netomi.HTTPHeader]>.Element
+  public typealias Iterator = Swift.IndexingIterator<[Netomi.HTTPHeader]>
+}
+extension Netomi.HTTPHeaders : Swift.Collection {
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public subscript(position: Swift.Int) -> Netomi.HTTPHeader {
+    get
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public typealias Index = Swift.Int
+  public typealias Indices = Swift.DefaultIndices<Netomi.HTTPHeaders>
+  public typealias SubSequence = Swift.Slice<Netomi.HTTPHeaders>
+}
+extension Netomi.HTTPHeaders : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct HTTPHeader : Swift.Hashable, Swift.Sendable {
+  public let name: Swift.String
+  public let value: Swift.String
+  public init(name: Swift.String, value: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Netomi.HTTPHeader, b: Netomi.HTTPHeader) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.HTTPHeader : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Netomi.HTTPHeader {
+  public static func accept(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func acceptCharset(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func acceptLanguage(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func acceptEncoding(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func authorization(username: Swift.String, password: Swift.String) -> Netomi.HTTPHeader
+  public static func authorization(bearerToken: Swift.String) -> Netomi.HTTPHeader
+  public static func authorization(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func contentDisposition(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func contentType(_ value: Swift.String) -> Netomi.HTTPHeader
+  public static func userAgent(_ value: Swift.String) -> Netomi.HTTPHeader
+}
+extension Netomi.HTTPHeaders {
+  public static let `default`: Netomi.HTTPHeaders
+}
+extension Netomi.HTTPHeader {
+  public static let defaultAcceptEncoding: Netomi.HTTPHeader
+  public static let defaultAcceptLanguage: Netomi.HTTPHeader
+  public static let defaultUserAgent: Netomi.HTTPHeader
+}
+extension Foundation.URLRequest {
+  public var headers: Netomi.HTTPHeaders {
+    get
+    set
+  }
+}
+extension Foundation.HTTPURLResponse {
+  public var headers: Netomi.HTTPHeaders {
+    get
+  }
+}
+extension Foundation.URLSessionConfiguration {
+  public var headers: Netomi.HTTPHeaders {
+    get
+    set
+  }
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct JSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: Netomi.JSON) throws
+  public func merged(with other: Netomi.JSON) throws -> Netomi.JSON
+  public var type: Netomi.`Type` {
+    get
+  }
+  public var error: Netomi.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: Netomi.JSON {
+    get
+  }
+  public static var null: Netomi.JSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: Netomi.Index<T>, rhs: Netomi.Index<T>) -> Swift.Bool
+  public static func < (lhs: Netomi.Index<T>, rhs: Netomi.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = Netomi.Index<Netomi.JSON>
+public typealias JSONRawIndex = Netomi.Index<Any>
+extension Netomi.JSON : Swift.Collection {
+  public typealias Index = Netomi.JSONRawIndex
+  public var startIndex: Netomi.JSON.Index {
+    get
+  }
+  public var endIndex: Netomi.JSON.Index {
+    get
+  }
+  public func index(after i: Netomi.JSON.Index) -> Netomi.JSON.Index
+  public subscript(position: Netomi.JSON.Index) -> (Swift.String, Netomi.JSON) {
+    get
+  }
+  public typealias Element = (Swift.String, Netomi.JSON)
+  public typealias Indices = Swift.DefaultIndices<Netomi.JSON>
+  public typealias Iterator = Swift.IndexingIterator<Netomi.JSON>
+  public typealias SubSequence = Swift.Slice<Netomi.JSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: Netomi.JSONKey { get }
+}
+extension Swift.Int : Netomi.JSONSubscriptType {
+  public var jsonKey: Netomi.JSONKey {
+    get
+  }
+}
+extension Swift.String : Netomi.JSONSubscriptType {
+  public var jsonKey: Netomi.JSONKey {
+    get
+  }
+}
+extension Netomi.JSON {
+  public subscript(path: [any Netomi.JSONSubscriptType]) -> Netomi.JSON {
+    get
+    set
+  }
+  public subscript(path: any Netomi.JSONSubscriptType...) -> Netomi.JSON {
+    get
+    set
+  }
+}
+extension Netomi.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension Netomi.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension Netomi.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension Netomi.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension Netomi.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension Netomi.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension Netomi.JSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [Netomi.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension Netomi.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension Netomi.JSON {
+  public var array: [Netomi.JSON]? {
+    get
+  }
+  public var arrayValue: [Netomi.JSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var dictionary: [Swift.String : Netomi.JSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : Netomi.JSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension Netomi.JSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension Netomi.JSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension Netomi.JSON : Swift.Comparable {
+}
+public func == (lhs: Netomi.JSON, rhs: Netomi.JSON) -> Swift.Bool
+public func <= (lhs: Netomi.JSON, rhs: Netomi.JSON) -> Swift.Bool
+public func >= (lhs: Netomi.JSON, rhs: Netomi.JSON) -> Swift.Bool
+public func > (lhs: Netomi.JSON, rhs: Netomi.JSON) -> Swift.Bool
+public func < (lhs: Netomi.JSON, rhs: Netomi.JSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: Netomi.writingOptionsKeys, b: Netomi.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Netomi.JSON : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+extension Netomi.Style {
+  nonisolated(unsafe) public static var commonSreenConfig: Netomi.CommonScreenConfig
+}
+public struct CommonScreenConfig : Swift.Codable {
+  public var tableViewFooterBackground: UIKit.UIColor
+  public var borderColor: UIKit.UIColor
+  public var gridColor: UIKit.UIColor
+  public var underLineColor: UIKit.UIColor
+  public var strikeThroughTextColor: UIKit.UIColor
+  public var activityIndicatorBgColor: UIKit.UIColor
+  public var activityIndicatorColor: UIKit.UIColor
+  public var shadowColor: UIKit.UIColor
+  public var formFieldErrorText: Netomi.LabelStyle
+  public var fitOptionsButton: Netomi.ButtonStyle
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct TextFieldStyle : Swift.Codable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct LabelStyle : Swift.Codable {
+  public var textColor: UIKit.UIColor?
+  public var fontName: Swift.String? {
+    get
+  }
+  public var fontSize: CoreFoundation.CGFloat? {
+    get
+  }
+  public var letterSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineHeight: CoreFoundation.CGFloat? {
+    get
+  }
+  public var lineSpacing: CoreFoundation.CGFloat? {
+    get
+  }
+  public init(textColor: UIKit.UIColor?, fontName: Swift.String?, fontSize: CoreFoundation.CGFloat?, letterSpacing: CoreFoundation.CGFloat?, lineHeight: CoreFoundation.CGFloat?, lineSpacing: CoreFoundation.CGFloat?)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init()
+  public var attributes: [Foundation.NSAttributedString.Key : Any] {
+    get
+  }
+}
+public struct BaseHelper {
+  public static func jsonFilePath(for filename: Swift.String, inDirectory: Swift.String? = nil, in bundle: Foundation.Bundle? = nil) -> Swift.String?
+}
+public enum ReferenceDirectory : Swift.String {
+  public var path: Swift.String {
+    get
+  }
+  case fonts
+  case configurations
+  case variableAndStyles
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum NCWEnvironment : Swift.String {
+  case Development
+  case QA
+  case QAInternal
+  case USProd
+  case SGProd
+  case EUProd
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class InfoPlistReader {
+  public static func loadInfoPlist() -> [Swift.String : Any]?
+  @objc deinit
+}
+public enum Style {
+  public func reset()
+}
+extension Netomi.NetomiChat : Swift.Sendable {}
+extension Netomi.JsonFileName : Swift.Equatable {}
+extension Netomi.JsonFileName : Swift.Hashable {}
+extension Netomi.JsonFileName : Swift.RawRepresentable {}
+extension Netomi.StylingAttributeKeys : Swift.Equatable {}
+extension Netomi.StylingAttributeKeys : Swift.Hashable {}
+extension Netomi.StylingAttributeKeys : Swift.RawRepresentable {}
+extension Netomi.LottieButton : SwiftUICore.View {}
+extension Netomi.LottieButton : Swift.Sendable {}
+extension Netomi.GradientValueProvider : Netomi.AnyValueProvider {}
+extension Netomi.LayerType : Swift.Equatable {}
+extension Netomi.LayerType : Swift.Hashable {}
+extension Netomi.LayerType : Swift.RawRepresentable {}
+extension Netomi.MatteType : Swift.Equatable {}
+extension Netomi.MatteType : Swift.Hashable {}
+extension Netomi.MatteType : Swift.RawRepresentable {}
+extension Netomi.BlendMode : Swift.Equatable {}
+extension Netomi.BlendMode : Swift.Hashable {}
+extension Netomi.BlendMode : Swift.RawRepresentable {}
+extension Netomi.LottieView : SwiftUICore.View {}
+extension Netomi.LottieView : Swift.Sendable {}
+extension Netomi.PointValueProvider : Netomi.AnyValueProvider {}
+extension Netomi.LottieSwitch : SwiftUICore.View {}
+extension Netomi.LottieSwitch : Swift.Sendable {}
+extension Netomi.SizeValueProvider : Netomi.AnyValueProvider {}
+extension Netomi.LottieBackgroundBehavior : Swift.Equatable {}
+extension Netomi.LottieBackgroundBehavior : Swift.Hashable {}
+extension Netomi.ColorValueProvider : Netomi.AnyValueProvider {}
+extension Netomi.FloatValueProvider : Netomi.AnyValueProvider {}
+extension Netomi.CoordinateSpace : Swift.Equatable {}
+extension Netomi.CoordinateSpace : Swift.Hashable {}
+extension Netomi.CoordinateSpace : Swift.RawRepresentable {}
+extension Netomi.CompatibleRenderingEngineOption : Swift.Equatable {}
+extension Netomi.CompatibleRenderingEngineOption : Swift.Hashable {}
+extension Netomi.CompatibleRenderingEngineOption : Swift.RawRepresentable {}
+extension Netomi.CompatibleBackgroundBehavior : Swift.Equatable {}
+extension Netomi.CompatibleBackgroundBehavior : Swift.Hashable {}
+extension Netomi.CompatibleBackgroundBehavior : Swift.RawRepresentable {}
+extension Netomi.AnimatedSwitch.CancelBehavior : Swift.Equatable {}
+extension Netomi.AnimatedSwitch.CancelBehavior : Swift.Hashable {}
+extension Netomi.Style.TabBarButton : Swift.Equatable {}
+extension Netomi.Style.TabBarButton : Swift.Hashable {}
+extension Netomi.Style.TabBarButton : Swift.RawRepresentable {}
+extension Netomi.ColorMode : Swift.Equatable {}
+extension Netomi.ColorMode : Swift.Hashable {}
+extension Netomi.ColorMode : Swift.Sendable {}
+extension Netomi.SwiftyJSONError : Swift.Equatable {}
+extension Netomi.SwiftyJSONError : Swift.Hashable {}
+extension Netomi.SwiftyJSONError : Swift.RawRepresentable {}
+extension Netomi.`Type` : Swift.Equatable {}
+extension Netomi.`Type` : Swift.Hashable {}
+extension Netomi.`Type` : Swift.RawRepresentable {}
+extension Netomi.writingOptionsKeys : Swift.Equatable {}
+extension Netomi.writingOptionsKeys : Swift.Hashable {}
+extension Netomi.ReferenceDirectory : Swift.Equatable {}
+extension Netomi.ReferenceDirectory : Swift.Hashable {}
+extension Netomi.ReferenceDirectory : Swift.RawRepresentable {}
+extension Netomi.NCWEnvironment : Swift.Equatable {}
+extension Netomi.NCWEnvironment : Swift.Hashable {}
+extension Netomi.NCWEnvironment : Swift.RawRepresentable {}

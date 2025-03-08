@@ -1,0 +1,13 @@
+{
+    "style1": {
+        "textColorNormal": "color7",
+        "textColorSelected": "color4",
+        "fontFamily": "font1",
+        "fontStyle": "medium",
+        "fontSize": "small",
+        "letterSpacing": "normal",
+        "lineHeight": "small",
+        "lineSpacing": "medium",
+        "barTintColor": "color6"
+    }
+}
