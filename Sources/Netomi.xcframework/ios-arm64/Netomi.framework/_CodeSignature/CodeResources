@@ -6,15 +6,27 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		nqrgyFPSbAhO+h/4T/DxU/5XYbY=
+		UBH+tvgfA2jzLgKNL7vxkxe0BNA=
 		</data>
 		<key>ButtonStyles.json</key>
 		<data>
 		2KUkfDaiz11pSSCJzCN4dqrsQa8=
 		</data>
+		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
+		<data>
+		Q4GTOfpRq6RvjcWIkk+//C4X3lM=
+		</data>
+		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
+		<data>
+		vbTWyfQh8QqpDc527QPfiwlxjuA=
+		</data>
+		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
+		<data>
+		zV9O+GqS6tR1Mx5Ul6lOZCAkqGs=
+		</data>
 		<key>Headers/Netomi-Swift.h</key>
 		<data>
-		w2BHpvKFDI+qqIQUqYekn/zEVxs=
+		aEQ9rZWUMQdUu8zLsUeQHGyXflE=
 		</data>
 		<key>Headers/Netomi.h</key>
 		<data>
@@ -28,10 +40,6 @@
 		<data>
 		bzxgweO2AMyd99qVODiQcgBRIG0=
 		</data>
-		<key>LICENSE</key>
-		<data>
-		viPPNo04o63+rU31VZuj755Y9PY=
-		</data>
 		<key>LabelStyles.json</key>
 		<data>
 		lH6i9YroRPtMjBCqZH2/IsNe87o=
@@ -42,23 +50,23 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		i3kBkmfQNHyubzK0xEepbaTKsWw=
+		Yvvw/f5el7I7/Ey06PWC/pKSFFk=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		SDzZtIcUnPP3dSwVfdUOuCYTYbQ=
+		4sKjV/mBpEIpbLA9gyWWDmeR0Gg=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		idjtMcJVryk2u+W1KKdhJ3rWcz4=
+		PvdFgrUKlo+/Tdps4bFpEktTi0g=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		SDzZtIcUnPP3dSwVfdUOuCYTYbQ=
+		4sKjV/mBpEIpbLA9gyWWDmeR0Gg=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		syC1oCOnou2gVAL6deB1mR8LdXQ=
+		q31JY5DujsJeNbCxNQz4wXfWCNE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,13 +76,17 @@
 		<data>
 		WWrLtQGsHMa586/CQF5CEQFAuxE=
 		</data>
+		<key>NCWBottomSheetTableViewCell.nib</key>
+		<data>
+		4pswOGrfNuHXq3EMkJsPW39oZNA=
+		</data>
 		<key>NCWCardBtnTableViewCell.nib</key>
 		<data>
 		8titsafm/8x4KtQ0wXqmlau6FSg=
 		</data>
 		<key>NCWCarousalCollectionViewCell.nib</key>
 		<data>
-		pLkrhfdGgO6AV2gBI7x6j2+itiE=
+		jn3j9zIFcjeM2cGmcwIGE6glyVY=
 		</data>
 		<key>NCWDateSelectTableViewCell.nib</key>
 		<data>
@@ -118,7 +130,7 @@
 		</data>
 		<key>NCWRadioBtnTableViewCell.nib</key>
 		<data>
-		327lSMB8dowgGfHKX+cFLM/5fAg=
+		0DbLUi+1KZnOv1dP1AWo9cA9PKA=
 		</data>
 		<key>NCWRatingStyleCollectionViewCell.nib</key>
 		<data>
@@ -126,7 +138,7 @@
 		</data>
 		<key>NCWReceiverViewCell.nib</key>
 		<data>
-		oWPo2ocZleNfz8X8tKTTTTAzx1w=
+		7aNyGGQid54bcDvrnB8lYgVTCgU=
 		</data>
 		<key>NCWResolutionQuestionCollectionViewCell.nib</key>
 		<data>
@@ -138,7 +150,7 @@
 		</data>
 		<key>NCWStoryboard.storyboardc/7l5-0g-O3t-view-7gQ-fC-54B.nib</key>
 		<data>
-		yZBmaViD+H1tFmLKJakfZtvDOlM=
+		hwvuCqG8PvlOIu3eEYXOXaxZ7fI=
 		</data>
 		<key>NCWStoryboard.storyboardc/FUw-av-FDt-view-Igr-Wh-YuL.nib</key>
 		<data>
@@ -146,7 +158,11 @@
 		</data>
 		<key>NCWStoryboard.storyboardc/Info.plist</key>
 		<data>
-		GU053KdwfpAPYON5XHc7A4yNKes=
+		zH6Jj60rW960ELU6bJDqYxhEmRo=
+		</data>
+		<key>NCWStoryboard.storyboardc/NCWBottomSheetViewController.nib</key>
+		<data>
+		MS7HIWH8wckQb4ykXq4sh8dntlI=
 		</data>
 		<key>NCWStoryboard.storyboardc/NCWChatViewController.nib</key>
 		<data>
@@ -166,7 +182,11 @@
 		</data>
 		<key>NCWStoryboard.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib</key>
 		<data>
-		tAwY1ZU31bKi6Ew+yTVhCEQiA18=
+		ag7csenWHNs3BtfZZujwFJA7SUU=
+		</data>
+		<key>NCWStoryboard.storyboardc/bSK-vY-lov-view-rBw-Hh-B8r.nib</key>
+		<data>
+		i9S4mf64u2gnM6xxvZuGZErzaz8=
 		</data>
 		<key>NCWStoryboard.storyboardc/hVC-xH-tgn-view-oeG-ol-NVV.nib</key>
 		<data>
@@ -194,7 +214,7 @@
 		</data>
 		<key>NCWUploadedTableViewCell.nib</key>
 		<data>
-		C+n33J/oy8xIIH5WvR73iGjNUeE=
+		YPp/g7qy/0bl0mCDcC2v7/LkAns=
 		</data>
 		<key>NCWWantAddtionalCollectionViewCell.nib</key>
 		<data>
@@ -202,19 +222,11 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		zVh1C2J6BSkz8Gtvdj4OzQHW4xI=
+		6kF7fQiXUgEZmvIf1JuEUszPodY=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
 		iBV2GO2TzITo2+JRg97rlTJt1jc=
-		</data>
-		<key>PrivacyInfo.xcprivacy</key>
-		<data>
-		9slhmTZYKDmos4efk+3YOXYOQXo=
-		</data>
-		<key>README.md</key>
-		<data>
-		aSm+KzOx9TftL6XsA36b/3fOHYE=
 		</data>
 		<key>TabBarButtonStyles.json</key>
 		<data>
@@ -232,9 +244,26 @@
 		<data>
 		WdFMzvJHopfj89NdxqXMe2NRK2Y=
 		</data>
+		<key>bot_response.wav</key>
+		<data>
+		BrnZIVbtCgYlX1bLf84wAzcwVNA=
+		</data>
 		<key>dots_indicator.json</key>
 		<data>
 		4iprpoNGptACLQCzYOJi0fkJCK8=
+		</data>
+		<key>en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			I17Mvx0dFrah37XlLevLmr5QRl0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>user_response.wav</key>
+		<data>
+		IpUgqqExLJ+D+5P8eGYArTNkwek=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -243,7 +272,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9DzE4N3sdJNjMwMwEHlj/qJewotwrCsHF9gTZ7SKRyo=
+			MCcyYPeAnwcOT8K/HSpJb8UKbl234+RgKRSsqToK+8g=
 			</data>
 		</dict>
 		<key>ButtonStyles.json</key>
@@ -253,11 +282,32 @@
 			cS/HYrt+R7RDf96gGb7wlMKXmcd/o+E3UiwfRr/IdvE=
 			</data>
 		</dict>
+		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yJnTx1kjCbwl8xTMwUtf6eYY9H9Co1pAFCbGS7yjbYY=
+			</data>
+		</dict>
+		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			urcohfK/sSZsaJVghXrJ3d7XRvs1AtL9RqIZHd097Ks=
+			</data>
+		</dict>
+		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MXV6vVcrQmgNpifNSwwXl76o+btKBh5JBK0pAyLhXU0=
+			</data>
+		</dict>
 		<key>Headers/Netomi-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MEhkFI7QGhd3bescu1s6kPTE+HH+8fy4MO7Icnnr6NY=
+			VGOvwY9FQa4MojcXoF1nvUxvPrzDMZ9GoYejJkIeuME=
 			</data>
 		</dict>
 		<key>Headers/Netomi.h</key>
@@ -272,13 +322,6 @@
 			<key>hash2</key>
 			<data>
 			vR5gTyh7DcVOzHpG1qQgELOMMZhxxEN7bjbjq3BMrGA=
-			</data>
-		</dict>
-		<key>LICENSE</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			jZ0aTtzLPUvgkinpl4r0yEzyZgZxB+eIxExJE7V/3V8=
 			</data>
 		</dict>
 		<key>LabelStyles.json</key>
@@ -299,35 +342,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Iff+Z1/sXsbHnsBiM+fi832PiQiHwh4h9JxmVWI7LnY=
+			GCG6a/17cIHIAdxjn0gLXQuZHASh4YcqmGl2ZUiUheM=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2AOxSr7wVL2Xjolk9A4o333Wt2a04poBhkK3SWx2TRY=
+			TMlEenT9h6wAy6/ZYwTjvN+lSlmiWcQsw8pzKgTOvpg=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ol20a/7w8aftA0PF63K0mLDJI9n5smKZvek57H7hIY=
+			WSkz4S6cMRUB7YnLS7y/XaGTqXRSUVj3Nr3IOAwd61o=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2AOxSr7wVL2Xjolk9A4o333Wt2a04poBhkK3SWx2TRY=
+			TMlEenT9h6wAy6/ZYwTjvN+lSlmiWcQsw8pzKgTOvpg=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4Ohol85GawP+2rkCWbl4C67SGmVLj0fXZmwxiXJ/dIw=
+			adzBJ/LkUsnDnjgZn+l8RPGZ+oVC129vwhK51kfqWX0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -344,6 +387,13 @@
 			WCxG5qrSmng4MdzlegjJ+2avT68EQ5e9cw+P2tjjw2s=
 			</data>
 		</dict>
+		<key>NCWBottomSheetTableViewCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IqI4VOuti9k3ItRWvWvjL3sP+VX2689V48BFufLGIN4=
+			</data>
+		</dict>
 		<key>NCWCardBtnTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
@@ -355,7 +405,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/cLbdd5Pk6UUAdpDHiuHiuMgztHTjqoHl1vTpxqbAn0=
+			FT0opDn/iwuu2xQsKmi3xPT6rHKNFe4AGD8nqRFAr7I=
 			</data>
 		</dict>
 		<key>NCWDateSelectTableViewCell.nib</key>
@@ -432,7 +482,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			at0EPzd0IVRGl40ruprJd+XI9II5nIoaTusfBPpdp0w=
+			no7tp1ep/pDbmdD9v+cBeTAc60d4tdU3IZpHRjGGu9U=
 			</data>
 		</dict>
 		<key>NCWRatingStyleCollectionViewCell.nib</key>
@@ -446,7 +496,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dRacg+w7gRDYxqiZ8579TVnjBqOx7YaAWv85Sqdo5JI=
+			sJTsLII8g8Wfnt5iE994IUuJ1TM/hsdQVgUHW9M6A3A=
 			</data>
 		</dict>
 		<key>NCWResolutionQuestionCollectionViewCell.nib</key>
@@ -467,7 +517,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rk5/c3cD/MfIGBibDHh+eGSNdULOujOGvgVKjEbYePc=
+			RfrGAKD7YW7ayOfh9Xb8EnD38CJo6/64FHq3mgSRpjc=
 			</data>
 		</dict>
 		<key>NCWStoryboard.storyboardc/FUw-av-FDt-view-Igr-Wh-YuL.nib</key>
@@ -481,7 +531,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SvE299HthLujFjAyOX+ySWegodOB1tvkD0ieQs8vyKc=
+			j6xJDdf11pQovfufOSsgbOwRc8Sv6nohvGNWeMvYQiY=
+			</data>
+		</dict>
+		<key>NCWStoryboard.storyboardc/NCWBottomSheetViewController.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ypDPZoUgA2/TXcEgtRQBC+DSFkENm1tedA2HXZ69Pyk=
 			</data>
 		</dict>
 		<key>NCWStoryboard.storyboardc/NCWChatViewController.nib</key>
@@ -516,7 +573,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iFvfTlKxDGTud8KReAAzhYdZ9KIJCPj+5gRbZIAtvyA=
+			i7cLhUiiePCQ2qpKQDnfH0KvPUN8mOWUbbzQzXuBvHg=
+			</data>
+		</dict>
+		<key>NCWStoryboard.storyboardc/bSK-vY-lov-view-rBw-Hh-B8r.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			659GgbX5EuwpchWTyJUIQ+UtVrAhRmxJSxtwXjnRRwg=
 			</data>
 		</dict>
 		<key>NCWStoryboard.storyboardc/hVC-xH-tgn-view-oeG-ol-NVV.nib</key>
@@ -565,7 +629,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3xMebnTVLjavm7AV0xqheR6fyvDLBU0HqhmKPEPzPPc=
+			SbberQ/EHNtrdiYKE9Fugmti8LblJ37BLs33IMpsehI=
 			</data>
 		</dict>
 		<key>NCWWantAddtionalCollectionViewCell.nib</key>
@@ -579,7 +643,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K5zbi6Gq0TWnZZHi2xChIkohAs42M2JxrJpeZ0HB3Qw=
+			9WWqTqKni6zGPGQWr0JxzYoDB36H9npexnz+nrHT810=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>
@@ -587,20 +651,6 @@
 			<key>hash2</key>
 			<data>
 			7wf1X6mrTcDAlpptuGSXJHWTqvuLb7ftZ5Ragx4cvbI=
-			</data>
-		</dict>
-		<key>PrivacyInfo.xcprivacy</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ENpn8heCTwGSiOwyirq8KQqwOZxS6b53ok1JQzkTfaI=
-			</data>
-		</dict>
-		<key>README.md</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			/YFIiW/3R5vOMWNa2WDvXGRIq3NjwOKX+psSxVNBHH4=
 			</data>
 		</dict>
 		<key>TabBarButtonStyles.json</key>
@@ -631,11 +681,34 @@
 			9xkcLkq5R2lvcHWwl4Eobd0kWvc6mA/Vbb9SpNHb23w=
 			</data>
 		</dict>
+		<key>bot_response.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bNzvW9rgkzH2sItovEEc4Y/L/t8Cy94K8GsOWrzJtSU=
+			</data>
+		</dict>
 		<key>dots_indicator.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			hsh2ghFgMhP4EwVf6kTRVfNkThoOuY3e6IdOOaIXHWo=
+			</data>
+		</dict>
+		<key>en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			k09rv4wCKBCTseiS4lZoo92r3TRLCxNVdbCCLgeW9ro=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>user_response.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/1XZzeMAqVTc/2uX7cFES3GJvWfcoQaP+qhJq53jttg=
 			</data>
 		</dict>
 	</dict>

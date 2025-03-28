@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "NetomiChatSDK"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Netomi Chat SDK"
   s.description  = <<-DESC
   "The Netomi Chat SDK is a software development kit that enables developers to integrate Netomi Chat interface into their applications, allowing for AI-powered virtual agents that automate customer interactions across chat and messaging channels. Leveraging Netomi Agentic OS, it streamlines customer support by providing instant responses, automating routine tasks, and seamlessly escalating complex queries to human agents when needed."
@@ -19,7 +19,10 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/**/*.{swift,h, xib}"
   s.static_framework = true
   s.requires_arc = true
-  s.vendored_frameworks = 'Sources/Netomi.xcframework'
+  s.vendored_frameworks =      [
+        "Sources/Netomi.xcframework",
+        "Sources/ExternalFrameworks.xcframework",
+        ]
   
   # External dependencies that are used in the SDK
   s.dependency 'AWSIoT'
