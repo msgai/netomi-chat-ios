@@ -21,6 +21,10 @@ let package = Package(
                     name: "Netomi",
                     path: "sources/Netomi.xcframework"
                 ),
+        .binaryTarget(
+                    name: "ExternalFrameworks",
+                    path: "sources/ExternalFrameworks.xcframework"
+                ),
 
     ]
 )
