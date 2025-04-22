@@ -4,13 +4,25 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.swiftlint.yml</key>
+		<data>
+		idHLh0JeufbGWln5pKf7OpUWErM=
+		</data>
 		<key>Assets.car</key>
 		<data>
 		UBH+tvgfA2jzLgKNL7vxkxe0BNA=
 		</data>
-		<key>ButtonStyles.json</key>
+		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
 		<data>
-		2KUkfDaiz11pSSCJzCN4dqrsQa8=
+		MZAd2m9PCrw6491Q/fQPQK7BE4A=
+		</data>
+		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
+		<data>
+		vbTWyfQh8QqpDc527QPfiwlxjuA=
+		</data>
+		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
+		<data>
+		zV9O+GqS6tR1Mx5Ul6lOZCAkqGs=
 		</data>
 		<key>Headers/Netomi-Swift.h</key>
 		<data>
@@ -28,33 +40,29 @@
 		<data>
 		bzxgweO2AMyd99qVODiQcgBRIG0=
 		</data>
-		<key>LabelStyles.json</key>
-		<data>
-		lH6i9YroRPtMjBCqZH2/IsNe87o=
-		</data>
 		<key>MessageViewCell.nib</key>
 		<data>
 		Edxi8LPKWtToPgzpIISDcF/G068=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		i/MwF7peMzuHsNHh6VaOIs2uw+M=
+		YJNWPB1f2UPvBwQDj3UXA7EzpLM=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		4sKjV/mBpEIpbLA9gyWWDmeR0Gg=
+		tHOq0zNglSm0uVgkm0EGDFKNnOo=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		PvdFgrUKlo+/Tdps4bFpEktTi0g=
+		AvB5CkrWtXBeYlZHpHezpLJ9AG0=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		4sKjV/mBpEIpbLA9gyWWDmeR0Gg=
+		tHOq0zNglSm0uVgkm0EGDFKNnOo=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		IkOMPfLdLGXWetQGl/JkXan8jkc=
+		hrzaW45ISIW9LDO5965FypnfaZY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,7 +70,7 @@
 		</data>
 		<key>NCWAddAddtionalFeedbackCollectionViewCell.nib</key>
 		<data>
-		WWrLtQGsHMa586/CQF5CEQFAuxE=
+		auAoCX3ZBwtOIODCaWf8zeJlPQM=
 		</data>
 		<key>NCWBottomSheetTableViewCell.nib</key>
 		<data>
@@ -210,27 +218,11 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		6kF7fQiXUgEZmvIf1JuEUszPodY=
+		iKiC0XoiZUW8RauYG0VLHwlOpmg=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
 		iBV2GO2TzITo2+JRg97rlTJt1jc=
-		</data>
-		<key>TabBarButtonStyles.json</key>
-		<data>
-		BE5WbyBZvKhE9yR0R8euWTVsoAU=
-		</data>
-		<key>TextFieldStyles.json</key>
-		<data>
-		3rg3pd77v2bMOTAtXVRbPsbibvw=
-		</data>
-		<key>TextViewStyles.json</key>
-		<data>
-		fLkKVYQVAfIXry73gDUqAdleTQ4=
-		</data>
-		<key>Variables.json</key>
-		<data>
-		WdFMzvJHopfj89NdxqXMe2NRK2Y=
 		</data>
 		<key>bot_response.wav</key>
 		<data>
@@ -256,6 +248,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>.swiftlint.yml</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CS7Ha7U0NGTUr0k/s5SvXkVjmRjsNdUtNHjeS/shXZo=
+			</data>
+		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
@@ -263,11 +262,25 @@
 			MCcyYPeAnwcOT8K/HSpJb8UKbl234+RgKRSsqToK+8g=
 			</data>
 		</dict>
-		<key>ButtonStyles.json</key>
+		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cS/HYrt+R7RDf96gGb7wlMKXmcd/o+E3UiwfRr/IdvE=
+			7fw3gUek2w30f4wB3NIy2VdK5bjrGEF+0k0mdLtvEPk=
+			</data>
+		</dict>
+		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			urcohfK/sSZsaJVghXrJ3d7XRvs1AtL9RqIZHd097Ks=
+			</data>
+		</dict>
+		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MXV6vVcrQmgNpifNSwwXl76o+btKBh5JBK0pAyLhXU0=
 			</data>
 		</dict>
 		<key>Headers/Netomi-Swift.h</key>
@@ -291,13 +304,6 @@
 			vR5gTyh7DcVOzHpG1qQgELOMMZhxxEN7bjbjq3BMrGA=
 			</data>
 		</dict>
-		<key>LabelStyles.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			B+astWLzOrQRuva9WOajQYsxd2JgtOniZJb5XCjhykE=
-			</data>
-		</dict>
 		<key>MessageViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
@@ -309,35 +315,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5PnOaJUU3//HsLFF/K1hkIMGseGmUg0M/CyehuMQq5o=
+			6i9rZ6356UH7tLFwSTE/Vmq5BfSuWKCfiVnN/deqPeU=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TMlEenT9h6wAy6/ZYwTjvN+lSlmiWcQsw8pzKgTOvpg=
+			IV9MjU553xi+jWw/aqhIyxaX9Av4uyJ3ROvmVJ/4PcQ=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WSkz4S6cMRUB7YnLS7y/XaGTqXRSUVj3Nr3IOAwd61o=
+			diYIsLxs6FgKEUog6qF8V7v0uCR14ZDQKaers/wowZo=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TMlEenT9h6wAy6/ZYwTjvN+lSlmiWcQsw8pzKgTOvpg=
+			IV9MjU553xi+jWw/aqhIyxaX9Av4uyJ3ROvmVJ/4PcQ=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VgsWMpJLmw5Wb+PYfcBZ6mgx0j6E2rKdgllEB7MQKpQ=
+			xCuA6CDFbJCfcQinkhVvETkp/k+KaX4LHLCLFk3ma2E=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -351,7 +357,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WCxG5qrSmng4MdzlegjJ+2avT68EQ5e9cw+P2tjjw2s=
+			e33RouuAzo7XWGzsQ09CF0GAuf/bUJQMNDCiMJTFVgw=
 			</data>
 		</dict>
 		<key>NCWBottomSheetTableViewCell.nib</key>
@@ -610,7 +616,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9WWqTqKni6zGPGQWr0JxzYoDB36H9npexnz+nrHT810=
+			qKKXP6Wf3qe81FXq/vfEWB1ucvHCcqX0yJf742tZ4RI=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>
@@ -618,34 +624,6 @@
 			<key>hash2</key>
 			<data>
 			7wf1X6mrTcDAlpptuGSXJHWTqvuLb7ftZ5Ragx4cvbI=
-			</data>
-		</dict>
-		<key>TabBarButtonStyles.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			RtTqJ3ybEbsvQzs7BqCEBMClynLyS/wtgIdPDBGBbMw=
-			</data>
-		</dict>
-		<key>TextFieldStyles.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			NIgJkebEygsRWnrRzMNNpm/6li9s3rk/vP2maavxWv8=
-			</data>
-		</dict>
-		<key>TextViewStyles.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			81YyJxWhuTcc2EQ+JjNPr4HvEX0jaMnSghtYr6VMSdo=
-			</data>
-		</dict>
-		<key>Variables.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			9xkcLkq5R2lvcHWwl4Eobd0kWvc6mA/Vbb9SpNHb23w=
 			</data>
 		</dict>
 		<key>bot_response.wav</key>

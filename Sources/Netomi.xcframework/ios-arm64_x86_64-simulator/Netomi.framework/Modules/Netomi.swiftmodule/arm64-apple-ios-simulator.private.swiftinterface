@@ -46,6 +46,7 @@ public struct NCWBotConfiguration {
   @_Concurrency.MainActor final public func launch(jwt: Swift.String? = nil, errorHandler: ((Netomi.NCWErrorData) -> Swift.Void)? = nil)
   @_Concurrency.MainActor final public func setFCMToken(_ token: Swift.String)
   @_Concurrency.MainActor final public func sendCustomParameter(name: Swift.String, value: Swift.String)
+  @_Concurrency.MainActor final public func updateApiHeaderConfiguration(headers: [Swift.String : Swift.String])
   @objc deinit
 }
 extension Netomi.NetomiChat {
