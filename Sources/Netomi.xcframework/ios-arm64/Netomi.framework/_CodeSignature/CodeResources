@@ -10,23 +10,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		UBH+tvgfA2jzLgKNL7vxkxe0BNA=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
-		<data>
-		MZAd2m9PCrw6491Q/fQPQK7BE4A=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
-		<data>
-		vbTWyfQh8QqpDc527QPfiwlxjuA=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
-		<data>
-		zV9O+GqS6tR1Mx5Ul6lOZCAkqGs=
+		BKyRrxPk1TrsrgwH5EKouaTcP2E=
 		</data>
 		<key>Headers/Netomi-Swift.h</key>
 		<data>
-		aEQ9rZWUMQdUu8zLsUeQHGyXflE=
+		WF6xGUhD+5zjbXlxeahjp1ZR9YQ=
 		</data>
 		<key>Headers/Netomi.h</key>
 		<data>
@@ -38,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bzxgweO2AMyd99qVODiQcgBRIG0=
+		nRReWLTRolJ0QRiIsm9Jz+GiPxs=
 		</data>
 		<key>MessageViewCell.nib</key>
 		<data>
@@ -46,23 +34,23 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		YJNWPB1f2UPvBwQDj3UXA7EzpLM=
+		z328qwHgaJUiE0mH0YYjwrx/+MA=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		tHOq0zNglSm0uVgkm0EGDFKNnOo=
+		FTcKhez/5A3xrK80RcRbVJ96bU0=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		AvB5CkrWtXBeYlZHpHezpLJ9AG0=
+		dHLWcY1UUbY2YJNrgiMne75dQaY=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		tHOq0zNglSm0uVgkm0EGDFKNnOo=
+		FTcKhez/5A3xrK80RcRbVJ96bU0=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		hrzaW45ISIW9LDO5965FypnfaZY=
+		T/ukt08DJE/ga/DxpFxFe5ezrDk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -186,7 +174,7 @@
 		</data>
 		<key>NCWStoryboard.storyboardc/hVC-xH-tgn-view-oeG-ol-NVV.nib</key>
 		<data>
-		azp1pUGCe3iIJPvjw6uSjCOXOJo=
+		rBaAudDxhnTNTkL0zzXDSVjMVx4=
 		</data>
 		<key>NCWSuggestionHeaderCollectionReusableView.nib</key>
 		<data>
@@ -218,7 +206,7 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		iKiC0XoiZUW8RauYG0VLHwlOpmg=
+		ANUPp/VPaZ1gvMjp/elw5IHNyu8=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
@@ -259,35 +247,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MCcyYPeAnwcOT8K/HSpJb8UKbl234+RgKRSsqToK+8g=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7fw3gUek2w30f4wB3NIy2VdK5bjrGEF+0k0mdLtvEPk=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			urcohfK/sSZsaJVghXrJ3d7XRvs1AtL9RqIZHd097Ks=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			MXV6vVcrQmgNpifNSwwXl76o+btKBh5JBK0pAyLhXU0=
+			TBjqJuL0ADGhswGgcaCG9cYV+Csh663v30SqeQsgaWQ=
 			</data>
 		</dict>
 		<key>Headers/Netomi-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VGOvwY9FQa4MojcXoF1nvUxvPrzDMZ9GoYejJkIeuME=
+			4jDhGq7tEmhXvdf0RpgjujmJdBMlqgNUOgFdd5r1PoA=
 			</data>
 		</dict>
 		<key>Headers/Netomi.h</key>
@@ -315,35 +282,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6i9rZ6356UH7tLFwSTE/Vmq5BfSuWKCfiVnN/deqPeU=
+			hSsOixWjOpCiUnL0nC8L5cLtfVIRylRPus2vg4zggtw=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IV9MjU553xi+jWw/aqhIyxaX9Av4uyJ3ROvmVJ/4PcQ=
+			riD25h7uK8fyEFUGLvaZK6QqqrsWiL+TBt6T7/ojT0I=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			diYIsLxs6FgKEUog6qF8V7v0uCR14ZDQKaers/wowZo=
+			7GF3rCh+B6lGHAkdLzwCHmp/hx8720EodO8w21xp4mo=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IV9MjU553xi+jWw/aqhIyxaX9Av4uyJ3ROvmVJ/4PcQ=
+			riD25h7uK8fyEFUGLvaZK6QqqrsWiL+TBt6T7/ojT0I=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xCuA6CDFbJCfcQinkhVvETkp/k+KaX4LHLCLFk3ma2E=
+			AXNqQPvVheTE3/kcrDd7vKc/1+9/tf5AZkz27NGyHqk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -560,7 +527,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4yWqg5ib/UJ6evqq2wD7Aa+6CPGVF09TNe/c+9JkclY=
+			/9PUw2Lv66obER/iGA8jBYSWJ76mOjW9ZMpsSd9sIYU=
 			</data>
 		</dict>
 		<key>NCWSuggestionHeaderCollectionReusableView.nib</key>
@@ -616,7 +583,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qKKXP6Wf3qe81FXq/vfEWB1ucvHCcqX0yJf742tZ4RI=
+			YFXIImxWo6fRGn3NPjXeHvtwOvvdVWUp3sdglsntTBs=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>

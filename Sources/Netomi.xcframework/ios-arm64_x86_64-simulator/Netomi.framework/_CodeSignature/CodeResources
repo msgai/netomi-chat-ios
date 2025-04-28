@@ -10,23 +10,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		UBH+tvgfA2jzLgKNL7vxkxe0BNA=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
-		<data>
-		J+1yuMUdOvAXUZa3KvtQ8WUApwI=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
-		<data>
-		XBhASeU+h3USXXepbquedi6aoQw=
-		</data>
-		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
-		<data>
-		Zpkcmx/6DNgsZTZiXiVm3B4JkSI=
+		BKyRrxPk1TrsrgwH5EKouaTcP2E=
 		</data>
 		<key>Headers/Netomi-Swift.h</key>
 		<data>
-		8v3czL+G+BokqCwc/LW1U4D1X58=
+		VnD3Q6QI/h5wYMcdIs0oGvWZ+Fk=
 		</data>
 		<key>Headers/Netomi.h</key>
 		<data>
@@ -38,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		rPvbyQ074ickzYFb3YYLuFG5nQg=
+		bJ7DwG3NVf6omB1Bkjx6VMGB/UQ=
 		</data>
 		<key>MessageViewCell.nib</key>
 		<data>
@@ -46,43 +34,43 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		uH7MYrmDRh38CjbyO9zKeouGA8w=
+		Oerkxr9XrJK19S0YO6EF1KUW6sU=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		JDtxG6SRZbjV9FCUiLtpDcRcyRU=
+		SQLjgEROC81XUQSiQWajM+hxYIE=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		RNOeIQvEHmkTI6Xv3s8F1ssbFaA=
+		Z/uVev7fSCvm8s4+0iNFMHYwv/w=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		JDtxG6SRZbjV9FCUiLtpDcRcyRU=
+		SQLjgEROC81XUQSiQWajM+hxYIE=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		eZZA9tuGDDswndp1ThA93/Hq6MY=
+		RD1vdYrKOqmiUdeZfxTy2Q+v/LI=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		uH7MYrmDRh38CjbyO9zKeouGA8w=
+		Oerkxr9XrJK19S0YO6EF1KUW6sU=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		UV8XrbihM1l2bpTYWMEyCgbu+cI=
+		2Za+1zTr1BoWOHjDXPuCUTN6q40=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6dDd02YkMJOoHn1dNlcD0Y9b/1o=
+		9a0mTIGm+222Qh0YYSKHUXZJOw8=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		UV8XrbihM1l2bpTYWMEyCgbu+cI=
+		2Za+1zTr1BoWOHjDXPuCUTN6q40=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		qyn+epemWCaMuZcJk9DANrWwSpU=
+		BCKGm75bKGHT02j7L7f0KsRQQlg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -206,7 +194,7 @@
 		</data>
 		<key>NCWStoryboard.storyboardc/hVC-xH-tgn-view-oeG-ol-NVV.nib</key>
 		<data>
-		azp1pUGCe3iIJPvjw6uSjCOXOJo=
+		rBaAudDxhnTNTkL0zzXDSVjMVx4=
 		</data>
 		<key>NCWSuggestionHeaderCollectionReusableView.nib</key>
 		<data>
@@ -238,7 +226,7 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		iKiC0XoiZUW8RauYG0VLHwlOpmg=
+		ANUPp/VPaZ1gvMjp/elw5IHNyu8=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
@@ -279,35 +267,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MCcyYPeAnwcOT8K/HSpJb8UKbl234+RgKRSsqToK+8g=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/ExternalFrameworks</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			yPDtW9KWhGhtDCBMxQmxJXaJUj88SfH5QHEHgDvD+VY=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			dP2Bh1X8DIURk0eVbxK4PxeBDbjtt99En1eZonF3Jvc=
-			</data>
-		</dict>
-		<key>Frameworks/ExternalFrameworks.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			e5JYzbXtBVdnKFkmWD2TjZxyauaZG+OLcY1qFsx9oJY=
+			TBjqJuL0ADGhswGgcaCG9cYV+Csh663v30SqeQsgaWQ=
 			</data>
 		</dict>
 		<key>Headers/Netomi-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i7D+ZyQwiAGV8I86OhI40wqDxEye/lmb0LXdR4aG1YE=
+			fYLWnktP7p9vRvfaCagAC2sVn7VI1cMus8I1Wn+L/cE=
 			</data>
 		</dict>
 		<key>Headers/Netomi.h</key>
@@ -335,70 +302,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
+			cTzriX2+QRDy5yG9DvMEXlS5h32ltGSXcZ2TPlmFXk8=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7+tAGhwCmX58qWC++eba3bq1Czs3IHafp6A4y0ELfqc=
+			5766m/eEKpXv6w7DQP/ZhWMvYpMq/ktd2R/HQMXGYnk=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wHYP7WkVeUcM0pG1xBIM8ocL31CfALNq+QC0wV7IiIM=
+			kTjYrdgzh5w8bicaJyXPRv78bg1fAmWeQC/Y5ki91k0=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7+tAGhwCmX58qWC++eba3bq1Czs3IHafp6A4y0ELfqc=
+			5766m/eEKpXv6w7DQP/ZhWMvYpMq/ktd2R/HQMXGYnk=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GrwPsJyjyJDWrIU1Ls0rhZhTReGbiVIT8ZF8IurX4UI=
+			mly/3eU8X7fIdCccl3m/vR5apTR5j7od+qdDGJqWE0w=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
+			cTzriX2+QRDy5yG9DvMEXlS5h32ltGSXcZ2TPlmFXk8=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8CImY/TQxZUoonaYcbGNF8SY5fcDR5LyghoIL1Nw78c=
+			Ec8PTCuPLHFOu08XqkV+pt8ktMYbabavtgkkY6kvoaM=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZHBMYsLUO6iHlaOu2igjtDcxe3GUT10+D3rI8LDQZVI=
+			FmxKyGzr7F3MhTgDi/4/2CgfDBSvb4BVUE6z9sEjyC8=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8CImY/TQxZUoonaYcbGNF8SY5fcDR5LyghoIL1Nw78c=
+			Ec8PTCuPLHFOu08XqkV+pt8ktMYbabavtgkkY6kvoaM=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1Insb4lqEQ9++Iaa184i/VZIoi6x+HfhTo+RFEMqCGs=
+			HhDQ1K5QAfOxQZXH/qpQmlAAagAsa5gySdXNAposeGU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -615,7 +582,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4yWqg5ib/UJ6evqq2wD7Aa+6CPGVF09TNe/c+9JkclY=
+			/9PUw2Lv66obER/iGA8jBYSWJ76mOjW9ZMpsSd9sIYU=
 			</data>
 		</dict>
 		<key>NCWSuggestionHeaderCollectionReusableView.nib</key>
@@ -671,7 +638,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qKKXP6Wf3qe81FXq/vfEWB1ucvHCcqX0yJf742tZ4RI=
+			YFXIImxWo6fRGn3NPjXeHvtwOvvdVWUp3sdglsntTBs=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>

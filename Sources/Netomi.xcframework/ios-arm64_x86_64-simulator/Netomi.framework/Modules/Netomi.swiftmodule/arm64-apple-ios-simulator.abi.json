@@ -10720,127 +10720,134 @@
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
+      "kind": "Dictionary",
+      "offset": 4014,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4024,
+      "offset": 4067,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4056,
+      "offset": 4099,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 4114,
+      "offset": 4157,
       "length": 21,
       "value": "\"com.netomi.messages\""
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 41566,
+      "offset": 41609,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 41595,
+      "offset": 41638,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 42824,
+      "offset": 42867,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 42851,
+      "offset": 42894,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 42935,
+      "offset": 42978,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 42999,
+      "offset": 43042,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 43448,
+      "offset": 43491,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 45795,
+      "offset": 45838,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 45824,
+      "offset": 45867,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 57721,
+      "offset": 67377,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 63952,
+      "offset": 73608,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 63981,
+      "offset": 73637,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 91547,
+      "offset": 101203,
       "length": 10,
       "value": "\"CHAT_END\""
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 91581,
+      "offset": 101237,
       "length": 14,
       "value": "\"CHAT_RESTART\""
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/ViewModel\/NCWChatViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 91622,
+      "offset": 101278,
       "length": 16,
       "value": "\"SESSION_EXPIRE\""
     },
@@ -12470,15 +12477,22 @@
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/Models\/NCWBotResponse\/NCWAttachment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3001,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/Models\/NCWBotResponse\/NCWAttachment.swift",
       "kind": "BooleanLiteral",
-      "offset": 3016,
+      "offset": 3056,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/appinventiv\/Documents\/Working Projects\/Netomi Private release\/ncw-sdk\/Netomi\/Library\/Models\/NCWBotResponse\/NCWAttachment.swift",
       "kind": "BooleanLiteral",
-      "offset": 6188,
+      "offset": 6228,
       "length": 5,
       "value": "false"
     },
