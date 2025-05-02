@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Oerkxr9XrJK19S0YO6EF1KUW6sU=
+		uH7MYrmDRh38CjbyO9zKeouGA8w=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		RD1vdYrKOqmiUdeZfxTy2Q+v/LI=
+		1MVYwMp/h8yXc6ibJJuZ6IKusuQ=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Oerkxr9XrJK19S0YO6EF1KUW6sU=
+		uH7MYrmDRh38CjbyO9zKeouGA8w=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BCKGm75bKGHT02j7L7f0KsRQQlg=
+		4xLGoTvLbi5qQpgmRz9gi27kNRg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -226,7 +226,7 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		ANUPp/VPaZ1gvMjp/elw5IHNyu8=
+		SfGiYowbNvST86ATFp/tZn0gdHo=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
@@ -302,7 +302,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cTzriX2+QRDy5yG9DvMEXlS5h32ltGSXcZ2TPlmFXk8=
+			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -330,14 +330,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mly/3eU8X7fIdCccl3m/vR5apTR5j7od+qdDGJqWE0w=
+			d+OsajK8KkhNzMmTrRInGS656vxZFyR8DL2iPD889qY=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cTzriX2+QRDy5yG9DvMEXlS5h32ltGSXcZ2TPlmFXk8=
+			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -365,7 +365,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HhDQ1K5QAfOxQZXH/qpQmlAAagAsa5gySdXNAposeGU=
+			O6jo+rfpvRwhODtxZ9O518bYFw5BWe9oburewRZCgCM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -638,7 +638,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YFXIImxWo6fRGn3NPjXeHvtwOvvdVWUp3sdglsntTBs=
+			7brKVu2nl0sgwCRLd/yIe3zkbeisgAMNu4nCuhutqcY=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>
