@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		uH7MYrmDRh38CjbyO9zKeouGA8w=
+		x68X2lKVACuuSKVWceBplCcXrQw=
 		</data>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		uH7MYrmDRh38CjbyO9zKeouGA8w=
+		x68X2lKVACuuSKVWceBplCcXrQw=
 		</data>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -226,7 +226,7 @@
 		</data>
 		<key>Netomi.podspec</key>
 		<data>
-		SfGiYowbNvST86ATFp/tZn0gdHo=
+		vy8uoN6SHwKsQJPYcL8J4AOU6rs=
 		</data>
 		<key>OptionsTableViewCell.nib</key>
 		<data>
@@ -302,7 +302,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
+			MsdyorYyfrUvv8NdbEQqvHatOLVNcCu1VIUGGvz55Iw=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -337,7 +337,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			opNnDesmSgCIBLdqGaa9f7ZkGwDYspkmc2heOL1VBX0=
+			MsdyorYyfrUvv8NdbEQqvHatOLVNcCu1VIUGGvz55Iw=
 			</data>
 		</dict>
 		<key>Modules/Netomi.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -638,7 +638,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7brKVu2nl0sgwCRLd/yIe3zkbeisgAMNu4nCuhutqcY=
+			EGcBZAWUaCxSCqHwQDJ2TeQLmQkuSFAfFjdiTA1PXHw=
 			</data>
 		</dict>
 		<key>OptionsTableViewCell.nib</key>
