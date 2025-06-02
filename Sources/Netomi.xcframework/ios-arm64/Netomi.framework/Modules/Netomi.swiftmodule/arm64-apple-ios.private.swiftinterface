@@ -43,9 +43,11 @@ public struct NCWBotConfiguration {
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class NetomiChat : ObjectiveC.NSObject {
   @_Concurrency.MainActor public static let shared: Netomi.NetomiChat
   @_Concurrency.MainActor final public func initialize(botRefId: Swift.String, env: Netomi.NCWEnvironment)
+  @_Concurrency.MainActor final public func launchWithQuery(_ query: Swift.String?, jwt: Swift.String? = nil, errorHandler: ((Netomi.NCWErrorData) -> Swift.Void)? = nil)
   @_Concurrency.MainActor final public func launch(jwt: Swift.String? = nil, errorHandler: ((Netomi.NCWErrorData) -> Swift.Void)? = nil)
   @_Concurrency.MainActor final public func setFCMToken(_ token: Swift.String)
   @_Concurrency.MainActor final public func sendCustomParameter(name: Swift.String, value: Swift.String)
+  @_Concurrency.MainActor final public func setCustomParameter(_ params: [Swift.String : Swift.String])
   @_Concurrency.MainActor final public func updateApiHeaderConfiguration(headers: [Swift.String : Swift.String])
   @objc deinit
 }
