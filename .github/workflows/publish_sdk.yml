@@ -1,0 +1,48 @@
+name: Publish SDK to CocoaPods
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  publish:
+    name: Push Pod to CocoaPods
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby + CocoaPods
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
+      - name: Validate Podspec
+        run: pod spec lint NetomiChatSDK.podspec --allow-warnings --verbose
+
+      - name: Extract SDK Version
+        id: version
+        run: |
+          VERSION=$(grep 's.version' NetomiChatSDK.podspec | sed -E 's/.*"([0-9.]+)".*/\1/')
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Publish to CocoaPods Trunk
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: pod trunk push NetomiChatSDK.podspec --allow-warnings --verbose
+
+      - name: Create and Push Git Tag
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          echo "Publishing tag: v$VERSION"
+          git config user.name "sdk-admin"
+          git config user.email "sdk-admin@netomi.com"
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
