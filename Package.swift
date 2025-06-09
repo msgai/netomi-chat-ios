@@ -15,16 +15,11 @@ let package = Package(
             targets: ["Netomi"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .binaryTarget(
-                    name: "Netomi",
-                    path: "sources/Netomi.xcframework"
-                ),
-        .binaryTarget(
-                    name: "ExternalFrameworks",
-                    path: "sources/ExternalFrameworks.xcframework"
-                ),
+            .binaryTarget(
+                name: "Netomi",
+                url: "https://github.com/msgai/netomi-chat-ios/releases/download/0.0.0/Netomi.xcframework.zip",
+                checksum: "c0ffeec0ffeec0ffeec0ffeec0ffeec0ffeec0ffeec0ffeec0ffeec0ffeec0ff"
+            )
+        ]
 
-    ]
 )

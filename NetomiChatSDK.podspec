@@ -13,17 +13,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "15.0"
   s.ios.deployment_target = "15.0"
   s.swift_version = '5.0'
-  s.source       = { :git => "https://github.com/msgai/netomi-chat-ios.git", :tag => "#{s.version}" }
-  
-  # Load source files from framework & paths settings.
-  s.source_files  = "Sources/**/*.{swift,h, xib}"
+  s.source           = {
+    :http => 'https://github.com/msgai/netomi-chat-ios/releases/download/0.0.0/Netomi.xcframework.zip'
+  }
   s.static_framework = true
   s.requires_arc = true
-  s.vendored_frameworks =      [
-        "Sources/Netomi.xcframework",
-        "Sources/ExternalFrameworks.xcframework",
-        ]
-  
+
   # External dependencies that are used in the SDK
   s.dependency 'AWSIoT'
   
