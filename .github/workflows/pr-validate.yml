@@ -1,0 +1,34 @@
+name: Validate SDK PR
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'NetomiChatSDK.podspec'
+      - 'Package.swift'
+
+jobs:
+  validate:
+    name: Lint and Build SDK
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      - name: Install CocoaPods
+        run: gem install cocoapods
+
+      - name: Validate Podspec
+        run: pod lib lint NetomiChatSDK.podspec --allow-warnings
+
+      - name: Validate Swift Package Manifest
+        run: |
+          echo "Validating Package.swift syntax..."
+          swift package dump-package > /dev/null
