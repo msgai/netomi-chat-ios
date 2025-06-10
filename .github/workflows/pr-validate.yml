@@ -2,7 +2,7 @@ name: Validate SDK PR
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
     paths:
       - 'NetomiChatSDK.podspec'
       - 'Package.swift'
