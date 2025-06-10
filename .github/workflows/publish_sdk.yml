@@ -29,10 +29,10 @@ jobs:
       - name: Validate Podspec
         run: pod lib lint NetomiChatSDK.podspec --allow-warnings
 
-      - name: Publish to CocoaPods Trunk
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-        run: pod trunk push NetomiChatSDK.podspec --allow-warnings
+#      - name: Publish to CocoaPods Trunk
+#        env:
+#          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+#        run: pod trunk push NetomiChatSDK.podspec --allow-warnings
 
       - name: Extract SDK Version
         id: version
@@ -41,44 +41,44 @@ jobs:
           echo "VERSION=$VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Create and Push Git Tag
-        run: |
-          echo "Publishing tag: v${{ steps.version.outputs.VERSION }}"
-          git config user.name "Netomi SDK Bot"
-          git config user.email "ci@netomi.com"
-          git tag "v${{ steps.version.outputs.VERSION }}"
-          git push origin "v${{ steps.version.outputs.VERSION }}"
+#      - name: Create and Push Git Tag
+#        run: |
+#          echo "Publishing tag: v${{ steps.version.outputs.VERSION }}"
+#          git config user.name "Netomi SDK Bot"
+#          git config user.email "ci@netomi.com"
+#          git tag "v${{ steps.version.outputs.VERSION }}"
+#          git push origin "v${{ steps.version.outputs.VERSION }}"
 
-  notify:
-    name: Email Notification
-    needs: publish
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
-      - name: Send Email Notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: |
-            [Netomi iOS SDK] v${{ needs.publish.outputs.version || 'unknown' }} Publish ${{ needs.publish.result == 'success' && '✅ Succeeded' || '❌ Failed' }}
-          to: sandeep.joshi@netomi.com, shruti.aggarwal@netomi.com, mubeen@netomi.com
-          from: Netomi iOS SDK CI <sdk-bot@netomi.com>
-          body: |
-            Hi Team,
-
-            The SDK publish workflow has completed.
-
-            ✅ Status: ${{ needs.publish.result }}
-            📦 Version: v${{ needs.publish.outputs.version || 'unknown' }}
-            🌿 Branch: ${{ github.ref_name }}
-            🔗 Repository: ${{ github.repository }}
-            🔧 Commit: ${{ github.sha }}
-
-            View the full workflow logs here:
-            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            — Netomi CI Bot
+#  notify:
+#    name: Email Notification
+#    needs: publish
+#    runs-on: ubuntu-latest
+#    if: always()
+#
+#    steps:
+#      - name: Send Email Notification
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#          server_address: smtp.gmail.com
+#          server_port: 587
+#          username: ${{ secrets.SMTP_USERNAME }}
+#          password: ${{ secrets.SMTP_PASSWORD }}
+#          subject: |
+#            [Netomi iOS SDK] v${{ needs.publish.outputs.version || 'unknown' }} Publish ${{ needs.publish.result == 'success' && '✅ Succeeded' || '❌ Failed' }}
+#          to: sandeep.joshi@netomi.com, shruti.aggarwal@netomi.com, mubeen@netomi.com
+#          from: Netomi iOS SDK CI <sdk-bot@netomi.com>
+#          body: |
+#            Hi Team,
+#
+#            The SDK publish workflow has completed.
+#
+#            ✅ Status: ${{ needs.publish.result }}
+#            📦 Version: v${{ needs.publish.outputs.version || 'unknown' }}
+#            🌿 Branch: ${{ github.ref_name }}
+#            🔗 Repository: ${{ github.repository }}
+#            🔧 Commit: ${{ github.sha }}
+#
+#            View the full workflow logs here:
+#            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+#
+#            — Netomi CI Bot
