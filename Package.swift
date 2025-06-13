@@ -1,30 +1,22 @@
-// swift-tools-version: 6.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
     name: "NetomiChatSDK",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v15)
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "NetomiChatSDK",
-            targets: ["Netomi"]),
+            targets: ["Netomi"]
+        )
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .binaryTarget(
-                    name: "Netomi",
-                    path: "sources/Netomi.xcframework"
-                ),
-        .binaryTarget(
-                    name: "ExternalFrameworks",
-                    path: "sources/ExternalFrameworks.xcframework"
-                ),
-
+            name: "Netomi",
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.1.7/Netomi.xcframework.zip",
+            checksum: "b1e23c8a0b3165cb68f0d8d0634936cf87bf76846d535eba45cc98e184792568"
+        )
     ]
 )
