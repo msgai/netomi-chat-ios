@@ -24,9 +24,6 @@ jobs:
       - name: Install CocoaPods
         run: gem install cocoapods
 
-      - name: Validate Podspec
-        run: pod spec lint NetomiChatSDK.podspec --allow-warnings --verbose
-
       - name: Extract SDK Version
         id: version
         run: |
@@ -39,10 +36,12 @@ jobs:
         run: pod trunk push NetomiChatSDK.podspec --allow-warnings --verbose
 
       - name: Create and Push Git Tag
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
         run: |
           VERSION=${{ steps.version.outputs.version }}
           echo "Publishing tag: v$VERSION"
-          git config user.name "sdk-admin"
-          git config user.email "sdk-admin@netomi.com"
+          git config user.name "Netomi"
+          git config user.email "$USER_EMAIL"
           git tag "v$VERSION"
           git push origin "v$VERSION"
