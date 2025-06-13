@@ -3,6 +3,11 @@
 /Packages
 xcuserdata/
 DerivedData/
+*.xcscmblueprint
+*.xccheckout
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+node_modules/
+semantic.log
+*.bak
