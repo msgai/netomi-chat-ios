@@ -27,10 +27,14 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "15.0"
   s.swift_version = '5.0'
   s.source       = {
-    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.1.10/Netomi.xcframework.zip"
+    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.1.11/Netomi.xcframework.zip"
   }
 
-  s.vendored_frameworks = "Netomi.xcframework"
+  s.vendored_frameworks = [
+    'Netomi.xcframework',
+    'ExternalFrameworks/ExternalFrameworks.xcframework'
+  ]
+
   s.static_framework = true
   s.requires_arc = true
 
