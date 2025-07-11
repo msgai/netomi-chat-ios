@@ -28,7 +28,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.2.0'
+   pod 'NetomiChatSDK', '1.2.1'
    ```
 
 2. Run:
@@ -50,7 +50,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.2.0`
+3. Select tag or branch: `1.2.1`
 
 4. ✅ Required third-party dependencies (must be added manually via SPM):
    - AWS IoT Core:
@@ -60,7 +60,6 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
      - Select `AWSCore` and `AWSIoT`
 
 ---
-
 
 ## Quick Start
 
@@ -244,7 +243,6 @@ For SDK issues or integration help:
 
 ```
 © 2025 Netomi. All rights reserved.
-This sample app is for demonstration purposes only.
 The Netomi Mobile Chat SDK may include its own license terms.
 Refer to Netomi's official documentation for legal details.
 ```
