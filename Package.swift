@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "NetomiChatSDK",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v16)
     ],
     products: [
         .library(
@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Netomi",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.4.3/Netomi.xcframework.zip",
-            checksum: "1a90df33476a58963aecfe8e478f71e784830a89702c9f9370b9572cb7b5a2ba"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.4.4/Netomi.xcframework.zip",
+            checksum: "1075ff2e4b2cede23f9d92d529e1d5eba771d32e3364c1421c613d03ec1cfbc4"
         )
     ]
 )
