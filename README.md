@@ -3,6 +3,7 @@
 ## Overview
 
 The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app. It supports:
+
 - Rich media responses
 - File attachments and forms
 - Live agent handoff
@@ -28,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.4.4'
+   pod 'NetomiChatSDK', '1.5.0'
    ```
 
 2. Run:
@@ -39,6 +40,12 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
 3. Open `.xcworkspace` in Xcode.
 
+4. Import and Use
+
+    ```swift
+    import Netomi 
+    ```
+
 ---
 
 ### 2️⃣ Swift Package Manager (SPM)
@@ -46,18 +53,98 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Go to **Xcode > Project > Package Dependencies**
 2. Add:
 
-   ```
+   ```text
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.4.4`
+3. Select tag or branch: `1.5.0`
 
-4. ✅ Required third-party dependencies (must be added manually via SPM):
-   - AWS IoT Core:
-     ```
+4. ✅ **Required Third-Party Dependencies** (must be added manually):
+
+   - **AWS IoT Core**\
+     Add via SPM:
+
+     ```text
      https://github.com/aws-amplify/aws-sdk-ios-spm.git
      ```
-     - Select `AWSCore` and `AWSIoT`
+
+     Select:
+
+      - `AWSIoT`
+
+   - **Microsoft Cognitive Services Speech SDK**
+
+     > ⚠️ *Not available via SPM. Must be added manually.*
+
+     **Option 1 – CocoaPods (Recommended):**
+
+     ```ruby
+     pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.44.0'
+     ```
+
+     **Option 2 – Manual Binary Download:**
+
+     - Requires **iOS 15.0 or later**
+     - Download:
+
+       ```text
+       https://aka.ms/csspeech/iosbinary
+       ```
+
+     - Download the binary and extract its contents.
+     - In your Xcode project, add a reference to the extracted `MicrosoftCognitiveServicesSpeech.xcframework` folder and its contents.
+
+5. Import and Use
+
+    ```swift
+    import Netomi 
+    ```
+
+---
+
+### 3️⃣ Manual Integration (No CocoaPods / No SPM)
+
+If you prefer to integrate manually without a dependency manager:
+
+1. Download SDK
+
+   - Get the latest build: [Download]({{URL}})
+
+   - Extract to reveal `Netomi.xcframework`.
+
+2. Add to Xcode
+
+    - Open your Xcode project.
+    - Drag `Netomi.xcframework` into the **Project Navigator** (preferably inside a `Frameworks` group).
+    - In the dialog:
+      - Check **Copy items if needed**.
+      - Add to your app target.
+
+3. Embed & Sign
+
+    - Go to **Target → General → Frameworks, Libraries, and Embedded Content**.
+    - Set `Netomi.xcframework` to **Embed & Sign**.
+
+4. Add Required Dependencies
+
+    - **AWS IoT Core** (via SPM):
+
+      ```text
+      https://github.com/aws-amplify/aws-sdk-ios-spm.git
+      ```
+
+      Select:
+  
+        - `AWSIoT`
+
+    - **Microsoft Cognitive Services Speech SDK**:  
+      Add via CocoaPods or manual binary as described above.
+
+5. Import and Use
+
+    ```swift
+    import Netomi
+    ```
 
 ---
 
@@ -76,8 +163,7 @@ NetomiChat.shared.initialize(
 >
 > 🔹 Most visual styling can be configured via the Netomi Dashboard.  
 >
-> 🔹 If you'd like to customize it locally in code, see [Apply UI Customization](#apply-ui-customization)
-
+> 🔹 If you'd like to customize it locally in code, see [Apply UI Customization](#-apply-ui-customization-optional)
 
 ---
 
@@ -168,7 +254,7 @@ Avoid including any sensitive data like passwords or secrets.
 /// 🧩 Header Configuration: App bar at the top of the chat
 var header = NCWHeaderConfiguration()
 header.backgroundColor = .systemBlue                     // Set header background color
-header.isGradientAppied = true                          // Enable gradient effect
+header.isGradientApplied = true                          // Enable gradient effect
 header.isBackPressPopupEnabed = true                    // Show confirmation popup on back
 header.navigationIcon = UIImage(named: "logo")          // Optional: Add a custom logo icon
 NetomiChat.shared.updateHeaderConfiguration(config: header)
@@ -222,11 +308,35 @@ NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
 
 ---
 
-### 🔔 Set FCM Token
+### 🔔 Set Push Token
 
 ```swift
-NetomiChat.shared.setFCMToken("your-fcm-token")
+NetomiChat.shared.setPushToken("your-push-token")
 ```
+
+> ⚠️ Deprecated: `setFCMToken(_:)` is deprecated. Use `setPushToken(_:)` instead.
+
+---
+
+### 🔍 Enable Logging
+
+You can set the log level at any time during app runtime:
+
+```swift
+#if DEBUG
+NetomiChat.shared.setLogVisibility(level: .info)
+##endif
+```
+
+### 📚 Available Log Levels
+
+| Level      | Description                                                                 |
+|------------|-----------------------------------------------------------------------------|
+| `.none`    |  No logs will be printed (recommended for production).                   |
+| `.error`   | Prints only SDK-related public error logs.                              |
+| `.info`    | Prints both public informational and error logs (ideal for development). |
+
+> **Default:** `.none`
 
 ---
 
@@ -234,14 +344,14 @@ NetomiChat.shared.setFCMToken("your-fcm-token")
 
 For SDK issues or integration help:
 
-- 📘 [Netomi Documentation](https://www.netomi.com)
-- 📩 <support@netomi.com>
+- 📘 [Netomi Website](https://www.netomi.com)
+- 📩 [support@netomi.com](mailto\:support@netomi.com)
 
 ---
 
 ## 📄 License
 
-```
+```text
 © 2025 Netomi. All rights reserved.
 The Netomi Mobile Chat SDK may include its own license terms.
 Refer to Netomi's official documentation for legal details.
