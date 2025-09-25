@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.7.0'
+   pod 'NetomiChatSDK', '1.8.0'
    ```
 
 2. Run:
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.7.0`
+3. Select tag or branch: `1.8.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -169,19 +169,64 @@ NetomiChat.shared.initialize(
 
 ### 🚀 Launch Chat
 
+Open the chat directly or with an optional prefilled query. You can also customize the **animation style and duration** using `NCWAnimationConfig`.
+
+#### 🔹 Basic
+
 ```swift
 NetomiChat.shared.launch(jwt: nil) { error in
-    // Handle launch error if any
+    if let error = error {
+        print("Launch failed: \(error)")
+    }
 }
 ```
 
-Or with a search query:
+#### 🔹 With Initial Query
 
 ```swift
-NetomiChat.shared.launchWithQuery("search here", jwt: nil) { error in
-    // Optional error handling
+NetomiChat.shared.launchWithQuery("Hello, I need help", jwt: nil) { error in
+    if let error = error {
+        print("Launch with query failed: \(error)")
+    }
 }
 ```
+
+#### 🔹 With Custom Animation
+
+```swift
+let animation = NCWAnimationConfig(animationType: .fade, duration: 0.35)
+
+NetomiChat.shared.launch(jwt: "your-jwt-token", animationConfig: animation) { error in
+    if let error = error {
+        print("Launch with animation failed: \(error)")
+    }
+}
+```
+
+#### 🔹 With Query + Custom Animation
+
+```swift
+let animation = NCWAnimationConfig(animationType: .fade, duration: 0.35)
+
+NetomiChat.shared.launchWithQuery(
+    "Hello, I need help",
+    jwt: nil,
+    animationConfig: animation
+) { error in
+    if let error = error {
+        print("Launch with query + animation failed: \(error)")
+    }
+}
+```
+
+---
+
+### ⚙️ Animation Config
+
+| Option            | Description                                           | Default |
+|-------------------|-------------------------------------------------------|---------|
+| `animationType`   | `.system` (slide), `.fade`, or other supported preset | `.system` |
+| `duration`        | Duration of the animation in seconds                  | `0.3`   |
 
 ---
 
@@ -191,6 +236,18 @@ NetomiChat.shared.launchWithQuery("search here", jwt: nil) { error in
 let jwt = "your-jwt-token"
 NetomiChat.shared.launch(jwt: jwt)
 ```
+
+---
+
+### 🔐 JWT Token Usage
+
+| Use Case                     | JWT Required | Notes                                                                 |
+|-------------------------------|--------------|-----------------------------------------------------------------------|
+| `launch(jwt:)`                | ❌ Optional  | Use if your bot requires authentication; otherwise pass `nil`.        |
+| `launchWithQuery(_:jwt:)`     | ❌ Optional  | Same as above.                                                        |
+| `.reauthorizationSuccess`     | ✅ Required  | Must provide a valid JWT if the session started with JWT.              |
+| `.reauthorizationFailure`     | ❌ Optional  | You can omit JWT here.                                                |
+| Other events                  | ❌ Optional  | JWT is ignored if provided.                                           |
 
 ---
 
@@ -323,6 +380,108 @@ NetomiChat.shared.setPushToken("your-push-token")
 ```
 
 > ⚠️ Deprecated: `setFCMToken(_:)` is deprecated. Use `setPushToken(_:)` instead.
+
+---
+
+### 🪟 Manage Chat UI Visibility
+
+You can programmatically check whether the chat UI is currently visible, resume a hidden chat, or hide/destroy it.
+
+#### 🔹 Check if Chat is Visible
+
+```swift
+if NetomiChat.shared.isChatVisible() {
+    print("Chat is currently visible")
+}
+```
+
+#### 🔹 Resume a Previously Hidden Chat
+
+```swift
+Task { @MainActor in
+    await NetomiChat.shared.resumeChat(animationConfig: NCWAnimationConfig(animationType: .fade))
+}
+```
+
+> If there’s no hidden chat to resume, this will be a no-op.  
+> The default animation is `.system` with a `0.3s` duration (falls back to fade).
+
+#### 🔹 Hide or Destroy Chat
+
+```swift
+Task { @MainActor in
+    await NetomiChat.shared.hideChat(mode: .hide, animationConfig: NCWAnimationConfig(animationType: .fade, duration: 0.25))
+}
+```
+
+- `.destroy` → Tears down the UI so the next open starts fresh.  
+- `.hide` → Keeps the UI off-screen so it can be resumed later.  
+- `animationConfig` → Optional animation preset and duration.  
+
+---
+
+## 🔔 Event Handling
+
+The SDK provides a way for your app to **receive event callbacks** from the SDK as well as to **send custom events** into it.  
+
+### Receive Events from SDK
+
+```swift
+NetomiChat.shared.getEventUpdatesFromSDK = { event in
+    guard let typeString = event["event_type"] as? String,
+          let eventType = NCWPublicEvent(rawValue: typeString) else {
+        return
+    }
+
+    let info = event["event_data"] as? [String: Any] ?? [:]
+
+    switch eventType {
+    case .chatSdkInitialised:
+        // handle initialization event
+        print("SDK initialized", info)
+
+    case .reauthorizationRequest:
+        // trigger reauthorization flow in your app
+        print("Reauthorization requested", info)
+
+    case .chatOpened:
+        print("Chat opened")
+
+    case .error:
+        print("Error event: \(info)")
+
+    default:
+        print("Event received: \(eventType.rawValue), data: \(info)")
+    }
+}
+```
+
+### Send Events to SDK
+
+```swift
+do {
+    try NetomiChat.shared.sendEventToSdk(
+        type: .reauthorizationSuccess,
+        jwt: "eyJhbGciOi...",   // Optional: JWT if required
+        data: ["userId": "1234"]
+    )
+} catch {
+    print("Failed: \(error)")
+}
+```
+
+- `jwt`: An **optional JSON Web Token**.
+  - Only required for certain events (e.g. `.reauthorizationSuccess`).
+  - Ignored if not applicable.
+- `data`: A JSON-serializable dictionary for additional payload. Defaults to `[:]`.
+
+### 📚 Supported Event Types
+
+| Event Type                | Description                                 |
+|---------------------------|---------------------------------------------|
+| `.reauthorizationSuccess` | Reauthorization completed successfully. |
+| `.reauthorizationFailure` | Reauthorization failed.                 |
+| `.none`                   | Placeholder, no event.                      |
 
 ---
 
