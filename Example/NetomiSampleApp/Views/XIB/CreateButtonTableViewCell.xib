@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="152" id="KGk-i7-Jjw" customClass="CreateButtonTableViewCell" customModule="NetomiSampleApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="152"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="367" height="152"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDq-bx-yHj" customClass="NSAButton" customModule="NetomiSampleApp" customModuleProvider="target">
+                        <rect key="frame" x="24" y="24" width="319" height="56"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="3Nh-GQ-CcQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Login"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Create Account">
+                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                        </buttonConfiguration>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="customCornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" name="startYellow"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" name="endYellow"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="applyGradient" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="createAccountBtnTap" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0Tt-4C-rWJ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Existing user ? Login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnz-Ug-rNd">
+                        <rect key="frame" x="24" y="105" width="319" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RDq-bx-yHj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="1CA-Ar-JYh"/>
+                    <constraint firstItem="nnz-Ug-rNd" firstAttribute="top" secondItem="RDq-bx-yHj" secondAttribute="bottom" constant="25" id="1xd-YX-UxO"/>
+                    <constraint firstItem="nnz-Ug-rNd" firstAttribute="trailing" secondItem="RDq-bx-yHj" secondAttribute="trailing" id="6th-yV-mxb"/>
+                    <constraint firstItem="RDq-bx-yHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="Yxa-l9-0pO"/>
+                    <constraint firstAttribute="trailing" secondItem="RDq-bx-yHj" secondAttribute="trailing" constant="24" id="ZeL-Ga-WZn"/>
+                    <constraint firstItem="nnz-Ug-rNd" firstAttribute="leading" secondItem="RDq-bx-yHj" secondAttribute="leading" id="nMK-Ej-GaJ"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nnz-Ug-rNd" secondAttribute="bottom" constant="24" id="rxk-Rk-Z3a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="createAccountBtn" destination="RDq-bx-yHj" id="eiM-Ly-pH3"/>
+                <outlet property="loginLabel" destination="nnz-Ug-rNd" id="bzj-54-MSO"/>
+            </connections>
+            <point key="canvasLocation" x="135.1145038167939" y="-8.4507042253521139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="endYellow">
+            <color red="0.88999998569488525" green="0.81599998474121094" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="startYellow">
+            <color red="0.9570000171661377" green="0.89399999380111694" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

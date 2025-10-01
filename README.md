@@ -507,6 +507,30 @@ NetomiChat.shared.setLogVisibility(level: .info)
 
 ---
 
+## 🧪 Example App
+
+An **example iOS app** is included under `/Example` to demonstrate SDK
+integration.
+
+### Run the Example
+
+1. Open: `Example/NetomiSampleApp.xcworkspace`
+
+2. In `HomeViewController.swift`, replace:
+
+    ```swift
+    NetomiChat.shared.initialize(
+        botRefId: "YOUR_BOT_REF_ID",
+        environment: .USProd
+    )
+    ```
+
+    with your `botRefId` and the appropriate `env`.
+
+3. Build & Run on a simulator or physical device.
+
+---
+
 ## 🛠 Support
 
 For SDK issues or integration help:

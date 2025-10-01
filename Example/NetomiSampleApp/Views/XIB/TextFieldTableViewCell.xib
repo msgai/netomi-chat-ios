@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextFieldTableViewCell" rowHeight="166" id="KGk-i7-Jjw" customClass="TextFieldTableViewCell" customModule="NetomiSampleApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="166"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="166"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-bN-Dnm">
+                        <rect key="frame" x="24" y="4" width="336" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z7W-mL-g4M">
+                        <rect key="frame" x="24" y="21" width="336" height="66"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8D-7R-fRJ" customClass="NSATextField" customModule="NetomiSampleApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="336" height="66"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="ig4-wy-CHo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftViewImage" value="email"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="leftColor">
+                                        <color key="value" red="0.2156862745" green="0.30588235289999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter your email"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AQf-kQ-8TG">
+                                <rect key="frame" x="0.0" y="66" width="336" height="0.0"/>
+                                <subviews>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhF-PT-FgP">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="errorIcon">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content=" Enter valid password">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="menu" size="14"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="titleColor" red="1" green="0.46274509800000002" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PKX-bN-Dnm" secondAttribute="trailing" constant="24" id="5gv-nU-2xF"/>
+                    <constraint firstItem="z7W-mL-g4M" firstAttribute="leading" secondItem="PKX-bN-Dnm" secondAttribute="leading" id="CsZ-hW-DCz"/>
+                    <constraint firstItem="PKX-bN-Dnm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="hMb-ZN-7h3"/>
+                    <constraint firstItem="z7W-mL-g4M" firstAttribute="trailing" secondItem="PKX-bN-Dnm" secondAttribute="trailing" id="xZA-d2-rf2"/>
+                    <constraint firstItem="z7W-mL-g4M" firstAttribute="top" secondItem="PKX-bN-Dnm" secondAttribute="bottom" id="zCY-fI-Bzk"/>
+                    <constraint firstItem="PKX-bN-Dnm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="zIg-EL-POk"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="z7W-mL-g4M" secondAttribute="bottom" constant="12" id="zUY-To-Ux4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="errorBtn" destination="WhF-PT-FgP" id="CJn-hf-GMQ"/>
+                <outlet property="errorMsgView" destination="AQf-kQ-8TG" id="lyT-ld-Kqs"/>
+                <outlet property="textField" destination="t8D-7R-fRJ" id="pmQ-ru-HJU"/>
+                <outlet property="titleLabel" destination="PKX-bN-Dnm" id="SGm-Po-fAH"/>
+            </connections>
+            <point key="canvasLocation" x="-212.21374045801525" y="-63.380281690140848"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="email" width="20" height="20"/>
+        <image name="errorIcon" width="12" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

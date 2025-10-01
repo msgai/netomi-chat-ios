@@ -1,0 +1,723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C3C5D522D155E9C00F1340D /* BotItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C3C5D512D155E9C00F1340D /* BotItemTableViewCell.xib */; };
+		0C3C5D532D155E9C00F1340D /* BotItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C5D502D155E9C00F1340D /* BotItemTableViewCell.swift */; };
+		0C3D120D2CF090450022E2CB /* Proxima Nova Alt Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12052CF090450022E2CB /* Proxima Nova Alt Bold.otf */; };
+		0C3D120E2CF090450022E2CB /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D120B2CF090450022E2CB /* Proxima Nova Thin.otf */; };
+		0C3D120F2CF090450022E2CB /* Proxima Nova Alt Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12062CF090450022E2CB /* Proxima Nova Alt Light.otf */; };
+		0C3D12102CF090450022E2CB /* Proxima Nova Alt Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12072CF090450022E2CB /* Proxima Nova Alt Thin.otf */; };
+		0C3D12112CF090450022E2CB /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D120C2CF090450022E2CB /* ProximaNova-Regular.otf */; };
+		0C3D12122CF090450022E2CB /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12092CF090450022E2CB /* Proxima Nova Bold.otf */; };
+		0C3D12132CF090450022E2CB /* Proxima Nova Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D120A2CF090450022E2CB /* Proxima Nova Extrabold.otf */; };
+		0C3D12142CF090450022E2CB /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12082CF090450022E2CB /* Proxima Nova Black.otf */; };
+		0C3D12162CF090740022E2CB /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3D12152CF090740022E2CB /* AppFonts.swift */; };
+		0C3D12182CF094D30022E2CB /* proxima_nova_alt_semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C3D12172CF094D30022E2CB /* proxima_nova_alt_semibold.otf */; };
+		0C4C80252CEDD11F00C57261 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4C80242CEDD11D00C57261 /* Defaults.swift */; };
+		0C57C22D2CEBAB0000865D51 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C57C22C2CEBAB0000865D51 /* CreateAccountViewController.swift */; };
+		0C57C2312CEBAC5900865D51 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C57C22F2CEBAC5900865D51 /* TextFieldTableViewCell.swift */; };
+		0C57C2322CEBAC5900865D51 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C57C2302CEBAC5900865D51 /* TextFieldTableViewCell.xib */; };
+		0C57C2352CEBAC8700865D51 /* CreateButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C57C2332CEBAC8700865D51 /* CreateButtonTableViewCell.swift */; };
+		0C57C2362CEBAC8700865D51 /* CreateButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C57C2342CEBAC8700865D51 /* CreateButtonTableViewCell.xib */; };
+		0C57C2392CEBAC9800865D51 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C57C2372CEBAC9800865D51 /* HeaderTableViewCell.swift */; };
+		0C57C23A2CEBAC9800865D51 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C57C2382CEBAC9800865D51 /* HeaderTableViewCell.xib */; };
+		0CD2C56C2CE5CEB300328A44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C56B2CE5CEB300328A44 /* AppDelegate.swift */; };
+		0CD2C56E2CE5CEB300328A44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C56D2CE5CEB300328A44 /* SceneDelegate.swift */; };
+		0CD2C5732CE5CEB300328A44 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2C5722CE5CEB300328A44 /* Base */; };
+		0CD2C5752CE5CEB300328A44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2C5742CE5CEB300328A44 /* Assets.xcassets */; };
+		0CD2C5782CE5CEB300328A44 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2C5772CE5CEB300328A44 /* Base */; };
+		0CD2C5892CE5EF4A00328A44 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C5882CE5EF4A00328A44 /* UIViewExtension.swift */; };
+		0CD2C58B2CE5EF5700328A44 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C58A2CE5EF5700328A44 /* StringExtension.swift */; };
+		0CD2C58D2CE5EFEC00328A44 /* NSATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C58C2CE5EFEC00328A44 /* NSATextField.swift */; };
+		0CD2C58F2CE5EFFF00328A44 /* NSAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C58E2CE5EFFF00328A44 /* NSAButton.swift */; };
+		0CD2C5932CE5F0C900328A44 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C5922CE5F0C900328A44 /* AppColors.swift */; };
+		0CD2C5992CE5F63C00328A44 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2C5982CE5F63C00328A44 /* Colors.xcassets */; };
+		0CD2C59B2CE5F68E00328A44 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C59A2CE5F68E00328A44 /* AppImages.swift */; };
+		0CD2C59D2CE5F6F000328A44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C59C2CE5F6F000328A44 /* LoginViewController.swift */; };
+		0CD2C59F2CE60BE100328A44 /* UIGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C59E2CE60BE100328A44 /* UIGestureRecognizerExtension.swift */; };
+		0CD2C5A62CE6238E00328A44 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2C5A52CE6238E00328A44 /* HomeViewController.swift */; };
+		718A83EBED8233FDE8555E8E /* Pods_NetomiSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24994304A68BB262BF6933F0 /* Pods_NetomiSampleApp.framework */; };
+		CE06DA8E2D5DC0E6008CC8DE /* DeeplinkingexampleSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06DA8D2D5DC0E6008CC8DE /* DeeplinkingexampleSecondVC.swift */; };
+		CE06DA902D5DC101008CC8DE /* DeeplinkingexampleFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06DA8F2D5DC101008CC8DE /* DeeplinkingexampleFirstVC.swift */; };
+		CE8274C42D65E538007DDAD3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CE8274C32D65E534007DDAD3 /* PrivacyInfo.xcprivacy */; };
+		CED744652D55EF950080B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CED744632D55EF950080B8B8 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CE82749E2D64B8CF007DDAD3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0C3C5D502D155E9C00F1340D /* BotItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotItemTableViewCell.swift; sourceTree = "<group>"; };
+		0C3C5D512D155E9C00F1340D /* BotItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BotItemTableViewCell.xib; sourceTree = "<group>"; };
+		0C3D12052CF090450022E2CB /* Proxima Nova Alt Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Bold.otf"; sourceTree = "<group>"; };
+		0C3D12062CF090450022E2CB /* Proxima Nova Alt Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Light.otf"; sourceTree = "<group>"; };
+		0C3D12072CF090450022E2CB /* Proxima Nova Alt Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Alt Thin.otf"; sourceTree = "<group>"; };
+		0C3D12082CF090450022E2CB /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
+		0C3D12092CF090450022E2CB /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		0C3D120A2CF090450022E2CB /* Proxima Nova Extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Extrabold.otf"; sourceTree = "<group>"; };
+		0C3D120B2CF090450022E2CB /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
+		0C3D120C2CF090450022E2CB /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		0C3D12152CF090740022E2CB /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		0C3D12172CF094D30022E2CB /* proxima_nova_alt_semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = proxima_nova_alt_semibold.otf; sourceTree = "<group>"; };
+		0C4C80242CEDD11D00C57261 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		0C57C22C2CEBAB0000865D51 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		0C57C22F2CEBAC5900865D51 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		0C57C2302CEBAC5900865D51 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		0C57C2332CEBAC8700865D51 /* CreateButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButtonTableViewCell.swift; sourceTree = "<group>"; };
+		0C57C2342CEBAC8700865D51 /* CreateButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateButtonTableViewCell.xib; sourceTree = "<group>"; };
+		0C57C2372CEBAC9800865D51 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		0C57C2382CEBAC9800865D51 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		0CD2C5682CE5CEB300328A44 /* NetomiSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetomiSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CD2C56B2CE5CEB300328A44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0CD2C56D2CE5CEB300328A44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0CD2C5722CE5CEB300328A44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0CD2C5742CE5CEB300328A44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CD2C5772CE5CEB300328A44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0CD2C5792CE5CEB300328A44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD2C5882CE5EF4A00328A44 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		0CD2C58A2CE5EF5700328A44 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		0CD2C58C2CE5EFEC00328A44 /* NSATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSATextField.swift; sourceTree = "<group>"; };
+		0CD2C58E2CE5EFFF00328A44 /* NSAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAButton.swift; sourceTree = "<group>"; };
+		0CD2C5922CE5F0C900328A44 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		0CD2C5982CE5F63C00328A44 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		0CD2C59A2CE5F68E00328A44 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		0CD2C59C2CE5F6F000328A44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0CD2C59E2CE60BE100328A44 /* UIGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtension.swift; sourceTree = "<group>"; };
+		0CD2C5A52CE6238E00328A44 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1C6524F3609A203A04558EA9 /* Pods-NetomiSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetomiSampleApp.release.xcconfig"; path = "Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		24994304A68BB262BF6933F0 /* Pods_NetomiSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetomiSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE06DA8D2D5DC0E6008CC8DE /* DeeplinkingexampleSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkingexampleSecondVC.swift; sourceTree = "<group>"; };
+		CE06DA8F2D5DC101008CC8DE /* DeeplinkingexampleFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkingexampleFirstVC.swift; sourceTree = "<group>"; };
+		CE8274C32D65E534007DDAD3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CED744632D55EF950080B8B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEFD120B2D5DFAFB00A13AE0 /* NetomiSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetomiSampleApp.entitlements; sourceTree = "<group>"; };
+		EDA593FFEF9D10C36D6C72D8 /* Pods-NetomiSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetomiSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CE8274972D64B8CF007DDAD3 /* NetomiSampleAppNotificationCenter */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = NetomiSampleAppNotificationCenter;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0CD2C5652CE5CEB300328A44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718A83EBED8233FDE8555E8E /* Pods_NetomiSampleApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C3D12032CF08FD20022E2CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE8274C32D65E534007DDAD3 /* PrivacyInfo.xcprivacy */,
+				CED744642D55EF950080B8B8 /* PlistFiles */,
+				0C3D12042CF08FE80022E2CB /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C3D12042CF08FE80022E2CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0C3D12052CF090450022E2CB /* Proxima Nova Alt Bold.otf */,
+				0C3D12062CF090450022E2CB /* Proxima Nova Alt Light.otf */,
+				0C3D12072CF090450022E2CB /* Proxima Nova Alt Thin.otf */,
+				0C3D12082CF090450022E2CB /* Proxima Nova Black.otf */,
+				0C3D12092CF090450022E2CB /* Proxima Nova Bold.otf */,
+				0C3D120A2CF090450022E2CB /* Proxima Nova Extrabold.otf */,
+				0C3D120B2CF090450022E2CB /* Proxima Nova Thin.otf */,
+				0C3D120C2CF090450022E2CB /* ProximaNova-Regular.otf */,
+				0C3D12172CF094D30022E2CB /* proxima_nova_alt_semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0C57C22E2CEBAC3C00865D51 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				0C57C22F2CEBAC5900865D51 /* TextFieldTableViewCell.swift */,
+				0C57C2302CEBAC5900865D51 /* TextFieldTableViewCell.xib */,
+				0C57C2332CEBAC8700865D51 /* CreateButtonTableViewCell.swift */,
+				0C57C2342CEBAC8700865D51 /* CreateButtonTableViewCell.xib */,
+				0C57C2372CEBAC9800865D51 /* HeaderTableViewCell.swift */,
+				0C57C2382CEBAC9800865D51 /* HeaderTableViewCell.xib */,
+				0C3C5D502D155E9C00F1340D /* BotItemTableViewCell.swift */,
+				0C3C5D512D155E9C00F1340D /* BotItemTableViewCell.xib */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		0CD2C55F2CE5CEB300328A44 = {
+			isa = PBXGroup;
+			children = (
+				0CD2C56A2CE5CEB300328A44 /* NetomiSampleApp */,
+				CE8274972D64B8CF007DDAD3 /* NetomiSampleAppNotificationCenter */,
+				0CD2C5692CE5CEB300328A44 /* Products */,
+				6A298B52DDC1E868F66337D7 /* Pods */,
+				4CFEC422F96D73871D7EE21C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0CD2C5692CE5CEB300328A44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C5682CE5CEB300328A44 /* NetomiSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0CD2C56A2CE5CEB300328A44 /* NetomiSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD120B2D5DFAFB00A13AE0 /* NetomiSampleApp.entitlements */,
+				0C3D12032CF08FD20022E2CB /* Resources */,
+				0CD2C56B2CE5CEB300328A44 /* AppDelegate.swift */,
+				0CD2C56D2CE5CEB300328A44 /* SceneDelegate.swift */,
+				0CD2C5942CE5F1A300328A44 /* Views */,
+				0CD2C5902CE5F0AA00328A44 /* Helper */,
+				0CD2C5872CE5EF2500328A44 /* App Utilities */,
+				0CD2C5972CE5F61900328A44 /* Assets */,
+				0CD2C5862CE5EF1900328A44 /* Extensions */,
+				0CD2C5792CE5CEB300328A44 /* Info.plist */,
+			);
+			path = NetomiSampleApp;
+			sourceTree = "<group>";
+		};
+		0CD2C5862CE5EF1900328A44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C59E2CE60BE100328A44 /* UIGestureRecognizerExtension.swift */,
+				0CD2C5882CE5EF4A00328A44 /* UIViewExtension.swift */,
+				0CD2C58A2CE5EF5700328A44 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0CD2C5872CE5EF2500328A44 /* App Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C58E2CE5EFFF00328A44 /* NSAButton.swift */,
+				0CD2C58C2CE5EFEC00328A44 /* NSATextField.swift */,
+			);
+			path = "App Utilities";
+			sourceTree = "<group>";
+		};
+		0CD2C5902CE5F0AA00328A44 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C5912CE5F0B800328A44 /* App Constants */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0CD2C5912CE5F0B800328A44 /* App Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0C3D12152CF090740022E2CB /* AppFonts.swift */,
+				0C4C80242CEDD11D00C57261 /* Defaults.swift */,
+				0CD2C5922CE5F0C900328A44 /* AppColors.swift */,
+				0CD2C59A2CE5F68E00328A44 /* AppImages.swift */,
+			);
+			path = "App Constants";
+			sourceTree = "<group>";
+		};
+		0CD2C5942CE5F1A300328A44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C57C22E2CEBAC3C00865D51 /* XIB */,
+				0CD2C5962CE5F1DB00328A44 /* Storyboards */,
+				0CD2C5952CE5F1CB00328A44 /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0CD2C5952CE5F1CB00328A44 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C59C2CE5F6F000328A44 /* LoginViewController.swift */,
+				CE06DA8D2D5DC0E6008CC8DE /* DeeplinkingexampleSecondVC.swift */,
+				CE06DA8F2D5DC101008CC8DE /* DeeplinkingexampleFirstVC.swift */,
+				0CD2C5A52CE6238E00328A44 /* HomeViewController.swift */,
+				0C57C22C2CEBAB0000865D51 /* CreateAccountViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0CD2C5962CE5F1DB00328A44 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C5712CE5CEB300328A44 /* Main.storyboard */,
+				0CD2C5762CE5CEB300328A44 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0CD2C5972CE5F61900328A44 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0CD2C5742CE5CEB300328A44 /* Assets.xcassets */,
+				0CD2C5982CE5F63C00328A44 /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		4CFEC422F96D73871D7EE21C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24994304A68BB262BF6933F0 /* Pods_NetomiSampleApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A298B52DDC1E868F66337D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDA593FFEF9D10C36D6C72D8 /* Pods-NetomiSampleApp.debug.xcconfig */,
+				1C6524F3609A203A04558EA9 /* Pods-NetomiSampleApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CED744642D55EF950080B8B8 /* PlistFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CED744632D55EF950080B8B8 /* GoogleService-Info.plist */,
+			);
+			path = PlistFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0CD2C5672CE5CEB300328A44 /* NetomiSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CD2C57C2CE5CEB300328A44 /* Build configuration list for PBXNativeTarget "NetomiSampleApp" */;
+			buildPhases = (
+				96E94371F41CFCB9CAD3D6E3 /* [CP] Check Pods Manifest.lock */,
+				0CD2C5642CE5CEB300328A44 /* Sources */,
+				0CD2C5652CE5CEB300328A44 /* Frameworks */,
+				0CD2C5662CE5CEB300328A44 /* Resources */,
+				A3CF17F06F281CB67A807987 /* [CP] Embed Pods Frameworks */,
+				CE82749E2D64B8CF007DDAD3 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetomiSampleApp;
+			productName = NetomiSampleApp;
+			productReference = 0CD2C5682CE5CEB300328A44 /* NetomiSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CD2C5602CE5CEB300328A44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					0CD2C5672CE5CEB300328A44 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 0CD2C5632CE5CEB300328A44 /* Build configuration list for PBXProject "NetomiSampleApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0CD2C55F2CE5CEB300328A44;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0CD2C5692CE5CEB300328A44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0CD2C5672CE5CEB300328A44 /* NetomiSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0CD2C5662CE5CEB300328A44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CD2C5752CE5CEB300328A44 /* Assets.xcassets in Resources */,
+				0C3D120D2CF090450022E2CB /* Proxima Nova Alt Bold.otf in Resources */,
+				0C3D120E2CF090450022E2CB /* Proxima Nova Thin.otf in Resources */,
+				0C3D120F2CF090450022E2CB /* Proxima Nova Alt Light.otf in Resources */,
+				0C3D12102CF090450022E2CB /* Proxima Nova Alt Thin.otf in Resources */,
+				0C3D12182CF094D30022E2CB /* proxima_nova_alt_semibold.otf in Resources */,
+				0C3D12112CF090450022E2CB /* ProximaNova-Regular.otf in Resources */,
+				0C3D12122CF090450022E2CB /* Proxima Nova Bold.otf in Resources */,
+				0C3D12132CF090450022E2CB /* Proxima Nova Extrabold.otf in Resources */,
+				0C3D12142CF090450022E2CB /* Proxima Nova Black.otf in Resources */,
+				0C57C23A2CEBAC9800865D51 /* HeaderTableViewCell.xib in Resources */,
+				CED744652D55EF950080B8B8 /* GoogleService-Info.plist in Resources */,
+				0CD2C5992CE5F63C00328A44 /* Colors.xcassets in Resources */,
+				0C57C2322CEBAC5900865D51 /* TextFieldTableViewCell.xib in Resources */,
+				0CD2C5782CE5CEB300328A44 /* Base in Resources */,
+				0C3C5D522D155E9C00F1340D /* BotItemTableViewCell.xib in Resources */,
+				0CD2C5732CE5CEB300328A44 /* Base in Resources */,
+				0C57C2362CEBAC8700865D51 /* CreateButtonTableViewCell.xib in Resources */,
+				CE8274C42D65E538007DDAD3 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		96E94371F41CFCB9CAD3D6E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NetomiSampleApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3CF17F06F281CB67A807987 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0CD2C5642CE5CEB300328A44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C57C22D2CEBAB0000865D51 /* CreateAccountViewController.swift in Sources */,
+				0CD2C59D2CE5F6F000328A44 /* LoginViewController.swift in Sources */,
+				CE06DA8E2D5DC0E6008CC8DE /* DeeplinkingexampleSecondVC.swift in Sources */,
+				0CD2C58D2CE5EFEC00328A44 /* NSATextField.swift in Sources */,
+				0CD2C59B2CE5F68E00328A44 /* AppImages.swift in Sources */,
+				0CD2C56C2CE5CEB300328A44 /* AppDelegate.swift in Sources */,
+				0CD2C58F2CE5EFFF00328A44 /* NSAButton.swift in Sources */,
+				0CD2C58B2CE5EF5700328A44 /* StringExtension.swift in Sources */,
+				0C4C80252CEDD11F00C57261 /* Defaults.swift in Sources */,
+				0C57C2312CEBAC5900865D51 /* TextFieldTableViewCell.swift in Sources */,
+				0C3C5D532D155E9C00F1340D /* BotItemTableViewCell.swift in Sources */,
+				0CD2C5932CE5F0C900328A44 /* AppColors.swift in Sources */,
+				0CD2C59F2CE60BE100328A44 /* UIGestureRecognizerExtension.swift in Sources */,
+				0CD2C5892CE5EF4A00328A44 /* UIViewExtension.swift in Sources */,
+				0C57C2352CEBAC8700865D51 /* CreateButtonTableViewCell.swift in Sources */,
+				0C3D12162CF090740022E2CB /* AppFonts.swift in Sources */,
+				0C57C2392CEBAC9800865D51 /* HeaderTableViewCell.swift in Sources */,
+				0CD2C5A62CE6238E00328A44 /* HomeViewController.swift in Sources */,
+				0CD2C56E2CE5CEB300328A44 /* SceneDelegate.swift in Sources */,
+				CE06DA902D5DC101008CC8DE /* DeeplinkingexampleFirstVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0CD2C5712CE5CEB300328A44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CD2C5722CE5CEB300328A44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0CD2C5762CE5CEB300328A44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CD2C5772CE5CEB300328A44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0CD2C57A2CE5CEB300328A44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0CD2C57B2CE5CEB300328A44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0CD2C57D2CE5CEB300328A44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDA593FFEF9D10C36D6C72D8 /* Pods-NetomiSampleApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetomiSampleApp/NetomiSampleApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DR7FJAMNBU;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetomiSampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Netomi Agentic AI";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to upload images/videos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone to record videos.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netomichatai.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = NetomiAgenticAI_dev;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0CD2C57E2CE5CEB300328A44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C6524F3609A203A04558EA9 /* Pods-NetomiSampleApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetomiSampleApp/NetomiSampleApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DR7FJAMNBU;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetomiSampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Netomi Agentic AI";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to upload images/videos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone to record videos.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netomichatai.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = NetomiAgenticAI_dev;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CD2C5632CE5CEB300328A44 /* Build configuration list for PBXProject "NetomiSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CD2C57A2CE5CEB300328A44 /* Debug */,
+				0CD2C57B2CE5CEB300328A44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CD2C57C2CE5CEB300328A44 /* Build configuration list for PBXNativeTarget "NetomiSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CD2C57D2CE5CEB300328A44 /* Debug */,
+				0CD2C57E2CE5CEB300328A44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0CD2C5602CE5CEB300328A44 /* Project object */;
+}
