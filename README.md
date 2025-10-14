@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.9.0'
+   pod 'NetomiChatSDK', '1.10.0'
    ```
 
 2. Run:
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.9.0`
+3. Select tag or branch: `1.10.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -491,7 +491,7 @@ You can set the log level at any time during app runtime:
 
 ```swift
 #if DEBUG
-NetomiChat.shared.setLogVisibility(level: .info)
+NetomiChat.shared.setupLogging(level: .info)
 ##endif
 ```
 
@@ -499,7 +499,7 @@ NetomiChat.shared.setLogVisibility(level: .info)
 
 | Level      | Description                                                                 |
 |------------|-----------------------------------------------------------------------------|
-| `.none`    |  No logs will be printed (recommended for production).                   |
+| `.none`    | No logs will be printed (recommended for production).                   |
 | `.error`   | Prints only SDK-related public error logs.                              |
 | `.info`    | Prints both public informational and error logs (ideal for development). |
 
