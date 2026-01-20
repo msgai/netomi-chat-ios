@@ -15,10 +15,10 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 ## Prerequisites
 
 - iOS 16 or later
-- Xcode 13+
+- Xcode 15+
 - UIKit or SwiftUI (both supported by the SDK)
 - CocoaPods or Swift Package Manager
-- Your Bot Credentials from Netomi (`botRefId`, `env`)
+- Your Bot Credentials from Netomi (`botRefId`, `environment`)
 
 ---
 
@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.16.3'
+   pod 'NetomiChatSDK', '1.17.0'
    ```
 
 2. Run:
@@ -51,13 +51,13 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 ### 2️⃣ Swift Package Manager (SPM)
 
 1. Go to **Xcode > Project > Package Dependencies**
-2. Add:
+2. Add repository:
 
    ```text
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.16.3`
+3. Select tag or branch: `1.17.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -155,7 +155,7 @@ If you prefer to integrate manually without a dependency manager:
 ```swift
 NetomiChat.shared.initialize(
     botRefId: "YOUR_BOT_REF_ID",
-    environment: .USProd
+    env: .USProd
 )
 ```
 
@@ -167,43 +167,89 @@ NetomiChat.shared.initialize(
 
 ---
 
+### (Optional) Check Initialization State
+
+The SDK **already prevents duplicate initialization** internally.
+
+Use this API **only if you want to track state on your side**:
+
+```swift
+let isReady = NetomiChat.isInitialized(
+    botRefId: "YOUR_BOT_REF_ID",
+    environment: .USProd
+)
+```
+
+> ❗ Do **not** gate `initialize()` or `launch()` based on this
+> The SDK safely handles repeated calls.
+
+---
+
 ### 🚀 Launch Chat
 
-Open the chat directly or with an optional prefilled query. You can also customize the **animation style and duration** using `NCWAnimationConfig`.
+Open the chat directly or with an optional prefilled query.
+You can also customize the **animation style and duration** using `NCWAnimationConfig`.
 
-#### 🔹 Basic
+> ℹ️ Launch APIs are **fire-and-forget by default**.
+> Use `launchAsync()` only if you need confirmation.
 
-```swift
-NetomiChat.shared.launch(jwt: nil) { error in
-    if let error = error {
-        print("Launch failed: \(error)")
-    }
-}
-```
+---
 
-#### 🔹 With Initial Query
+### 🔹 Basic (Recommended)
 
 ```swift
-NetomiChat.shared.launchWithQuery("Hello, I need help", jwt: nil) { error in
-    if let error = error {
-        print("Launch with query failed: \(error)")
-    }
-}
+NetomiChat.shared.launch()
 ```
 
-#### 🔹 With Custom Animation
+Use this in most cases.
+The SDK handles all internal validation and state management.
+
+---
+
+### 🔹 With Optional Error Handling
 
 ```swift
-let animation = NCWAnimationConfig(animationType: .fade, duration: 0.35)
-
-NetomiChat.shared.launch(jwt: "your-jwt-token", animationConfig: animation) { error in
-    if let error = error {
-        print("Launch with animation failed: \(error)")
+NetomiChat.shared.launch(
+    jwt: nil,
+    errorHandler: { error in
+        print("Chat launch failed:", error)
     }
-}
+)
 ```
 
-#### 🔹 With Query + Custom Animation
+- `errorHandler` is invoked **only if the chat cannot be shown**
+- It is **not** a completion callback
+
+---
+
+### 🔹 With Initial Query
+
+```swift
+NetomiChat.shared.launchWithQuery(
+    "Hello, I need help",
+    jwt: nil
+)
+```
+
+---
+
+### 🔹 With Custom Animation
+
+```swift
+let animation = NCWAnimationConfig(
+    animationType: .fade,
+    duration: 0.35
+)
+
+NetomiChat.shared.launch(
+    jwt: nil,
+    animationConfig: animation
+)
+```
+
+---
+
+### 🔹 With Query + Custom Animation
 
 ```swift
 let animation = NCWAnimationConfig(animationType: .fade, duration: 0.35)
@@ -212,42 +258,99 @@ NetomiChat.shared.launchWithQuery(
     "Hello, I need help",
     jwt: nil,
     animationConfig: animation
-) { error in
-    if let error = error {
-        print("Launch with query + animation failed: \(error)")
-    }
-}
+)
 ```
 
 ---
 
 ### ⚙️ Animation Config
 
-| Option            | Description                                           | Default |
-|-------------------|-------------------------------------------------------|---------|
-| `animationType`   | `.system` (slide), `.fade`, or other supported preset | `.system` |
-| `duration`        | Duration of the animation in seconds                  | `0.3`   |
+|Option|Description|Default|
+|------|-----------|-------|
+|`animationType`|`.system` (slide), `.fade`, or other supported preset|`.system`|
+|`duration`|Duration of the animation in seconds|`0.3`|
 
 ---
 
-### 🔐 Pass JWT Token (optional)
+## 🔹 `launchAsync` (Advanced)
+
+Use this **only if your app needs to know whether the chat UI was shown**.
 
 ```swift
-let jwt = "your-jwt-token"
-NetomiChat.shared.launch(jwt: jwt)
+let launched = await NetomiChat.shared.launchAsync(
+    jwt: nil,
+    animationConfig: NCWAnimationConfig(animationType: .fade)
+)
+
+if launched {
+    print("Chat launched successfully")
+}
 ```
+
+### Return Value
+
+|Value|Meaning|
+|-----|-------|
+|`true`|Chat UI was presented|
+|`false`|Chat could not be presented|
+
+> ℹ️ A `false` return simply means the SDK was unable to show the chat **at this time**.
+> The SDK internally handles validation, retries, and state coordination.
+
+---
+
+### 🔐 JWT Authentication (Optional)
+
+```swift
+NetomiChat.shared.launch(jwt: "your-jwt-token")
+```
+
+- JWT is required **only** if your bot is configured for authenticated sessions
+- Passing a JWT when not required is safely ignored
 
 ---
 
 ### 🔐 JWT Token Usage
 
-| Use Case                     | JWT Required | Notes                                                                 |
-|-------------------------------|--------------|-----------------------------------------------------------------------|
-| `launch(jwt:)`                | ❌ Optional  | Use if your bot requires authentication; otherwise pass `nil`.        |
-| `launchWithQuery(_:jwt:)`     | ❌ Optional  | Same as above.                                                        |
-| `.reauthorizationSuccess`     | ✅ Required  | Must provide a valid JWT if the session started with JWT.              |
-| `.reauthorizationFailure`     | ❌ Optional  | You can omit JWT here.                                                |
-| Other events                  | ❌ Optional  | JWT is ignored if provided.                                           |
+|Use Case|JWT Required|Notes|
+|--------|------------|-----|
+|`launch(jwt:)`|❌ Optional|Use if your bot requires authentication; otherwise pass `nil`.|
+|`launchWithQuery(_:jwt:)`|❌ Optional|Same as above.|
+|`launchAsync(jwt:)`|❌ Optional|Async variant of `launch`. Returns whether the chat UI was shown.|
+|`launchWithQueryAsync(_:jwt:)`|❌ Optional|Async variant with a prefilled query.|
+|`.reauthorizationSuccess`|✅ Required|Must provide a valid JWT if the session was started with JWT.|
+|`.reauthorizationFailure`|❌ Optional|You can omit JWT here.|
+|Other events|❌ Optional|JWT is ignored if provided.|
+
+---
+
+### 🔹 Async Launch Examples
+
+#### Await Chat Launch
+
+```swift
+let launched = await NetomiChat.shared.launchAsync(
+    jwt: nil,
+    animationConfig: NCWAnimationConfig(animationType: .fade)
+)
+
+if launched {
+    print("Chat launched")
+}
+```
+
+#### Await Launch With Query
+
+```swift
+let launched = await NetomiChat.shared.launchWithQueryAsync(
+    "Hello, I need help",
+    jwt: nil
+)
+```
+
+> ℹ️ Async APIs are **optional** and intended for cases where your app needs to
+> confirm whether the chat UI was presented.
+> The SDK manages all internal validation and state automatically.
 
 ---
 
@@ -373,14 +476,21 @@ NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
 
 ---
 
-### 🔔 Set Push Token
+### 🔔 Push Token Registration
+
+#### Set Push Token (Preferred)
 
 ```swift
 NetomiChat.shared.setPushToken("your-push-token")
 ```
 
-> ⚠️ Deprecated: `setFCMToken(_:)` is deprecated. Use `setPushToken(_:)` instead.
+#### Deprecated (Do Not Use)
 
+```swift
+NetomiChat.shared.setFCMToken("your-fcm-token")
+```
+
+> ⚠️ `setFCMToken(_:)` is deprecated. Use `setPushToken(_:)` instead.
 ---
 
 ### 🪟 Manage Chat UI Visibility
@@ -427,31 +537,41 @@ The SDK provides a way for your app to **receive event callbacks** from the SDK 
 ### Receive Events from SDK
 
 ```swift
-NetomiChat.shared.getEventUpdatesFromSDK = { event in
-    guard let typeString = event["event_type"] as? String,
-          let eventType = NCWPublicEvent(rawValue: typeString) else {
+NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
+    guard let self else { return }
+
+    guard let typeString = event[NCWPublicEventKeys.eventType.rawValue] as? String,
+            let eventType = NCWPublicEvent(rawValue: typeString) else {
         return
     }
 
-    let info = event["event_data"] as? [String: Any] ?? [:]
+    let eventData = event[NCWPublicEventKeys.eventData.rawValue] as? [String: Any] ?? [:]
 
     switch eventType {
+        
     case .chatSdkInitialised:
-        // handle initialization event
-        print("SDK initialized", info)
+        print("SDK initialized", eventData)
 
     case .reauthorizationRequest:
-        // trigger reauthorization flow in your app
-        print("Reauthorization requested", info)
+        Task { @MainActor in
+            print("Reauthorization requested:", eventData)
+
+            // Example:
+            // Show your app’s authentication UI
+            // After success/failure, notify the SDK using sendEventToSdk(...)
+        }
+
+    case .reauthorizationResponse:
+        print("Reauthorization response received")
 
     case .chatOpened:
         print("Chat opened")
 
     case .error:
-        print("Error event: \(info)")
+        print("SDK error event:", eventData)
 
     default:
-        print("Event received: \(eventType.rawValue), data: \(info)")
+        break
     }
 }
 ```
@@ -463,7 +583,7 @@ do {
     try NetomiChat.shared.sendEventToSdk(
         type: .reauthorizationSuccess,
         jwt: "eyJhbGciOi...",   // Optional: JWT if required
-        data: ["userId": "1234"]
+        data: ["conversation_id": "12345"]
     )
 } catch {
     print("Failed: \(error)")
@@ -477,11 +597,11 @@ do {
 
 ### 📚 Supported Event Types
 
-| Event Type                | Description                                 |
-|---------------------------|---------------------------------------------|
-| `.reauthorizationSuccess` | Reauthorization completed successfully. |
-| `.reauthorizationFailure` | Reauthorization failed.                 |
-| `.none`                   | Placeholder, no event.                      |
+|Event Type|Description|
+|----------|-----------|
+|`.reauthorizationSuccess`|Reauthorization completed successfully.|
+|`.reauthorizationFailure`|Reauthorization failed.|
+|`.none`|Placeholder, no event.|
 
 ---
 
@@ -492,16 +612,16 @@ You can set the log level at any time during app runtime:
 ```swift
 #if DEBUG
 NetomiChat.shared.setupLogging(level: .info)
-##endif
+#endif
 ```
 
 ### 📚 Available Log Levels
 
-| Level      | Description                                                                 |
-|------------|-----------------------------------------------------------------------------|
-| `.none`    | No logs will be printed (recommended for production).                   |
-| `.error`   | Prints only SDK-related public error logs.                              |
-| `.info`    | Prints both public informational and error logs (ideal for development). |
+|Level|Description|
+|-----|-----------|
+|`.none`|No logs will be printed (recommended for production).|
+|`.error`|Prints only SDK-related public error logs.|
+|`.info`|Prints both public informational and error logs (ideal for development).|
 
 > **Default:** `.none`
 
@@ -521,7 +641,7 @@ integration.
     ```swift
     NetomiChat.shared.initialize(
         botRefId: "YOUR_BOT_REF_ID",
-        environment: .USProd
+        env: .USProd
     )
     ```
 
@@ -543,7 +663,7 @@ For SDK issues or integration help:
 ## 📄 License
 
 ```text
-© 2025 Netomi. All rights reserved.
+© 2026 Netomi. All rights reserved.
 The Netomi Mobile Chat SDK may include its own license terms.
 Refer to Netomi's official documentation for legal details.
 ```
