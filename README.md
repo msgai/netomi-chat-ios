@@ -15,7 +15,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 ## Prerequisites
 
 - iOS 16 or later
-- Xcode 15+
+- Xcode 26+
 - UIKit or SwiftUI (both supported by the SDK)
 - CocoaPods or Swift Package Manager
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.17.0'
+   pod 'NetomiChatSDK', '1.18.0'
    ```
 
 2. Run:
@@ -43,7 +43,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 4. Import and Use
 
     ```swift
-    import Netomi 
+    import Netomi
     ```
 
 ---
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.17.0`
+3. Select tag or branch: `1.18.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -79,12 +79,12 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
      **Option 1 – CocoaPods (Recommended):**
 
      ```ruby
-     pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.44.0'
+     pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.47.0'
      ```
 
      **Option 2 – Manual Binary Download:**
 
-     - Requires **iOS 15.0 or later**
+     - Binary supports **iOS 15+**, but **NetomiChatSDK requires iOS 16+**
      - Download:
 
        ```text
@@ -97,7 +97,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 5. Import and Use
 
     ```swift
-    import Netomi 
+    import Netomi
     ```
 
 ---
@@ -423,7 +423,7 @@ Avoid including any sensitive data like passwords or secrets.
 var header = NCWHeaderConfiguration()
 header.backgroundColor = .systemBlue                     // Set header background color
 header.isGradientApplied = true                          // Enable gradient effect
-header.isBackPressPopupEnabed = true                    // Show confirmation popup on back
+header.isBackPressPopupEnabled = true                    // Show confirmation popup on back
 header.navigationIcon = UIImage(named: "logo")          // Optional: Add a custom logo icon
 NetomiChat.shared.updateHeaderConfiguration(config: header)
 

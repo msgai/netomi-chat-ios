@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Netomi",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.17.0/Netomi.xcframework.zip",
-            checksum: "0112c39d35264ae94afea103088a1ed661b250658330cc7024611345c9f1be56"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.18.0/Netomi.xcframework.zip",
+            checksum: "e6c1bf52561b34fe086e7b0aaa0a6164670de703262dd97b15fa234aeb01aa24"
         )
     ]
 )
