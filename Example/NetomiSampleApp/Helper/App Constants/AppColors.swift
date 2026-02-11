@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppColors: UIColor {
+class AppColors: UIColor, @unchecked Sendable {
     
     static let themeColor           =   UIColor.black
     static let themeWhite           =   UIColor.white

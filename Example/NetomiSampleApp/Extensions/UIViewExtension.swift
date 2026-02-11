@@ -7,40 +7,7 @@
 
 import UIKit
 
-extension UIView {
-    
-    ///Sets the corner radius of the view
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-    }
-    
-    ///Sets the border width of the view
-    @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    ///Sets the border color of the view
-    @IBInspectable var borderColor: UIColor? {
-        get {
-            let color = UIColor(cgColor: layer.borderColor!)
-            return color
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
-    }
-    
+extension UIView {    
     var height: CGFloat {
         get { return self.frame.size.height }
         set { self.frame.size.height = newValue }
@@ -76,4 +43,286 @@ extension UIView {
         }
         return nil
     }
+}
+
+class NSAView: UIView {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+class NSATableView: UITableView {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+class NSATableViewCell: UITableViewCell {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+class NSACollectionView: UICollectionView {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+class NSACollectionViewCell: UICollectionViewCell {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+
+class NSALabel: UILabel {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+class NSAImageView: UIImageView {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+}
+
+
+class NSAStyleButton: UIButton {
+    ///Sets the corner radius of the view
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    ///Sets the border width of the view
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    ///Sets the border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            let color = UIColor(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
 }

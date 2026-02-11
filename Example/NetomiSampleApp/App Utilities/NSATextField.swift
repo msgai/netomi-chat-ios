@@ -71,7 +71,7 @@ enum TextValidation {
 
 class NSATextField: UIView, UITextFieldDelegate {
     
-    private var containerView: UIView!
+    private var containerView: NSAView!
     var textInput: UITextField!
     private var placeholderLbl: UIButton!
     private var selectionBtn: UIButton!
@@ -163,7 +163,7 @@ class NSATextField: UIView, UITextFieldDelegate {
     
     private func setupContainerView() {
         self.backgroundColor = .clear
-        containerView = UIView()
+        containerView = NSAView()
         containerView.backgroundColor = .white
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.borderWidth = 0.4

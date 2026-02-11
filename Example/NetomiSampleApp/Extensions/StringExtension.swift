@@ -10,7 +10,7 @@ import UIKit
 enum ValidityExression : String {
     case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9-]+\\.[A-Za-z]{2,}"
     case emailDoubleDot = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9-]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{2,}"
-    case password = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$#!%&])[A-Za-z0-9@$!%#&]{6,40}$"
+    case password = "^.{1,128}$"
 }
 
 extension String {

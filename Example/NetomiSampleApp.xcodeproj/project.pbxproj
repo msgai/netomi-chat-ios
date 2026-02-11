@@ -110,16 +110,6 @@
 		EDA593FFEF9D10C36D6C72D8 /* Pods-NetomiSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetomiSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-NetomiSampleApp/Pods-NetomiSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		CE8274972D64B8CF007DDAD3 /* NetomiSampleAppNotificationCenter */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			path = NetomiSampleAppNotificationCenter;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		0CD2C5652CE5CEB300328A44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -177,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				0CD2C56A2CE5CEB300328A44 /* NetomiSampleApp */,
-				CE8274972D64B8CF007DDAD3 /* NetomiSampleAppNotificationCenter */,
 				0CD2C5692CE5CEB300328A44 /* Products */,
 				6A298B52DDC1E868F66337D7 /* Pods */,
 				4CFEC422F96D73871D7EE21C /* Frameworks */,

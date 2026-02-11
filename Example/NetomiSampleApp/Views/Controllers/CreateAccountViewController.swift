@@ -57,8 +57,6 @@ class CreateAccountViewController: UIViewController {
             return (text?.count ?? 0) > 2
         case "email":
             return text?.checkIfInvalid(.email) == false
-        case "number":
-            return (text?.count ?? 0) > 9
         case "password":
             return text?.checkIfInvalid(.password) == false
         default:

@@ -214,7 +214,7 @@ extension HomeViewController {
         var config: NCWHeaderConfiguration = NCWHeaderConfiguration()
         config.backgroundColor = .red
         config.isGradientApplied = true
-        config.isBackPressPopupEnabed = true
+        config.isBackPressPopupEnabled = true
         config.navigationIcon = UIImage.logo
         NetomiChat.shared.updateHeaderConfiguration(config: config)
     }
@@ -244,7 +244,6 @@ extension HomeViewController {
         var config: NCWUserConfiguration = NCWUserConfiguration()
         config.backgroundColor = .darkGray
         config.retryColor = .red
-        config.quickReplyBackgroundColor = .darkGray
         config.textColor = .white
         NetomiChat.shared.updateUserConfiguration(config: config)
     }

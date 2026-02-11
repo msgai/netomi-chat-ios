@@ -20,7 +20,6 @@ class DeeplinkingexampleSecondVC: UIViewController {
         imageLink.isHidden = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         imageLink.loadImage(from: "https://demo.netomi.com/images/deeplink2.png", placeholder: AppImages.messageIcon)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
