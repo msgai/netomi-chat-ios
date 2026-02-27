@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NetomiChatSDK"
-  s.version = "1.18.3"
+  s.version = "1.18.4"
   s.summary      = "Netomi Chat SDK"
   s.description  = <<-DESC
     The Netomi Chat SDK is a software development kit that enables developers to integrate Netomi Chat interface into their applications, allowing for AI-powered virtual agents that automate customer interactions across chat and messaging channels. Leveraging Netomi Agentic OS, it streamlines customer support by providing instant responses, automating routine tasks, and seamlessly escalating complex queries to human agents when needed.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "16.0"
   s.swift_version = '5.9'
   s.source       = {
-    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.18.3/Netomi.xcframework.zip"
+    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.18.4/Netomi.xcframework.zip"
   }
 
   s.vendored_frameworks = [
