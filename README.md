@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.21.0'
+   pod 'NetomiChatSDK', '1.21.1'
    ```
 
 2. Run:
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.21.0`
+3. Select tag or branch: `1.21.1`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -497,6 +497,8 @@ NetomiChat.shared.setFCMToken("your-fcm-token")
 
 You can programmatically check whether the chat UI is currently visible, resume a hidden chat, or hide/destroy it.
 
+> ℹ️ `hideChat` and `resumeChat` are synchronous APIs executed on the main thread.  
+
 #### 🔹 Check if Chat is Visible
 
 ```swift
@@ -508,9 +510,7 @@ if NetomiChat.shared.isChatVisible() {
 #### 🔹 Resume a Previously Hidden Chat
 
 ```swift
-Task { @MainActor in
-    await NetomiChat.shared.resumeChat(animationConfig: NCWAnimationConfig(animationType: .fade))
-}
+NetomiChat.shared.resumeChat(animationConfig: NCWAnimationConfig(animationType: .fade))
 ```
 
 > If there’s no hidden chat to resume, this will be a no-op.  
@@ -519,9 +519,7 @@ Task { @MainActor in
 #### 🔹 Hide or Destroy Chat
 
 ```swift
-Task { @MainActor in
-    await NetomiChat.shared.hideChat(mode: .hide, animationConfig: NCWAnimationConfig(animationType: .fade, duration: 0.25))
-}
+NetomiChat.shared.hideChat(mode: .hide, animationConfig: NCWAnimationConfig(animationType: .fade, duration: 0.25))
 ```
 
 - `.destroy` → Tears down the UI so the next open starts fresh.  
