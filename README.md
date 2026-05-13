@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.22.0'
+   pod 'NetomiChatSDK', '1.23.0'
    ```
 
 2. Run:
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.22.0`
+3. Select tag or branch: `1.23.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -93,6 +93,29 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
      - Download the binary and extract its contents.
      - In your Xcode project, add a reference to the extracted `MicrosoftCognitiveServicesSpeech.xcframework` folder and its contents.
+
+   - **Datadog (Required for SDK Logging)**
+
+     Add via SPM:
+
+     ```text
+     https://github.com/DataDog/dd-sdk-ios.git
+     ```
+
+     Use version:
+
+     ```text
+     from: 2.10.0
+     ```
+
+     Select:
+
+      - `DatadogCore`
+      - `DatadogLogs`
+     
+     > ℹ️ The SDK initializes and manages Datadog internally.  
+     > No additional setup is required from the host application.
+
 
 5. Import and Use
 
@@ -139,6 +162,13 @@ If you prefer to integrate manually without a dependency manager:
 
     - **Microsoft Cognitive Services Speech SDK**:  
       Add via CocoaPods or manual binary as described above.
+
+    - **Datadog (Required for SDK Logging)**  
+      Add via SPM as described above.
+
+      Select:
+      - `DatadogCore`
+      - `DatadogLogs`
 
 5. Import and Use
 
@@ -189,6 +219,7 @@ let isReady = NetomiChat.isInitialized(
 
 Open the chat directly or with an optional prefilled query.
 You can also customize the **animation style and duration** using `NCWAnimationConfig`.
+If using a custom initial menu, call `setInitialMenu(_:)` before launching the chat.
 
 > ℹ️ Launch APIs are **fire-and-forget by default**.
 > Use `launchAsync()` only if you need confirmation.
@@ -362,6 +393,45 @@ NetomiChat.shared.clearChatSession()
 
 ---
 
+### 🧩 Configure Initial Menu
+
+Use `setInitialMenu(_:)` when your app needs to override the server-configured initial menu at runtime.
+Call it before launching the chat.
+
+```swift
+let initialMenu = NCWInitialMenuConfiguration(
+    header: "How can we help you?",
+    menuItems: [
+        NCWInitialMenuItem(
+            name: "track_order",
+            label: "Track Order"
+        ),
+        NCWInitialMenuItem(
+            name: "refund_order",
+            label: "Refund Order"
+        )
+    ]
+)
+
+NetomiChat.shared.setInitialMenu(initialMenu)
+NetomiChat.shared.launch()
+```
+
+- `header`: Text displayed above the initial menu items.
+- `menuItems`: Menu items shown in the chat. Each item requires:
+  - `name`: Unique identifier or event name associated with the menu item.
+  - `label`: User-visible text displayed for the menu item.
+- The override is applied during chat launch and does not update an already visible chat session.
+- Pass `nil` or call `clearInitialMenu()` to remove the override and fall back to the server configuration.
+
+```swift
+NetomiChat.shared.clearInitialMenu()
+// or
+NetomiChat.shared.setInitialMenu(nil)
+```
+
+---
+
 ### 🧩 Send Custom Parameters
 
 You can pass custom parameters to personalize the chat experience or pass session-specific metadata to the AI backend.
@@ -530,7 +600,7 @@ NetomiChat.shared.hideChat(mode: .hide, animationConfig: NCWAnimationConfig(anim
 
 ## 🔔 Event Handling
 
-The SDK provides a way for your app to **receive event callbacks** from the SDK as well as to **send custom events** into it.  
+The SDK provides a way for your app to **receive event callbacks** from the SDK as well as to **send events** into it.
 
 ### Receive Events from SDK
 
@@ -576,11 +646,15 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
 
 ### Send Events to SDK
 
+Use `sendEventToSdk(type:eventName:jwt:data:)` when the SDK expects a response from the host app, such as JWT reauthorization, or when you need to send a supported custom event.
+
+#### Reauthorization Success
+
 ```swift
 do {
     try NetomiChat.shared.sendEventToSdk(
         type: .reauthorizationSuccess,
-        jwt: "eyJhbGciOi...",   // Optional: JWT if required
+        jwt: "eyJhbGciOi...",   // Required for reauthorization success
         data: ["conversation_id": "12345"]
     )
 } catch {
@@ -588,10 +662,47 @@ do {
 }
 ```
 
+#### Reauthorization Failure
+
+```swift
+do {
+    try NetomiChat.shared.sendEventToSdk(
+        type: .reauthorizationFailure,
+        data: ["reason": "user_cancelled"]
+    )
+} catch {
+    print("Failed: \(error)")
+}
+```
+
+#### Custom Event
+
+```swift
+do {
+    try NetomiChat.shared.sendEventToSdk(
+        type: .custom,
+        eventName: "html_state_update",
+        data: [
+            "status": "submitted",
+            "custom_attributes": [
+                "formId": "feedback_form"
+            ]
+        ]
+    )
+} catch {
+    print("Failed: \(error)")
+}
+```
+
+- `type`: Event category sent to the SDK.
+- `eventName`: Required only when `type` is `.custom`.
+  - Must be non-empty.
+  - Must not use reserved SDK event names such as `reauthorization_success`, `reauthorization_failure`, or `custom`.
 - `jwt`: An **optional JSON Web Token**.
-  - Only required for certain events (e.g. `.reauthorizationSuccess`).
+  - Required for `.reauthorizationSuccess`.
   - Ignored if not applicable.
 - `data`: A JSON-serializable dictionary for additional payload. Defaults to `[:]`.
+  - Values must be compatible with JSON serialization.
 
 ### 📚 Supported Event Types
 
@@ -599,7 +710,7 @@ do {
 |----------|-----------|
 |`.reauthorizationSuccess`|Reauthorization completed successfully.|
 |`.reauthorizationFailure`|Reauthorization failed.|
-|`.none`|Placeholder, no event.|
+|`.custom`|Vendor/app-specific event. Requires `eventName`.|
 
 ---
 
@@ -622,6 +733,43 @@ NetomiChat.shared.setupLogging(level: .info)
 |`.info`|Prints both public informational and error logs (ideal for development).|
 
 > **Default:** `.none`
+
+---
+
+## 🔐 Tracking Consent (Datadog)
+
+The SDK provides an API to control Datadog tracking consent, allowing you to manage when logs are collected and sent.
+
+```swift
+NetomiChat.shared.setTrackingConsent(.granted)
+```
+
+### Available States
+
+| State | Description |
+| ----- | ----------- |
+| `.pending` | Logs are collected but not sent until consent is granted |
+| `.granted` | Logs are collected and sent to Datadog |
+| `.notGranted` | Logs are neither collected nor sent |
+
+### Usage Example
+
+```swift
+// Before user consent
+NetomiChat.shared.setTrackingConsent(.pending)
+
+// After user accepts consent
+NetomiChat.shared.setTrackingConsent(.granted)
+
+// If user declines
+NetomiChat.shared.setTrackingConsent(.notGranted)
+```
+
+### Important Notes
+
+- Recommended to integrate with your app’s privacy / consent flow
+- Applies only to Datadog logging inside the SDK
+- The SDK respects the consent state and adjusts log collection accordingly
 
 ---
 
