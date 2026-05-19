@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Netomi",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.23.0/Netomi.xcframework.zip",
-            checksum: "3c671d4a692b3006b556070f6d75ad680e8ce732f8e3f567f0580ce97d55cc7b"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.0/Netomi.xcframework.zip",
+            checksum: "89980ac6a3dd8e2d3e8d8f9d79ecd4d9d1e2bc746de63fd0ba865688177b0b5d"
         )
     ]
 )

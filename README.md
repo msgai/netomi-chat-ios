@@ -29,7 +29,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.23.0'
+   pod 'NetomiChatSDK', '1.24.0'
    ```
 
 2. Run:
@@ -57,7 +57,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.23.0`
+3. Select tag or branch: `1.24.0`
 
 4. ✅ **Required Third-Party Dependencies** (must be added manually):
 
@@ -93,29 +93,6 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
      - Download the binary and extract its contents.
      - In your Xcode project, add a reference to the extracted `MicrosoftCognitiveServicesSpeech.xcframework` folder and its contents.
-
-   - **Datadog (Required for SDK Logging)**
-
-     Add via SPM:
-
-     ```text
-     https://github.com/DataDog/dd-sdk-ios.git
-     ```
-
-     Use version:
-
-     ```text
-     from: 2.10.0
-     ```
-
-     Select:
-
-      - `DatadogCore`
-      - `DatadogLogs`
-     
-     > ℹ️ The SDK initializes and manages Datadog internally.  
-     > No additional setup is required from the host application.
-
 
 5. Import and Use
 
@@ -162,13 +139,6 @@ If you prefer to integrate manually without a dependency manager:
 
     - **Microsoft Cognitive Services Speech SDK**:  
       Add via CocoaPods or manual binary as described above.
-
-    - **Datadog (Required for SDK Logging)**  
-      Add via SPM as described above.
-
-      Select:
-      - `DatadogCore`
-      - `DatadogLogs`
 
 5. Import and Use
 
@@ -733,43 +703,6 @@ NetomiChat.shared.setupLogging(level: .info)
 |`.info`|Prints both public informational and error logs (ideal for development).|
 
 > **Default:** `.none`
-
----
-
-## 🔐 Tracking Consent (Datadog)
-
-The SDK provides an API to control Datadog tracking consent, allowing you to manage when logs are collected and sent.
-
-```swift
-NetomiChat.shared.setTrackingConsent(.granted)
-```
-
-### Available States
-
-| State | Description |
-| ----- | ----------- |
-| `.pending` | Logs are collected but not sent until consent is granted |
-| `.granted` | Logs are collected and sent to Datadog |
-| `.notGranted` | Logs are neither collected nor sent |
-
-### Usage Example
-
-```swift
-// Before user consent
-NetomiChat.shared.setTrackingConsent(.pending)
-
-// After user accepts consent
-NetomiChat.shared.setTrackingConsent(.granted)
-
-// If user declines
-NetomiChat.shared.setTrackingConsent(.notGranted)
-```
-
-### Important Notes
-
-- Recommended to integrate with your app’s privacy / consent flow
-- Applies only to Datadog logging inside the SDK
-- The SDK respects the consent state and adjusts log collection accordingly
 
 ---
 
