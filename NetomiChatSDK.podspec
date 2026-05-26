@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "NetomiChatSDK"
-  s.version = "1.24.0"
+  s.module_name  = "Netomi"
+  s.version = "1.24.1"
   s.summary      = "Netomi Chat SDK"
   s.description  = <<-DESC
     The Netomi Chat SDK is a software development kit that enables developers to integrate Netomi Chat interface into their applications, allowing for AI-powered virtual agents that automate customer interactions across chat and messaging channels. Leveraging Netomi Agentic OS, it streamlines customer support by providing instant responses, automating routine tasks, and seamlessly escalating complex queries to human agents when needed.
@@ -27,16 +28,22 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "16.0"
   s.swift_version = '5.9'
   s.source       = {
-    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.0/Netomi.xcframework.zip"
+    :http => "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.1/NetomiChatSDK.zip"
   }
 
   s.vendored_frameworks = [
-    'Netomi.xcframework'
+    'NetomiCore.xcframework'
+  ]
+  s.source_files = [
+    'Sources/Netomi/**/*.swift',
+    'Sources/NetomiInternal/**/*.swift'
   ]
 
   s.static_framework = true
   s.requires_arc = true
 
-  s.dependency 'AWSIoT'
-  s.dependency 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.48.1'
+  s.dependency 'AWSIoT', '~> 2.41.0'
+  s.dependency 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.49.1'
+  s.dependency 'DatadogCore', '~> 3.11.0'
+  s.dependency 'DatadogLogs', '~> 3.11.0'
 end

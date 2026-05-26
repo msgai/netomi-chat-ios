@@ -17,8 +17,10 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 - iOS 16 or later
 - Xcode 26+
 - UIKit or SwiftUI (both supported by the SDK)
-- CocoaPods or Swift Package Manager
+- CocoaPods or Swift Package Manager. Manual framework integration is not supported because the SDK depends on runtime-managed third-party packages.
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
+
+> **Important:** Use either CocoaPods or Swift Package Manager for a given app target, not both. Do not add AWS, Microsoft Speech, Datadog, or Netomi binary frameworks manually when using `NetomiChatSDK`; the package/pod manages those dependencies for you.
 
 ---
 
@@ -29,7 +31,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.24.0'
+   pod 'NetomiChatSDK', '1.24.1'
    ```
 
 2. Run:
@@ -40,11 +42,24 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
 3. Open `.xcworkspace` in Xcode.
 
-4. Import and Use
+4. ✅ **Required Third-Party Dependencies**
+
+   CocoaPods installs AWS IoT Core, Microsoft Cognitive Services Speech SDK, and Datadog automatically through `NetomiChatSDK`.
+
+5. Import and Use
 
     ```swift
     import Netomi
     ```
+
+> **Note:** CocoaPods has announced a read-only test window from **November 1-7, 2026**, followed by the permanent Trunk read-only switch on **December 2, 2026**.
+>
+> - Existing published versions of `NetomiChatSDK` should remain installable.
+> - Publishing automation may fail during the November 1-7, 2026 test window.
+> - New `NetomiChatSDK` podspec versions will no longer be publishable to Trunk after December 2, 2026.
+> - For new integrations, **Swift Package Manager is the recommended long-term installation path**.
+>
+> Reference: <https://blog.cocoapods.org/CocoaPods-Specs-Repo/>
 
 ---
 
@@ -57,42 +72,11 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.24.0`
+3. Select tag or branch: `1.24.1`
 
-4. ✅ **Required Third-Party Dependencies** (must be added manually):
+4. ✅ **Required Third-Party Dependencies**
 
-   - **AWS IoT Core**\
-     Add via SPM:
-
-     ```text
-     https://github.com/aws-amplify/aws-sdk-ios-spm.git
-     ```
-
-     Select:
-
-      - `AWSIoT`
-
-   - **Microsoft Cognitive Services Speech SDK**
-
-     > ⚠️ *Not available via SPM. Must be added manually.*
-
-     **Option 1 – CocoaPods (Recommended):**
-
-     ```ruby
-     pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.48.1'
-     ```
-
-     **Option 2 – Manual Binary Download:**
-
-     - Binary supports **iOS 15+**, but **NetomiChatSDK requires iOS 16+**
-     - Download:
-
-       ```text
-       https://aka.ms/csspeech/iosbinary
-       ```
-
-     - Download the binary and extract its contents.
-     - In your Xcode project, add a reference to the extracted `MicrosoftCognitiveServicesSpeech.xcframework` folder and its contents.
+   The Swift package product links AWS IoT Core, Microsoft Cognitive Services Speech SDK, and Datadog automatically.
 
 5. Import and Use
 
@@ -102,55 +86,25 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
 ---
 
-### 3️⃣ Manual Integration (No CocoaPods / No SPM)
+### Managed Dependency Versions
 
-If you prefer to integrate manually without a dependency manager:
+`NetomiChatSDK` manages the following third-party dependencies:
 
-1. Download SDK
+| Dependency | Version Range |
+|------------|---------------|
+| AWS IoT Core | `2.41.0..<2.42.0` |
+| Microsoft Cognitive Services Speech SDK | `1.49.1` |
+| Datadog Core / Logs | `3.11.0..<3.12.0` |
 
-   - Get the latest build: [Download]({{URL}})
-
-   - Extract to reveal `Netomi.xcframework`.
-
-2. Add to Xcode
-
-    - Open your Xcode project.
-    - Drag `Netomi.xcframework` into the **Project Navigator** (preferably inside a `Frameworks` group).
-    - In the dialog:
-      - Check **Copy items if needed**.
-      - Add to your app target.
-
-3. Embed & Sign
-
-    - Go to **Target → General → Frameworks, Libraries, and Embedded Content**.
-    - Set `Netomi.xcframework` to **Embed & Sign**.
-
-4. Add Required Dependencies
-
-    - **AWS IoT Core** (via SPM):
-
-      ```text
-      https://github.com/aws-amplify/aws-sdk-ios-spm.git
-      ```
-
-      Select:
-  
-        - `AWSIoT`
-
-    - **Microsoft Cognitive Services Speech SDK**:  
-      Add via CocoaPods or manual binary as described above.
-
-5. Import and Use
-
-    ```swift
-    import Netomi
-    ```
+Do not add separate versions of these dependencies unless Netomi support asks you to do so.
 
 ---
 
 ## Quick Start
 
 ### ✅ Initialize SDK
+
+Initialize the SDK once with your bot reference ID and environment before launching chat.
 
 ```swift
 NetomiChat.shared.initialize(
@@ -159,9 +113,22 @@ NetomiChat.shared.initialize(
 )
 ```
 
-> Replace `YOUR_BOT_REF_ID` and choose the environment: `.USProd`, `.SGProd`, `.EUProd`, `.QA`, `.QAInternal`, `.Development`
+- `botRefId`: Your Netomi bot reference ID.
+- `env`: Netomi environment. Supported values: `.USProd`, `.SGProd`, `.EUProd`, `.QA`, `.QAInternal`, `.Development`.
+- `isDynamicEnv`: Optional. Pass `true` only when your bot is configured for dynamic SDK configuration.
+
+```swift
+NetomiChat.shared.initialize(
+    botRefId: "YOUR_BOT_REF_ID",
+    env: .QA,
+    isDynamicEnv: true
+)
+```
+
+> The SDK safely ignores duplicate initialization calls for the same `botRefId`, `env`, and `isDynamicEnv`.
+> If any of these values change, the SDK resets the current SDK state and initializes for the new configuration.
 >
-> 🔹 Most visual styling can be configured via the Netomi Dashboard.  
+> 🔹 Most visual styling can be configured via the Netomi Dashboard.
 >
 > 🔹 If you'd like to customize it locally in code, see [Apply UI Customization](#-apply-ui-customization-optional)
 
@@ -169,9 +136,7 @@ NetomiChat.shared.initialize(
 
 ### (Optional) Check Initialization State
 
-The SDK **already prevents duplicate initialization** internally.
-
-Use this API **only if you want to track state on your side**:
+Use `isInitialized(botRefId:environment:isDynamicEnv:)` only when your app needs to check whether the SDK is already initialized for a specific configuration.
 
 ```swift
 let isReady = NetomiChat.isInitialized(
@@ -180,8 +145,19 @@ let isReady = NetomiChat.isInitialized(
 )
 ```
 
-> ❗ Do **not** gate `initialize()` or `launch()` based on this
-> The SDK safely handles repeated calls.
+For dynamic environment mode, pass the same `isDynamicEnv` value used during initialization:
+
+```swift
+let isReady = NetomiChat.isInitialized(
+    botRefId: "YOUR_BOT_REF_ID",
+    environment: .QA,
+    isDynamicEnv: true
+)
+```
+
+- Returns `true` only when the SDK was initialized with the same `botRefId`, `environment`, and `isDynamicEnv`.
+- Returns `false` if any value is different. For example, if you initialized with `isDynamicEnv: false`, checking with `isDynamicEnv: true` returns `false`.
+- Do **not** gate `initialize()` or `launch()` based on this. The SDK safely handles repeated calls.
 
 ---
 
@@ -363,6 +339,18 @@ NetomiChat.shared.clearChatSession()
 
 ---
 
+### 🔒 Tracking Consent
+
+Use `setTrackingConsent(_:)` if your app needs to control SDK observability consent at runtime.
+
+```swift
+NetomiChat.shared.setTrackingConsent(.granted)
+```
+
+Common values are `.granted`, `.notGranted`, and `.pending`.
+
+---
+
 ### 🧩 Configure Initial Menu
 
 Use `setInitialMenu(_:)` when your app needs to override the server-configured initial menu at runtime.
@@ -456,7 +444,25 @@ Avoid including any sensitive data like passwords or secrets.
 
 ---
 
+### 🔊 Configure Audio Session (Optional)
+
+The SDK manages audio session behavior for voice features by default. If your app owns `AVAudioSession`, configure this before launching chat.
+
+```swift
+NetomiChat.shared.configureAudioSession(
+    forceSpeakerOutput: true,
+    disableSessionControl: false
+)
+```
+
+- `forceSpeakerOutput`: Routes audio to speaker when no Bluetooth or wired output is connected.
+- `disableSessionControl`: Set to `true` when your app manages audio activation/deactivation itself.
+
+---
+
 ### 🎨 Apply UI Customization (Optional)
+
+Call UI customization APIs before `launch()` so overrides are applied when the chat opens.
 
 ```swift
 /// 🧩 Header Configuration: App bar at the top of the chat
@@ -511,6 +517,17 @@ otherConfig.backgroundColor = .white                     // Info section backgro
 otherConfig.titleColor = .black                          // Title text
 otherConfig.descriptionColor = .darkGray                 // Description/subtext
 NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+
+/// 🧩 Alerts Styling
+var alertsConfig = NCWAlertsConfiguration()
+alertsConfig.highAlert = .defaultHigh()
+NetomiChat.shared.updateAlertsConfiguration(config: alertsConfig)
+
+/// 🧩 Terms and Conditions Styling
+var termsConfig = NCWTermsConfiguration()
+termsConfig.backgroundColor = .white
+termsConfig.titleColor = .black
+NetomiChat.shared.updateTermsConfiguration(config: termsConfig)
 
 ```
 
