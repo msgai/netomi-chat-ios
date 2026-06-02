@@ -12,6 +12,12 @@ let package = Package(
             targets: [
                 "Netomi"
             ]
+        ),
+        .library(
+            name: "NetomiAnalytics",
+            targets: [
+                "NetomiAnalytics"
+            ]
         )
     ],
     dependencies: [
@@ -22,13 +28,21 @@ let package = Package(
         .package(
             url: "https://github.com/DataDog/dd-sdk-ios.git",
             .upToNextMinor(from: "3.11.0")
+        ),
+        .package(
+            url: "https://github.com/airbnb/lottie-ios.git",
+            .upToNextMinor(from: "4.6.0")
+        ),
+        .package(
+            url: "https://github.com/mixpanel/mixpanel-swift.git",
+            .upToNextMajor(from: "6.4.0")
         )
     ],
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.1/NetomiCore.xcframework.zip",
-            checksum: "7d3372c3c9d440caae91c9bbadefcb2dfc56ca7e7797183e111dccbc8bfbd85e"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.2/NetomiCore.xcframework.zip",
+            checksum: "45effdb29abbb3ac05fdf60dfb030f2966137b2ade414cdb141430ae84f14674"
         ),
         .binaryTarget(
             name: "MicrosoftCognitiveServicesSpeech",
@@ -49,9 +63,19 @@ let package = Package(
             name: "NetomiInternal",
             dependencies: [
                 .product(name: "DatadogCore", package: "dd-sdk-ios"),
-                .product(name: "DatadogLogs", package: "dd-sdk-ios")
+                .product(name: "DatadogLogs", package: "dd-sdk-ios"),
+                .product(name: "Lottie", package: "lottie-ios")
             ],
             path: "Sources/NetomiInternal"
+        ),
+        .target(
+            name: "NetomiAnalytics",
+            dependencies: [
+                "Netomi",
+                "NetomiCore",
+                .product(name: "Mixpanel", package: "mixpanel-swift")
+            ],
+            path: "Sources/NetomiAnalytics"
         )
     ]
 )

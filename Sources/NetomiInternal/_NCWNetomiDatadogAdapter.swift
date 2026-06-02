@@ -4,7 +4,17 @@ import Foundation
 
 final class _NCWNetomiDatadogAdapter: NSObject {
 
-    private var logger: LoggerProtocol?
+    private static let datadogClient = _NCWDefaultDatadogClient()
+
+    #if DEBUG
+    private static var testHooks: _NCWDatadogTestHooks?
+
+    static func setTestHooksForTesting(_ hooks: _NCWDatadogTestHooks?) {
+        testHooks = hooks
+    }
+    #endif
+
+    private var logHandler: ((LogLevel, String, [String: Encodable]) -> Void)?
     private var isConfigured = false
 
     @objc override init() {
@@ -28,36 +38,50 @@ final class _NCWNetomiDatadogAdapter: NSObject {
         let sampleRate = configuration.doubleValue(forKey: "sampleRate") ?? 100
         let trackingConsent = configuration.stringValue(forKey: "trackingConsent").datadogTrackingConsent
 
-        let datadogConfiguration = Datadog.Configuration(
-            clientToken: token,
-            env: environmentName,
-            service: serviceName,
-            backgroundTasksEnabled: backgroundTasksEnabled
-        )
+        #if DEBUG
+        if let testHooks = Self.testHooks {
+            testHooks.initialize(token, environmentName, serviceName, backgroundTasksEnabled, trackingConsent)
 
-        Datadog.initialize(
-            with: datadogConfiguration,
+            if debugVerbosityEnabled {
+                testHooks.setDebugVerbosity()
+            }
+
+            if isLogsEnabled {
+                logHandler = testHooks.makeLogger(
+                    serviceName,
+                    loggerName,
+                    isNetworkInfoEnabled,
+                    sampleRate,
+                    configuration.stringValue(forKey: "logSeverityThreshold").datadogLogLevel
+                )
+            }
+
+            isConfigured = true
+            return
+        }
+        #endif
+
+        Self.datadogClient.initialize(
+            token: token,
+            environmentName: environmentName,
+            serviceName: serviceName,
+            backgroundTasksEnabled: backgroundTasksEnabled,
             trackingConsent: trackingConsent
         )
 
         if debugVerbosityEnabled {
-            Datadog.verbosityLevel = .debug
+            Self.datadogClient.setDebugVerbosity()
         }
 
         if isLogsEnabled {
-            Logs.enable()
-            logger = Logger.create(
-                with: Logger.Configuration(
-                    service: serviceName,
-                    name: loggerName,
-                    networkInfoEnabled: isNetworkInfoEnabled,
-                    bundleWithRumEnabled: false,
-                    bundleWithTraceEnabled: false,
-                    remoteSampleRate: Float(sampleRate),
-                    remoteLogThreshold: configuration.stringValue(forKey: "logSeverityThreshold").datadogLogLevel,
-                    consoleLogFormat: .shortWith(prefix: "[iOS App]")
-                )
+            let logger = Self.datadogClient.makeLogger(
+                serviceName: serviceName,
+                loggerName: loggerName,
+                networkInfoEnabled: isNetworkInfoEnabled,
+                sampleRate: sampleRate,
+                logLevel: configuration.stringValue(forKey: "logSeverityThreshold").datadogLogLevel
             )
+            logHandler = logger.log
         }
 
         isConfigured = true
@@ -66,29 +90,94 @@ final class _NCWNetomiDatadogAdapter: NSObject {
     @objc(netomi_setTrackingConsent:)
     func setTrackingConsent(_ consent: NSString) {
         guard isConfigured else { return }
-        Datadog.set(trackingConsent: Optional(consent as String).datadogTrackingConsent)
+
+        #if DEBUG
+        if let testHooks = Self.testHooks {
+            testHooks.setTrackingConsent(Optional(consent as String).datadogTrackingConsent)
+            return
+        }
+        #endif
+
+        Self.datadogClient.setTrackingConsent(Optional(consent as String).datadogTrackingConsent)
     }
 
     @objc(netomi_logWithRecord:)
     func log(_ record: NSObject) {
-        guard isConfigured, let logger else { return }
+        guard isConfigured, let logHandler else { return }
 
         let message = record.stringValue(forKey: "message") ?? ""
         let level = record.stringValue(forKey: "level").datadogLogLevel
         let attributes = record.dictionaryValue(forKey: "attributes")?.encodableAttributes ?? [:]
 
+        logHandler(level, message, attributes)
+    }
+
+    @objc(netomi_reset)
+    func reset() {
+        logHandler = nil
+        isConfigured = false
+    }
+}
+
+#if DEBUG
+struct _NCWDatadogTestHooks {
+    let initialize: (String, String, String, Bool, TrackingConsent) -> Void
+    let setTrackingConsent: (TrackingConsent) -> Void
+    let setDebugVerbosity: () -> Void
+    let makeLogger: (String, String, Bool, Double, LogLevel) -> (LogLevel, String, [String: Encodable]) -> Void
+}
+#endif
+
+struct _NCWDefaultDatadogClient {
+    func initialize(token: String, environmentName: String, serviceName: String, backgroundTasksEnabled: Bool, trackingConsent: TrackingConsent) {
+        let configuration = Datadog.Configuration(
+            clientToken: token,
+            env: environmentName,
+            service: serviceName,
+            backgroundTasksEnabled: backgroundTasksEnabled
+        )
+
+        Datadog.initialize(
+            with: configuration,
+            trackingConsent: trackingConsent
+        )
+    }
+
+    func setTrackingConsent(_ trackingConsent: TrackingConsent) {
+        Datadog.set(trackingConsent: trackingConsent)
+    }
+
+    func setDebugVerbosity() {
+        Datadog.verbosityLevel = .debug
+    }
+
+    func makeLogger(serviceName: String, loggerName: String, networkInfoEnabled: Bool, sampleRate: Double, logLevel: LogLevel) -> _NCWDefaultDatadogLogger {
+        Logs.enable()
+        return _NCWDefaultDatadogLogger(logger: Logger.create(
+            with: Logger.Configuration(
+                service: serviceName,
+                name: loggerName,
+                networkInfoEnabled: networkInfoEnabled,
+                bundleWithRumEnabled: false,
+                bundleWithTraceEnabled: false,
+                remoteSampleRate: Float(sampleRate),
+                remoteLogThreshold: logLevel,
+                consoleLogFormat: .shortWith(prefix: "[iOS App]")
+            )
+        ))
+    }
+}
+
+struct _NCWDefaultDatadogLogger {
+    let logger: LoggerProtocol
+
+    func log(level: LogLevel, message: String, attributes: [String: Encodable]) {
         logger.log(
             level: level,
             message: message,
             error: nil,
             attributes: attributes
         )
-    }
-
-    @objc(netomi_reset)
-    func reset() {
-        logger = nil
-        isConfigured = false
     }
 }
 

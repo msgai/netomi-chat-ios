@@ -20,7 +20,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 - CocoaPods or Swift Package Manager. Manual framework integration is not supported because the SDK depends on runtime-managed third-party packages.
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
 
-> **Important:** Use either CocoaPods or Swift Package Manager for a given app target, not both. Do not add AWS, Microsoft Speech, Datadog, or Netomi binary frameworks manually when using `NetomiChatSDK`; the package/pod manages those dependencies for you.
+> **Important:** Use either CocoaPods or Swift Package Manager for a given app target, not both. Do not add AWS, Microsoft Speech, Datadog, Lottie, or Netomi binary frameworks manually when using `NetomiChatSDK`; the package/pod manages those dependencies for you.
 
 ---
 
@@ -31,7 +31,11 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 1. Add this to your `Podfile`:
 
    ```ruby
-   pod 'NetomiChatSDK', '1.24.1'
+   # Base SDK without optional analytics
+   pod 'NetomiChatSDK', '1.24.2'
+
+   # Or, opt in to optional analytics support. Mixpanel is the currently included provider.
+   # pod 'NetomiChatSDK/Analytics', '1.24.2'
    ```
 
 2. Run:
@@ -44,12 +48,15 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
 4. ✅ **Required Third-Party Dependencies**
 
-   CocoaPods installs AWS IoT Core, Microsoft Cognitive Services Speech SDK, and Datadog automatically through `NetomiChatSDK`.
+   CocoaPods installs AWS IoT Core, Microsoft Cognitive Services Speech SDK, Datadog, and Lottie automatically through `NetomiChatSDK`. Mixpanel is installed only when the `Analytics` subspec is selected.
 
 5. Import and Use
 
     ```swift
     import Netomi
+
+    // Required only when using NetomiChatSDK/Analytics.
+    NetomiAnalyticsSupport.enable()
     ```
 
 > **Note:** CocoaPods has announced a read-only test window from **November 1-7, 2026**, followed by the permanent Trunk read-only switch on **December 2, 2026**.
@@ -72,16 +79,23 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.24.1`
+3. Select tag or branch: `1.24.2`
 
-4. ✅ **Required Third-Party Dependencies**
+4. Choose package products:
 
-   The Swift package product links AWS IoT Core, Microsoft Cognitive Services Speech SDK, and Datadog automatically.
+   - Add `Netomi` for the base SDK without optional analytics.
+   - Add both `Netomi` and `NetomiAnalytics` to opt in to optional analytics support. Mixpanel is the currently included provider.
+
+   The `Netomi` product links AWS IoT Core, Microsoft Cognitive Services Speech SDK, Datadog, and Lottie automatically. Mixpanel is linked only when `NetomiAnalytics` is selected.
 
 5. Import and Use
 
     ```swift
     import Netomi
+
+    // Required only when the NetomiAnalytics product is selected.
+    import NetomiAnalytics
+    NetomiAnalyticsSupport.enable()
     ```
 
 ---
@@ -90,13 +104,15 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
 `NetomiChatSDK` manages the following third-party dependencies:
 
-| Dependency | Version Range |
-|------------|---------------|
-| AWS IoT Core | `2.41.0..<2.42.0` |
-| Microsoft Cognitive Services Speech SDK | `1.49.1` |
-| Datadog Core / Logs | `3.11.0..<3.12.0` |
+| Dependency                                | Version Range     |
+|-------------------------------------------|-------------------|
+| AWS IoT Core                              | `2.41.0..<2.42.0` |
+| Microsoft Cognitive Services Speech SDK   | `1.49.1`          |
+| Datadog Core / Logs                       | `3.11.0..<3.12.0` |
+| Lottie                                    | `4.6.0..<4.7.0`   |
+| Mixpanel Swift (optional)                 | `6.4.0..<7.0.0`   |
 
-Do not add separate versions of these dependencies unless Netomi support asks you to do so.
+Do not add separate versions of these dependencies unless Netomi support asks you to do so. Lottie is part of Core; Mixpanel is not installed unless the optional analytics product or subspec is selected.
 
 ---
 
