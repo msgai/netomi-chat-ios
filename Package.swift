@@ -41,8 +41,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.3/NetomiCore.xcframework.zip",
-            checksum: "5aa8769464e9e37d0e0b3e433f78256a0f870156cf680616d657b942f4d930ff"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.24.4/NetomiCore.xcframework.zip",
+            checksum: "ba6ebf9aeb0dbefc3732790dd2877ae5df1018f3d34e9f1bf64a15d9efde36d2"
         ),
         .binaryTarget(
             name: "MicrosoftCognitiveServicesSpeech",
