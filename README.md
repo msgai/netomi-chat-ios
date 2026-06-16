@@ -32,10 +32,10 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.25.0'
+   pod 'NetomiChatSDK', '1.26.0'
 
    # Or, opt in to optional analytics support. Mixpanel is the currently included provider.
-   # pod 'NetomiChatSDK/Analytics', '1.25.0'
+   # pod 'NetomiChatSDK/Analytics', '1.26.0'
    ```
 
 2. Run:
@@ -79,7 +79,7 @@ The **Netomi iOS Chat SDK** allows you to embed conversational AI into your app.
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select tag or branch: `1.25.0`
+3. Select tag or branch: `1.26.0`
 
 4. Choose package products:
 
