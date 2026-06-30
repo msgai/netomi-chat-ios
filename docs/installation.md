@@ -34,7 +34,7 @@
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.27.0`
+3. Select the tag or branch: `1.28.0`
 
 4. Choose package products:
 
@@ -61,10 +61,10 @@
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.27.0'
+   pod 'NetomiChatSDK', '1.28.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.27.0'
+   # pod 'NetomiChatSDK/Analytics', '1.28.0'
    ```
 
 2. Run:

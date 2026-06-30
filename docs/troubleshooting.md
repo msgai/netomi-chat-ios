@@ -114,7 +114,7 @@ Use `launchAsync` only when your app needs to know whether the chat UI was actua
 Only if your bot is configured for authenticated sessions. Otherwise pass `nil` (or omit it) for a guest session. A JWT passed to a non-authenticated bot is safely ignored. See [Events & Authentication](events-and-auth.md).
 
 **How do I switch users or handle logout?**
-Call `clearChatSession()` to reset the conversation, then launch again with the new user's JWT (authenticated) or without one (guest).
+Call `clearChatSession()` to end any active conversation, dismiss the chat UI if visible, and clear the stored session state. Then launch again with the new user's JWT (authenticated) or without one (guest).
 
 **Can I attach my own user attributes?**
 Yes, with `setCustomParameter(_:)` / `sendCustomParameter(name:value:)`. These are metadata only — they do not authenticate the user. Do not put secrets in custom parameters or API headers.
