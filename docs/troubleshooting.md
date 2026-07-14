@@ -70,8 +70,9 @@ NetomiChat.shared.launch(
 | Reauthorization keeps repeating | Missing or expired JWT on `.reauthorizationSuccess` | Respond to `.reauthorizationRequest` with a **fresh, valid** JWT via `sendEventToSdk(type: .reauthorizationSuccess, jwt:)`. See [Events & Authentication](events-and-auth.md). |
 | `sendEventToSdk(...)` throws | Missing JWT, missing/duplicate custom event name, or non-JSON payload | Handle `NetomiEventError`: provide a JWT for `.reauthorizationSuccess`, give a non-reserved `eventName` for `.custom`, and ensure `data` is JSON-serializable. |
 | UI theming not applied | `update*Configuration(...)` called **after** `launch()` | Apply all theming overrides **before** `launch()`. See [UI Theming](ui-theming.md). |
+| `themeMode: "auto"` (or `overrideThemeMode(.auto)`) always shows light, or always shows dark, ignoring the device's Dark Mode setting | Your app's Info.plist locks `UIUserInterfaceStyle` to a single style, so the device's actual appearance never reaches your app | Remove the `UIUserInterfaceStyle` key (or set it to `Automatic`) if you want `.auto` to track the device live. If your app intentionally supports only one appearance, use the matching explicit `themeMode`/`overrideThemeMode` instead of `.auto`. See [UI Theming](ui-theming.md#auto-requires-your-app-to-support-both-appearances). |
 | Push notifications never arrive | Token not handed to the SDK, stale token, or bot not configured for push | Call `setPushToken(_:)` after `initialize(...)` and on every token refresh. See [Push Notifications](push-notifications.md). |
-| Build error: duplicate or missing `Datadog` / `Lottie` / `Mixpanel` symbols | A managed dependency was added manually, or analytics was not enabled | Remove manually added copies of managed dependencies. For analytics, add `NetomiAnalytics` (SPM) or `NetomiChatSDK/Analytics` (CocoaPods) and call `NetomiAnalyticsSupport.enable()`. See [Installation](installation.md). |
+| Build error: duplicate or missing `Lottie` / `Mixpanel` symbols | A managed dependency was added manually, or analytics was not enabled | Remove manually added copies of managed dependencies. For analytics, add `NetomiAnalytics` (SPM) or `NetomiChatSDK/Analytics` (CocoaPods) and call `NetomiAnalyticsSupport.enable()`. See [Installation](installation.md). |
 | Swift Package Manager checksum mismatch | Cached or mismatched package resolution | In Xcode, **File → Packages → Reset Package Caches**, then resolve again on the intended version tag. |
 | Voice features have no audio, or conflict with your audio | Your app and the SDK are both managing `AVAudioSession` | If your app owns the audio session, call `configureAudioSession(...)`. See [Advanced](advanced.md). |
 | Both CocoaPods and SPM added in one target | The SDK was integrated twice | Use **one** integration method per app target, never both. See [Installation](installation.md). |
@@ -83,9 +84,9 @@ NetomiChat.shared.launch(
 ### Installation & setup
 
 **Which should I use, Swift Package Manager or CocoaPods?**
-Swift Package Manager is the recommended long-term path for new integrations. CocoaPods is still supported. Use only one method per app target. See [Installation](installation.md).
+Swift Package Manager. CocoaPods is **deprecated** — Netomi will publish `NetomiChatSDK` CocoaPods releases only until **October 1, 2026**. If you're still on CocoaPods, migrate before then. Use only one method per app target. See [Installation](installation.md#migrating-from-cocoapods-to-swift-package-manager).
 
-**Do I need to add AWS, Microsoft Speech, Datadog, or Lottie myself?**
+**Do I need to add AWS, Microsoft Speech, or Lottie myself?**
 No. `NetomiChatSDK` manages those dependencies for you. Adding them manually can cause duplicate-symbol build errors.
 
 **When is Mixpanel (analytics) included?**
@@ -126,6 +127,12 @@ Most often the token was not handed to the SDK, or it went stale. Call `setPushT
 
 **My theming changes don't show up. Why?**
 UI customization must be applied **before** `launch()`. Changes made while the chat is already visible are not guaranteed to take effect on the current session. See [UI Theming](ui-theming.md).
+
+**What's the difference between `theme(.light)`, `theme(.dark)`, `theme(.auto)`, and just calling `update*Configuration(...)` directly?**
+Only `theme(.dark)` is actually different. There are just two override buckets: a **default** bucket and a **dark-only** bucket. The unscoped call, `theme(.light)`, and `theme(.auto)` are all equivalent — they all write to the same default bucket (`.auto` is a mode *selector* for which theme is active, not a separate bucket of overrides). `theme(.dark)` is the only one that writes to the dark-only bucket, and it only takes effect while the chat is in dark mode — any property you don't set there falls back to the default bucket. If you never call `theme(.dark)`, dark mode just reuses your default overrides, so existing integrations are unaffected. See [UI Theming](ui-theming.md#scoping-code-level-overrides-to-light-or-dark).
+
+**My app only supports light mode (or only dark) — does that break theming?**
+No. Explicit `themeMode`/`overrideThemeMode` values (`.light` or `.dark`) always force the chat to that style regardless of how your app is configured. Only `.auto` is affected — it requires your app to support both appearances (no `UIUserInterfaceStyle` lock in Info.plist), since it inherits the device's appearance rather than polling it directly. See [UI Theming](ui-theming.md#auto-requires-your-app-to-support-both-appearances).
 
 **Can I change the chat's language?**
 Localized strings are driven by your bot configuration in the Netomi Dashboard. The SDK renders the configured language; there is no separate string-override API in the app.

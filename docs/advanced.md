@@ -2,23 +2,11 @@
 
 [← Back to documentation index](../README.md)
 
-> **What this guide covers:** optional controls beyond the basic launch flow: tracking consent, custom menus, custom parameters, API headers, audio session behavior, and logging.
+> **What this guide covers:** optional controls beyond the basic launch flow: custom menus, custom parameters, API headers, audio session behavior, and logging.
 >
 > **Read this when:** the [Usage](usage.md) flow works, but you need extra control over a specific behavior.
 >
 > 💡 Each section below is **independent and optional**. Use only the sections relevant to your app. Looking for **push notifications**? See **[Push Notifications](push-notifications.md)**.
-
----
-
-## 🔒 Tracking Consent
-
-Use `setTrackingConsent(_:)` when your app needs to control SDK observability consent at runtime. For example, use it to honor a user's privacy choice.
-
-```swift
-NetomiChat.shared.setTrackingConsent(.granted)
-```
-
-Common values are `.granted`, `.notGranted`, and `.pending`.
 
 ---
 

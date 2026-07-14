@@ -22,15 +22,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
-            .upToNextMinor(from: "2.41.0")
-        ),
-        .package(
-            url: "https://github.com/DataDog/dd-sdk-ios.git",
-            .upToNextMinor(from: "3.11.0")
-        ),
-        .package(
-            url: "https://github.com/airbnb/lottie-ios.git",
+            url: "https://github.com/airbnb/lottie-spm.git",
             .upToNextMinor(from: "4.6.0")
         ),
         .package(
@@ -41,8 +33,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.28.0/NetomiCore.xcframework.zip",
-            checksum: "580a0340b30dee1134237288dc01dfce1bcd6b047340d2e6de8cbd18d2b3e033"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.29.0/NetomiCore.xcframework.zip",
+            checksum: "ad32b91c0d52060d416a308c0a96e0e252d17ab364241fd8a09ff580f8b60240"
         ),
         .binaryTarget(
             name: "MicrosoftCognitiveServicesSpeech",
@@ -54,7 +46,6 @@ let package = Package(
             dependencies: [
                 "NetomiCore",
                 "NetomiInternal",
-                .product(name: "AWSIoT", package: "aws-sdk-ios-spm"),
                 "MicrosoftCognitiveServicesSpeech"
             ],
             path: "Sources/Netomi"
@@ -62,9 +53,7 @@ let package = Package(
         .target(
             name: "NetomiInternal",
             dependencies: [
-                .product(name: "DatadogCore", package: "dd-sdk-ios"),
-                .product(name: "DatadogLogs", package: "dd-sdk-ios"),
-                .product(name: "Lottie", package: "lottie-ios")
+                .product(name: "Lottie", package: "lottie-spm")
             ],
             path: "Sources/NetomiInternal"
         ),

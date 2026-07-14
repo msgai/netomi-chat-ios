@@ -2,31 +2,9 @@
 
 [← Back to documentation index](../README.md)
 
-> **What this guide covers:** how the SDK handles tracking consent and privacy, what its bundled privacy manifest declares, and best practices for keeping sensitive data out of the SDK.
+> **What this guide covers:** how the SDK handles privacy, what its bundled privacy manifest declares, and best practices for keeping sensitive data out of the SDK.
 >
 > **Read this when:** you are preparing an App Store submission, completing a privacy review, or hardening your integration.
-
----
-
-## 🔒 Tracking consent
-
-The SDK exposes a runtime consent control so your app can honor a user's privacy choice. Set it whenever the user's consent state is known or changes.
-
-```swift
-NetomiChat.shared.setTrackingConsent(.granted)
-```
-
-| Value | Meaning |
-| --- | --- |
-| `.granted` | The user has consented to SDK observability. |
-| `.notGranted` | The user has declined. |
-| `.pending` | Consent has not been decided yet. |
-
-- Consent controls SDK observability (such as diagnostics/analytics behavior) at runtime.
-- You can change the value at any time; the most recent value applies.
-- This setting is independent of Apple's App Tracking Transparency (ATT). The SDK's bundled privacy manifest declares **no tracking** (see below). If your wider app performs tracking, manage ATT yourself.
-
-> See **[Advanced](advanced.md)** for where `setTrackingConsent(_:)` fits alongside the other runtime controls.
 
 ---
 
@@ -66,7 +44,6 @@ Some APIs forward data to the AI backend or attach it to network requests. Send 
 
 ## ✅ Pre-submission checklist
 
-- [ ] Set tracking consent (`setTrackingConsent(_:)`) according to your consent UX.
 - [ ] Confirm your app's own `PrivacyInfo.xcprivacy` declares any data **your app** collects, including attributes you pass to the SDK.
 - [ ] Generate JWTs server-side and refresh via the reauthorization flow.
 - [ ] Verify no secrets are passed via custom parameters or custom headers.
@@ -76,6 +53,6 @@ Some APIs forward data to the AI backend or attach it to network requests. Send 
 
 ### ➡️ Related
 
-- Runtime controls (consent, headers, logging) → **[Advanced](advanced.md)**
+- Runtime controls (headers, logging) → **[Advanced](advanced.md)**
 - JWT auth and reauthorization → **[Events & Authentication](events-and-auth.md)**
 - Something not working? → **[Troubleshooting & FAQ](troubleshooting.md)**
