@@ -22,10 +22,6 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/airbnb/lottie-spm.git",
-            .upToNextMinor(from: "4.6.0")
-        ),
-        .package(
             url: "https://github.com/mixpanel/mixpanel-swift.git",
             .upToNextMajor(from: "6.4.0")
         )
@@ -33,8 +29,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.29.1/NetomiCore.xcframework.zip",
-            checksum: "c3ebba61d4ef1fea8b3e3ac37774e40936334454cf0e20850c12d1e482e4e2c1"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.29.2/NetomiCore.xcframework.zip",
+            checksum: "de0c692c11f8647dbeeba51d6dc0bf192f9f233987f782b02d7b3bfa68032b20"
         ),
         .binaryTarget(
             name: "MicrosoftCognitiveServicesSpeech",
@@ -45,17 +41,9 @@ let package = Package(
             name: "Netomi",
             dependencies: [
                 "NetomiCore",
-                "NetomiInternal",
                 "MicrosoftCognitiveServicesSpeech"
             ],
             path: "Sources/Netomi"
-        ),
-        .target(
-            name: "NetomiInternal",
-            dependencies: [
-                .product(name: "Lottie", package: "lottie-spm")
-            ],
-            path: "Sources/NetomiInternal"
         ),
         .target(
             name: "NetomiAnalytics",

@@ -48,14 +48,14 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.29.1`
+3. Select the tag or branch: `1.29.2`
 
 4. Choose package products:
 
    - Add `Netomi` for the base SDK without optional analytics.
    - Add both `Netomi` and `NetomiAnalytics` to opt in to optional analytics. Mixpanel is the currently included provider.
 
-   The `Netomi` product links Microsoft Cognitive Services Speech SDK and Lottie automatically. Mixpanel is linked only when `NetomiAnalytics` is selected.
+   The `Netomi` product links Microsoft Cognitive Services Speech SDK automatically. Mixpanel is linked only when `NetomiAnalytics` is selected.
 
 5. Import and use the SDK:
 
@@ -77,10 +77,10 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.29.1'
+   pod 'NetomiChatSDK', '1.29.2'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.29.1'
+   # pod 'NetomiChatSDK/Analytics', '1.29.2'
    ```
 
 2. Run:
@@ -93,7 +93,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
 4. ✅ **Required Third-Party Dependencies**
 
-   CocoaPods installs Microsoft Cognitive Services Speech SDK and Lottie automatically through `NetomiChatSDK`. Mixpanel is installed only when you select the `Analytics` subspec.
+   CocoaPods installs Microsoft Cognitive Services Speech SDK automatically through `NetomiChatSDK`. Mixpanel is installed only when you select the `Analytics` subspec.
 
 5. Import and use the SDK:
 
@@ -141,10 +141,11 @@ CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaP
 | Dependency | Version Range |
 | --- | --- |
 | Microsoft Cognitive Services Speech SDK | `1.49.1` |
-| Lottie | `4.6.0..<4.7.0` |
 | Mixpanel Swift (optional) | `6.4.0..<7.0.0` |
 
-Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. `Lottie` is part of the core SDK. `Mixpanel` is installed only when the optional analytics product or subspec is selected.
+Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. `Mixpanel` is installed only when the optional analytics product or subspec is selected.
+
+> AWS IoT Device SDK for Swift and Lottie are also used internally, but are statically embedded inside the SDK's core binary with their symbols hidden — they are never separate dependencies you add or manage.
 
 ---
 

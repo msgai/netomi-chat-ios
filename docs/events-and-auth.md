@@ -95,6 +95,10 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
     let eventDataKey = NCWPublicEventKeys.eventData.rawValue
     let eventData = event[eventDataKey] as? [String: Any] ?? [:]
 
+    // For `.customEvent`, the actual event name is nested inside `eventData`,
+    // under the same `eventType` key — not on the outer `event` dictionary.
+    let eventName = eventData[NCWPublicEventKeys.eventType.rawValue] as? String
+
     switch eventType {
 
     case .chatSdkInitialised:
@@ -117,6 +121,10 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
 
     case .error:
         print("SDK error event:", eventData)
+
+    case .customEvent:
+        // Bot-driven custom events (e.g. a CALLBACK_EVENT sent from your bot flow) arrive here.
+        print("Custom event received: \(eventName ?? "unknown") — payload:", eventData)
 
     default:
         break
