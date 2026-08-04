@@ -32,7 +32,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 - Swift Package Manager or CocoaPods. Manual framework integration is not supported because the SDK depends on managed third-party packages.
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
 
-> **Important:** Use either Swift Package Manager or CocoaPods for a given app target, not both. Do not add Microsoft Speech, Lottie, or Netomi binary frameworks manually when using `NetomiChatSDK`; the package or pod manages those dependencies for you.
+> **Important:** Use either Swift Package Manager or CocoaPods for a given app target, not both. Do not add Lottie or Netomi binary frameworks manually when using `NetomiChatSDK`; the package or pod manages those dependencies for you.
 
 ---
 
@@ -48,14 +48,14 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.29.2`
+3. Select the tag or branch: `1.30.0`
 
 4. Choose package products:
 
    - Add `Netomi` for the base SDK without optional analytics.
    - Add both `Netomi` and `NetomiAnalytics` to opt in to optional analytics. Mixpanel is the currently included provider.
 
-   The `Netomi` product links Microsoft Cognitive Services Speech SDK automatically. Mixpanel is linked only when `NetomiAnalytics` is selected.
+   Mixpanel is linked only when `NetomiAnalytics` is selected.
 
 5. Import and use the SDK:
 
@@ -77,10 +77,10 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.29.2'
+   pod 'NetomiChatSDK', '1.30.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.29.2'
+   # pod 'NetomiChatSDK/Analytics', '1.30.0'
    ```
 
 2. Run:
@@ -93,7 +93,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
 4. ✅ **Required Third-Party Dependencies**
 
-   CocoaPods installs Microsoft Cognitive Services Speech SDK automatically through `NetomiChatSDK`. Mixpanel is installed only when you select the `Analytics` subspec.
+   Mixpanel is installed only when you select the `Analytics` subspec.
 
 5. Import and use the SDK:
 
@@ -126,7 +126,7 @@ CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaP
    - Add the `Netomi` product (equivalent to `pod 'NetomiChatSDK'`).
    - Also add `NetomiAnalytics` if you previously used `pod 'NetomiChatSDK/Analytics'`.
    - Select the same version/tag you were pinned to in your `Podfile`.
-5. **Remove any manually vendored copies** of AWS IoT Core, Microsoft Cognitive Services Speech SDK, Lottie, or Mixpanel — SPM manages the same dependencies CocoaPods did. Leaving both in place causes duplicate-symbol build errors.
+5. **Remove any manually vendored copies** of AWS IoT Core, Lottie, or Mixpanel — SPM manages the same dependencies CocoaPods did. Leaving both in place causes duplicate-symbol build errors.
 6. **Build and run.** Your `import Netomi` / `import NetomiAnalytics` statements and `NetomiAnalyticsSupport.enable()` call are unchanged — no API changes are required to migrate.
 7. **Delete `Podfile.lock`** and any leftover `Pods/` directory once the build succeeds on SPM.
 
@@ -140,7 +140,6 @@ CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaP
 
 | Dependency | Version Range |
 | --- | --- |
-| Microsoft Cognitive Services Speech SDK | `1.49.1` |
 | Mixpanel Swift (optional) | `6.4.0..<7.0.0` |
 
 Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. `Mixpanel` is installed only when the optional analytics product or subspec is selected.

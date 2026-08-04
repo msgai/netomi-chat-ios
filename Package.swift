@@ -29,19 +29,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.29.2/NetomiCore.xcframework.zip",
-            checksum: "de0c692c11f8647dbeeba51d6dc0bf192f9f233987f782b02d7b3bfa68032b20"
-        ),
-        .binaryTarget(
-            name: "MicrosoftCognitiveServicesSpeech",
-            url: "https://csspeechstorage.blob.core.windows.net/drop/1.49.1/MicrosoftCognitiveServicesSpeech-XCFramework-1.49.1.zip",
-            checksum: "6166a6338a55d4fe5e98e67460d21d5e725a7dd47268fc3648113de866f4a780"
+            url: "https://netomi-sdk-public.s3.amazonaws.com/sdk/ios/releases/1.30.0/NetomiCore.xcframework.zip",
+            checksum: "6496c0ce7a10ed8ea617eba0b65e203b24a1ff4949c8635740541f97e0c69623"
         ),
         .target(
             name: "Netomi",
             dependencies: [
-                "NetomiCore",
-                "MicrosoftCognitiveServicesSpeech"
+                "NetomiCore"
             ],
             path: "Sources/Netomi"
         ),

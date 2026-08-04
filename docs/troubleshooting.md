@@ -86,7 +86,7 @@ NetomiChat.shared.launch(
 **Which should I use, Swift Package Manager or CocoaPods?**
 Swift Package Manager. CocoaPods is **deprecated** — Netomi will publish `NetomiChatSDK` CocoaPods releases only until **October 1, 2026**. If you're still on CocoaPods, migrate before then. Use only one method per app target. See [Installation](installation.md#migrating-from-cocoapods-to-swift-package-manager).
 
-**Do I need to add AWS, Microsoft Speech, or Lottie myself?**
+**Do I need to add AWS or Lottie myself?**
 No. `NetomiChatSDK` manages those dependencies for you. Adding them manually can cause duplicate-symbol build errors.
 
 **When is Mixpanel (analytics) included?**

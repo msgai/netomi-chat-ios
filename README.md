@@ -10,7 +10,6 @@ app. It supports:
 - 🔔 Push notifications (Firebase / APNs)
 - 🎨 Flexible UI styling (via the Netomi Dashboard or in code)
 - 🔐 Optional JWT-authenticated sessions
-- 🎙️ Voice input/output
 
 ---
 
@@ -65,7 +64,7 @@ The three steps below get a basic chat running. See [Installation](docs/installa
 ### 1. Install
 
 Add the package with **Swift Package Manager** (recommended) using tag
-`1.29.2`:
+`1.30.0`:
 
 ```text
 https://github.com/msgai/netomi-chat-ios.git
