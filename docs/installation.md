@@ -48,12 +48,13 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.31.0`
+3. Select the tag or branch: `1.32.0`
 
 4. Choose package products:
 
-   - Add `Netomi` for the base SDK without optional analytics.
+   - Add `Netomi` for the base SDK without optional analytics or voice input.
    - Add both `Netomi` and `NetomiAnalytics` to opt in to optional analytics. Mixpanel is the currently included provider.
+   - Add both `Netomi` and `NetomiVoiceSTT` to opt in to voice/mic input.
 
    Mixpanel is linked only when `NetomiAnalytics` is selected.
 
@@ -67,6 +68,15 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
     NetomiAnalyticsSupport.enable()
     ```
 
+    Voice/mic input needs no code at all beyond adding the package product:
+
+    ```swift
+    import Netomi
+    import NetomiVoiceSTT // enables voice input automatically — nothing else to call
+    ```
+
+    Without `NetomiVoiceSTT` linked, voice input is simply not available (the mic control stays hidden).
+
 ---
 
 ## Option 2 — CocoaPods (deprecated, supported until October 1, 2026)
@@ -77,10 +87,10 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.31.0'
+   pod 'NetomiChatSDK', '1.32.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.31.0'
+   # pod 'NetomiChatSDK/Analytics', '1.32.0'
    ```
 
 2. Run:
@@ -104,6 +114,11 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
     NetomiAnalyticsSupport.enable()
     ```
 
+> ⚠️ **Voice/mic input is not available via CocoaPods.** It ships only as the SPM
+> `NetomiVoiceSTT` product (see [Option 1](#option-1--swift-package-manager-recommended)).
+> If your app uses voice input, [migrate to Swift Package Manager](#migrating-from-cocoapods-to-swift-package-manager)
+> to keep that feature.
+>
 > **Note:** CocoaPods.org is also winding down Trunk publishing SDK-wide, on a different schedule than Netomi's own sunset — see the [full timeline](#cocoapods-sunset-timeline) above.
 
 ---
@@ -125,6 +140,7 @@ CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaP
 4. **Add the SPM package** by following [Option 1 — Swift Package Manager](#option-1--swift-package-manager-recommended) above:
    - Add the `Netomi` product (equivalent to `pod 'NetomiChatSDK'`).
    - Also add `NetomiAnalytics` if you previously used `pod 'NetomiChatSDK/Analytics'`.
+   - Also add `NetomiVoiceSTT` if you want voice/mic input — it wasn't available via CocoaPods.
    - Select the same version/tag you were pinned to in your `Podfile`.
 5. **Remove any manually vendored copies** of AWS IoT Core, Lottie, or Mixpanel — SPM manages the same dependencies CocoaPods did. Leaving both in place causes duplicate-symbol build errors.
 6. **Build and run.** Your `import Netomi` / `import NetomiAnalytics` statements and `NetomiAnalyticsSupport.enable()` call are unchanged — no API changes are required to migrate.
@@ -141,8 +157,9 @@ CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaP
 | Dependency | Version Range |
 | --- | --- |
 | Mixpanel Swift (optional) | `6.4.0..<7.0.0` |
+| Microsoft Cognitive Services Speech SDK (optional) | `1.51.1..<1.52.0` |
 
-Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. `Mixpanel` is installed only when the optional analytics product or subspec is selected.
+Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. Each optional dependency is installed only when its corresponding product/subspec (`NetomiAnalytics`, `NetomiVoiceSTT`) is selected.
 
 > AWS IoT Device SDK for Swift and Lottie are also used internally, but are statically embedded inside the SDK's core binary with their symbols hidden — they are never separate dependencies you add or manage.
 

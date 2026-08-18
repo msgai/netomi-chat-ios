@@ -22,7 +22,7 @@ NetomiChat.shared.setupLogging(level: .info)
 
 | Level | Use |
 | --- | --- |
-| `.none` | Production default — no logs. |
+| `.none` | Recommended for production. |
 | `.error` | Public SDK error logs only. |
 | `.info` | Public info + error logs — best for development. |
 
@@ -86,11 +86,11 @@ NetomiChat.shared.launch(
 **Which should I use, Swift Package Manager or CocoaPods?**
 Swift Package Manager. CocoaPods is **deprecated** — Netomi will publish `NetomiChatSDK` CocoaPods releases only until **October 1, 2026**. If you're still on CocoaPods, migrate before then. Use only one method per app target. See [Installation](installation.md#migrating-from-cocoapods-to-swift-package-manager).
 
-**Do I need to add AWS or Lottie myself?**
-No. `NetomiChatSDK` manages those dependencies for you. Adding them manually can cause duplicate-symbol build errors.
-
 **When is Mixpanel (analytics) included?**
 Only when you opt in — add the `NetomiAnalytics` product (SPM) or the `NetomiChatSDK/Analytics` subspec (CocoaPods) and call `NetomiAnalyticsSupport.enable()`.
+
+**When is voice/mic input included?**
+Only when you opt in — add the `NetomiVoiceSTT` product (SPM). No additional code is required. Without it, voice input is simply not available in the chat widget.
 
 **Does the SDK support both UIKit and SwiftUI?**
 Yes, both are supported.
