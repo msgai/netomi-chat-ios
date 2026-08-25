@@ -48,7 +48,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.32.0`
+3. Select the tag or branch: `1.32.1`
 
 4. Choose package products:
 
@@ -87,10 +87,10 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.32.0'
+   pod 'NetomiChatSDK', '1.32.1'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.32.0'
+   # pod 'NetomiChatSDK/Analytics', '1.32.1'
    ```
 
 2. Run:
