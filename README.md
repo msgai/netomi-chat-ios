@@ -65,7 +65,7 @@ The three steps below get a basic chat running. See [Installation](docs/installa
 ### 1. Install
 
 Add the package with **Swift Package Manager** (recommended) using tag
-`1.32.1`:
+`1.32.2`:
 
 ```text
 https://github.com/msgai/netomi-chat-ios.git
