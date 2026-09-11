@@ -107,12 +107,21 @@ Full details, including managed dependency versions, are in [Installation](docs/
 
 ---
 
-## 🧪 Example App
+## 🧪 Example Apps
 
-An example iOS app is included in `/Example` to demonstrate SDK integration.
+Two example iOS apps are included in `/Example`, both integrating the SDK via Swift Package Manager.
 
-1. Open `Example/NetomiSampleApp.xcworkspace`.
-2. In `HomeViewController.swift`, replace `YOUR_BOT_REF_ID` and `env` with your
+### UIKit example
+
+1. Open `Example/UIKIt/NetomiSampleApp.xcodeproj`.
+2. In `HomeViewController.swift`, replace the `botRefId` placeholder and `env` with your
+   own values.
+3. Build & run on a simulator or device.
+
+### SwiftUI example
+
+1. Open `Example/SwiftUI/NetomiSwiftUISampleApp.xcodeproj`.
+2. In `NetomiSwiftUISampleAppApp.swift`, replace the `botRefId` placeholder and `env` with your
    own values.
 3. Build & run on a simulator or device.
 
