@@ -1,0 +1,51 @@
+{
+  "originHash" : "63dd1b7db2eeeb216d6fab4e84ae4c05b7ef172c5db3e583cc5bd94ba2e9bcb3",
+  "pins" : [
+    {
+      "identity" : "json-logic-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/advantagefse/json-logic-swift",
+      "state" : {
+        "revision" : "9088eed1b26937fe13d248aa24d7632a51be28e2",
+        "version" : "1.2.4"
+      }
+    },
+    {
+      "identity" : "mixpanel-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mixpanel/mixpanel-swift.git",
+      "state" : {
+        "revision" : "8399b37fca5717ba8701e0d2af26b98ce48bcaf3",
+        "version" : "6.5.1"
+      }
+    },
+    {
+      "identity" : "mixpanel-swift-common",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mixpanel/mixpanel-swift-common.git",
+      "state" : {
+        "revision" : "ffd168d972a1bea7e86104f253a3e105c69217e5",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "netomi-chat-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/msgai/netomi-chat-ios.git",
+      "state" : {
+        "revision" : "71d2d749a1df7eb768e6a4ece0ef0533f82baac3",
+        "version" : "1.32.3"
+      }
+    },
+    {
+      "identity" : "speech-sdk-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/microsoft/speech-sdk-spm",
+      "state" : {
+        "revision" : "992c083901e6f6dcaeea7f5739cde68e62f0f71b",
+        "version" : "1.51.1"
+      }
+    }
+  ],
+  "version" : 3
+}

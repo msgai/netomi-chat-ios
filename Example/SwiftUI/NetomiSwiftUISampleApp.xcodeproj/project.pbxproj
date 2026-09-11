@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C166325305420D700CA5473 /* NetomiAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2C166324305420D700CA5473 /* NetomiAnalytics */; };
+		2C166327305420D700CA5473 /* NetomiVoiceSTT in Frameworks */ = {isa = PBXBuildFile; productRef = 2C166326305420D700CA5473 /* NetomiVoiceSTT */; };
+		4E6F4817F080461B8F3770BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892DA1C3F7B94DF8BF7C5B67 /* Assets.xcassets */; };
+		538814FFC4734DC1A650624D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2772507E1654E34AAA4F316 /* ContentView.swift */; };
+		811362006AAF4F44A4DA6608 /* Netomi in Frameworks */ = {isa = PBXBuildFile; productRef = 071B8F8A894242CEA92A4AA8 /* Netomi */; };
+		CE73021FC1DF488BB13E2238 /* NetomiSwiftUISampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4031D7304CBA466A90EC5019 /* NetomiSwiftUISampleAppApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C16632230541F1500CA5473 /* NetomiSwiftUISampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetomiSwiftUISampleApp.entitlements; sourceTree = "<group>"; };
+		4031D7304CBA466A90EC5019 /* NetomiSwiftUISampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetomiSwiftUISampleAppApp.swift; sourceTree = "<group>"; };
+		87AD44EF3A7D49278C981A21 /* NetomiSwiftUISampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetomiSwiftUISampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		892DA1C3F7B94DF8BF7C5B67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A0001042D0001010001010A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2772507E1654E34AAA4F316 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C507F399210F4B71AB1EB8E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				811362006AAF4F44A4DA6608 /* Netomi in Frameworks */,
+				2C166327305420D700CA5473 /* NetomiVoiceSTT in Frameworks */,
+				2C166325305420D700CA5473 /* NetomiAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C166323305420D700CA5473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58DCE052855A4B4D9297F061 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87AD44EF3A7D49278C981A21 /* NetomiSwiftUISampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		939C4FE2B8414B27A3766AD8 /* NetomiSwiftUISampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				2C16632230541F1500CA5473 /* NetomiSwiftUISampleApp.entitlements */,
+				4031D7304CBA466A90EC5019 /* NetomiSwiftUISampleAppApp.swift */,
+				E2772507E1654E34AAA4F316 /* ContentView.swift */,
+				892DA1C3F7B94DF8BF7C5B67 /* Assets.xcassets */,
+				9A0001042D0001010001010A /* Info.plist */,
+			);
+			path = NetomiSwiftUISampleApp;
+			sourceTree = "<group>";
+		};
+		9C410BFDFD7646EC8E58745E = {
+			isa = PBXGroup;
+			children = (
+				939C4FE2B8414B27A3766AD8 /* NetomiSwiftUISampleApp */,
+				2C166323305420D700CA5473 /* Frameworks */,
+				58DCE052855A4B4D9297F061 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1D9520ED61A471DBCC3C77E /* NetomiSwiftUISampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00662CA4D1734B2C8371075F /* Build configuration list for PBXNativeTarget "NetomiSwiftUISampleApp" */;
+			buildPhases = (
+				08C96337B9194C90A9268C3C /* Sources */,
+				C507F399210F4B71AB1EB8E0 /* Frameworks */,
+				C041D441AB3C440BB5355775 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetomiSwiftUISampleApp;
+			packageProductDependencies = (
+				071B8F8A894242CEA92A4AA8 /* Netomi */,
+				2C166324305420D700CA5473 /* NetomiAnalytics */,
+				2C166326305420D700CA5473 /* NetomiVoiceSTT */,
+			);
+			productName = NetomiSwiftUISampleApp;
+			productReference = 87AD44EF3A7D49278C981A21 /* NetomiSwiftUISampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5ABD44816924614A23B6C7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					C1D9520ED61A471DBCC3C77E = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 2A08FDC1BAAF49F5BD363F46 /* Build configuration list for PBXProject "NetomiSwiftUISampleApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C410BFDFD7646EC8E58745E;
+			packageReferences = (
+				1867737BB2434682B299B3C2 /* XCRemoteSwiftPackageReference "netomi-chat-ios" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 58DCE052855A4B4D9297F061 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1D9520ED61A471DBCC3C77E /* NetomiSwiftUISampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C041D441AB3C440BB5355775 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E6F4817F080461B8F3770BD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08C96337B9194C90A9268C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE73021FC1DF488BB13E2238 /* NetomiSwiftUISampleAppApp.swift in Sources */,
+				538814FFC4734DC1A650624D /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		04819186ECD4496CA8E03500 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetomiSwiftUISampleApp/NetomiSwiftUISampleApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetomiSwiftUISampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Netomi Agentic AI";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to upload images/videos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone to record videos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netomichatai.ios.swiftui;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		1C2872ED4CB4448881F4A08A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7649F7342E494C128F89482D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NetomiSwiftUISampleApp/NetomiSwiftUISampleApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetomiSwiftUISampleApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Netomi Agentic AI";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera to upload images/videos.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need to access your microphone to record videos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netomichatai.ios.swiftui;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A842C98119C4437A88BD2F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00662CA4D1734B2C8371075F /* Build configuration list for PBXNativeTarget "NetomiSwiftUISampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7649F7342E494C128F89482D /* Debug */,
+				04819186ECD4496CA8E03500 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A08FDC1BAAF49F5BD363F46 /* Build configuration list for PBXProject "NetomiSwiftUISampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C2872ED4CB4448881F4A08A /* Debug */,
+				A842C98119C4437A88BD2F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1867737BB2434682B299B3C2 /* XCRemoteSwiftPackageReference "netomi-chat-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/msgai/netomi-chat-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.32.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		071B8F8A894242CEA92A4AA8 /* Netomi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1867737BB2434682B299B3C2 /* XCRemoteSwiftPackageReference "netomi-chat-ios" */;
+			productName = Netomi;
+		};
+		2C166324305420D700CA5473 /* NetomiAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1867737BB2434682B299B3C2 /* XCRemoteSwiftPackageReference "netomi-chat-ios" */;
+			productName = NetomiAnalytics;
+		};
+		2C166326305420D700CA5473 /* NetomiVoiceSTT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1867737BB2434682B299B3C2 /* XCRemoteSwiftPackageReference "netomi-chat-ios" */;
+			productName = NetomiVoiceSTT;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E5ABD44816924614A23B6C7A /* Project object */;
+}
