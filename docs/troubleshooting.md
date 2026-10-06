@@ -84,7 +84,7 @@ NetomiChat.shared.launch(
 ### Installation & setup
 
 **Which should I use, Swift Package Manager or CocoaPods?**
-Swift Package Manager. CocoaPods is **deprecated** — Netomi will publish `NetomiChatSDK` CocoaPods releases only until **October 1, 2026**. If you're still on CocoaPods, migrate before then. Use only one method per app target. See [Installation](installation.md#migrating-from-cocoapods-to-swift-package-manager).
+Swift Package Manager. CocoaPods is **no longer supported** — Netomi no longer publishes new `NetomiChatSDK` CocoaPods releases. If you're still on CocoaPods, migrate now. Use only one method per app target. See [Installation](installation.md#migrating-from-cocoapods-to-swift-package-manager).
 
 **When is Mixpanel (analytics) included?**
 Only when you opt in — add the `NetomiAnalytics` product (SPM) or the `NetomiChatSDK/Analytics` subspec (CocoaPods) and call `NetomiAnalyticsSupport.enable()`.
@@ -159,3 +159,4 @@ If logging and the steps above don't resolve the issue, contact Netomi support w
 - JWT auth and events → **[Events & Authentication](events-and-auth.md)**
 - Push notification setup → **[Push Notifications](push-notifications.md)**
 - Consent, privacy manifest, secrets → **[Security & Privacy](security-and-privacy.md)**
+- Upgrading and removed APIs → **[Migration Guide](migration.md)**

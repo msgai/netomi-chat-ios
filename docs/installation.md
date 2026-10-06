@@ -6,21 +6,21 @@
 >
 > **Read this when:** you are integrating the SDK for the first time, or upgrading to a new version.
 >
-> **Which should I choose?** Use **Swift Package Manager** for new integrations. It is the recommended long-term path. Pick **one** method per app target; do not mix both.
+> **Which should I choose?** **Swift Package Manager is the only supported integration method as of this version.** Do not mix installation methods in one app target.
 >
-> ⚠️ **CocoaPods support is deprecated.** Netomi will publish `NetomiChatSDK` CocoaPods releases (base pod and the `/Analytics` subspec alike) only until **October 1, 2026**. **Swift Package Manager is the preferred and long-term supported integration method.** If you currently use CocoaPods, migrate before October 1, 2026 — see [Migrating from CocoaPods to Swift Package Manager](#migrating-from-cocoapods-to-swift-package-manager).
+> ⚠️ **CocoaPods is no longer supported.** Starting with this SDK version, `NetomiChatSDK` is distributed via Swift Package Manager only. If you currently use CocoaPods, migrate now — see [Migrating from CocoaPods to Swift Package Manager](#migrating-from-cocoapods-to-swift-package-manager). Previously published `NetomiChatSDK` CocoaPods versions remain installable, but no new CocoaPods releases will be published.
 
 ## CocoaPods sunset timeline
 
-Two separate, unrelated dates are in play — Netomi's own deprecation, and CocoaPods.org's own infrastructure change:
+Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, are two separate, unrelated events:
 
 | Date | What ends | Source |
 | --- | --- | --- |
-| **October 1, 2026** | Netomi stops publishing new `NetomiChatSDK` versions (base pod **and** `/Analytics` subspec). Already-published versions remain installable. | Netomi |
+| **This version onward** | Netomi no longer publishes new `NetomiChatSDK` versions (base pod **and** `/Analytics` subspec) via CocoaPods. Already-published versions remain installable. | Netomi |
 | November 1–7, 2026 | CocoaPods Trunk read-only test window — publishing to *any* pod, SDK-wide, may fail intermittently. | [CocoaPods.org](https://blog.cocoapods.org/CocoaPods-Specs-Repo/) |
 | December 2, 2026 | CocoaPods Trunk becomes permanently read-only — no pod of any kind, from any publisher, can be published anymore. | [CocoaPods.org](https://blog.cocoapods.org/CocoaPods-Specs-Repo/) |
 
-**Practical takeaway:** treat **October 1, 2026** as your deadline. It arrives before either CocoaPods.org milestone, so there is no scenario where waiting for the CocoaPods.org dates buys you extra time on `NetomiChatSDK`.
+**Practical takeaway:** if you're still on CocoaPods, migrate now. Netomi's own sunset has already taken effect, ahead of either CocoaPods.org milestone.
 
 ---
 
@@ -29,10 +29,10 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 - iOS 16 or later
 - Xcode 26+
 - UIKit or SwiftUI (both supported by the SDK)
-- Swift Package Manager or CocoaPods. Manual framework integration is not supported because the SDK depends on managed third-party packages.
+- Swift Package Manager. Manual framework integration is not supported because the SDK depends on managed third-party packages. CocoaPods is no longer supported for new integrations — see [Option 2](#option-2--cocoapods-no-longer-supported) if you're migrating an existing CocoaPods integration.
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
 
-> **Important:** Use either Swift Package Manager or CocoaPods for a given app target, not both. Do not add Lottie or Netomi binary frameworks manually when using `NetomiChatSDK`; the package or pod manages those dependencies for you.
+> **Important:** Do not add Lottie or Netomi binary frameworks manually when using `NetomiChatSDK`; the package manages those dependencies for you.
 
 ---
 
@@ -48,7 +48,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `1.32.6`
+3. Select the tag or branch: `2.0.0`
 
 4. Choose package products:
 
@@ -79,18 +79,18 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
 ---
 
-## Option 2 — CocoaPods (deprecated, supported until October 1, 2026)
+## Option 2 — CocoaPods (no longer supported)
 
-> ⚠️ Netomi is deprecating CocoaPods support for both the base pod and the `Analytics` subspec below. No new `NetomiChatSDK` podspec versions will be published after **October 1, 2026** — see the [full sunset timeline](#cocoapods-sunset-timeline). New integrations should use [Swift Package Manager](#option-1--swift-package-manager-recommended); existing CocoaPods users should plan to [migrate before then](#migrating-from-cocoapods-to-swift-package-manager).
+> ⚠️ **CocoaPods is no longer supported** for both the base pod and the `Analytics` subspec below. No new `NetomiChatSDK` podspec versions are published as of this release — see the [full sunset timeline](#cocoapods-sunset-timeline). New integrations must use [Swift Package Manager](#option-1--swift-package-manager-recommended); existing CocoaPods users should [migrate now](#migrating-from-cocoapods-to-swift-package-manager).
 
 1. Add this to your `Podfile`:
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '1.32.6'
+   pod 'NetomiChatSDK', '2.0.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '1.32.6'
+   # pod 'NetomiChatSDK/Analytics', '2.0.0'
    ```
 
 2. Run:
@@ -125,7 +125,7 @@ Two separate, unrelated dates are in play — Netomi's own deprecation, and Coco
 
 ## Migrating from CocoaPods to Swift Package Manager
 
-CocoaPods support ends **October 1, 2026**. Move existing `NetomiChatSDK` CocoaPods integrations to Swift Package Manager before then:
+CocoaPods support has ended. Move existing `NetomiChatSDK` CocoaPods integrations to Swift Package Manager now:
 
 1. **Note your current pods.** Check your `Podfile` for `pod 'NetomiChatSDK'` and, if present, `pod 'NetomiChatSDK/Analytics'` — you'll add the equivalent SPM products in step 4.
 2. **Remove the CocoaPods integration.**

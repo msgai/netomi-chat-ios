@@ -74,13 +74,21 @@ NetomiChat.shared.launch(jwt: "your-jwt-token")
 The SDK communicates with your app in **two directions**:
 
 - **SDK → app:** the SDK notifies you about chat activity, including opened,
-  reauthorization requested, and errors.
+  closed, reauthorization requested, and errors.
 - **App → SDK:** you send the SDK a response or a custom event, such as the
   result of a reauthorization.
 
 ### Receive Events from SDK
 
 Assign a handler to be called whenever the SDK emits an event:
+
+> ℹ️ **Delivery is asynchronous.** `getEventUpdatesFromSDK` is always invoked on the main
+> thread, but the call is deferred — the SDK operation that triggers an event (e.g. the
+> chat opening, a message being sent) can return to its own caller before your closure
+> actually runs. Don't assume the closure has fired by the time a triggering call
+> completes. Events are still delivered in the exact order they occurred, even when
+> triggered from different background threads — you never need to sort or de-duplicate
+> based on arrival order.
 
 ```swift
 NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
@@ -118,6 +126,9 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
 
     case .chatOpened:
         print("Chat opened")
+
+    case .chatClosed:
+        print("Chat closed")
 
     case .error:
         print("SDK error event:", eventData)

@@ -106,18 +106,6 @@ There is no separate "update" call. Calling `setPushToken(_:)` with the new valu
 
 ---
 
-## Deprecated: setFCMToken
-
-```swift
-// ❌ Deprecated — do not use in new code.
-NetomiChat.shared.setFCMToken("your-fcm-token")
-```
-
-> ⚠️ `setFCMToken(_:)` is **deprecated** and forwards to `setPushToken(_:)`. It exists for backward compatibility.
-> **Always use `setPushToken(_:)` instead**. It accepts both APNs and FCM tokens.
-
----
-
 ## Troubleshooting
 
 - **Notifications never arrive**

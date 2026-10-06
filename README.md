@@ -18,7 +18,7 @@ app. It supports:
 
 ### 📦 [Installation](docs/installation.md)
 
-Prerequisites, Swift Package Manager, CocoaPods (deprecated) with a migration guide, and managed dependencies.
+Prerequisites, Swift Package Manager, CocoaPods (no longer supported) with a migration guide, and managed dependencies.
 **Read this when** you are adding the SDK to a project for the first time, or migrating off CocoaPods.
 
 ### 🚀 [Usage](docs/usage.md)
@@ -33,7 +33,7 @@ Customize colors, headers, footers, message bubbles, and other visual styling in
 
 ### 🔔 [Push Notifications](docs/push-notifications.md)
 
-Register device push tokens, handle token refresh, and migrate from the deprecated FCM API.
+Register device push tokens, and handle token refresh.
 **Read this when** chat replies should arrive as push notifications.
 
 ### 🔐 [Events & Authentication](docs/events-and-auth.md)
@@ -56,6 +56,11 @@ The bundled privacy manifest and guidance for keeping secrets and PII out of the
 Common issues, debugging guidance, and frequently asked questions.
 **Read this when** something isn't working or you want a quick answer.
 
+### 🔄 [Migration Guide](docs/migration.md)
+
+Removed APIs and their replacements.
+**Read this when** upgrading and your build reports a missing `setFCMToken`, `typingMessageCornerRadius` or `sendBackgroundColor`.
+
 ---
 
 ## ⚡ Quick Start
@@ -65,13 +70,13 @@ The three steps below get a basic chat running. See [Installation](docs/installa
 ### 1. Install
 
 Add the package with **Swift Package Manager** (recommended) using tag
-`1.32.6`:
+`2.0.0`:
 
 ```text
 https://github.com/msgai/netomi-chat-ios.git
 ```
 
-> ⚠️ CocoaPods is also supported, but is **deprecated** (base pod and the `/Analytics` subspec alike): Netomi will publish `NetomiChatSDK` CocoaPods releases only until **October 1, 2026**. Swift Package Manager is the preferred, long-term supported method. See [Installation](docs/installation.md#migrating-from-cocoapods-to-swift-package-manager) for the full timeline and CocoaPods → SPM migration guide.
+> ⚠️ CocoaPods is **no longer supported** (base pod and the `/Analytics` subspec alike): Netomi no longer publishes new `NetomiChatSDK` CocoaPods releases. Swift Package Manager is the only supported method. See [Installation](docs/installation.md#migrating-from-cocoapods-to-swift-package-manager) for the full timeline and CocoaPods → SPM migration guide.
 
 ### 2. Initialize (once, at app launch)
 
@@ -100,7 +105,7 @@ hiding/resuming, and more, continue to the [Usage](docs/usage.md) guide.
 - iOS 16 or later
 - Xcode 26+
 - UIKit or SwiftUI (both supported)
-- Swift Package Manager (recommended) or CocoaPods (deprecated, supported until October 1, 2026). Manual framework integration is **not** supported.
+- Swift Package Manager. CocoaPods is no longer supported for new integrations. Manual framework integration is **not** supported.
 - Your Netomi bot credentials (`botRefId`, `environment`)
 
 Full details, including managed dependency versions, are in [Installation](docs/installation.md).

@@ -48,6 +48,16 @@ NetomiChat.shared.overrideThemeMode(nil)
 let mode = NetomiChat.shared.currentThemeMode
 ```
 
+### Clearing UI configuration overrides
+
+Use `clearUIConfigurationOverrides()` to remove every runtime UI configuration override you've applied via the `update*Configuration(config:)` APIs (and their `theme(.light)`/`theme(.dark)` scoped equivalents — see [Scoping code-level overrides to light or dark](#scoping-code-level-overrides-to-light-or-dark) below), for both the default and dark-only buckets. After clearing, the chat falls back to the Dashboard-configured (remote) UI configuration until you apply new overrides. Like `overrideThemeMode(_:)`, this applies **immediately** — it does not require calling before `launch()` and does not require reinitializing the SDK. It does not affect the theme mode override set via `overrideThemeMode(_:)`, and it's safe to call even if no override is currently set.
+
+```swift
+// Undo all header/footer/bot/user/bubble/... overrides applied above and restore
+// the Dashboard-configured UI configuration, for both light and dark mode
+NetomiChat.shared.clearUIConfigurationOverrides()
+```
+
 ### `.auto` requires your app to support both appearances
 
 `.light` and `.dark` always work, no matter how your app is configured — they force a concrete style on the chat regardless of anything else.
