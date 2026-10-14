@@ -132,6 +132,9 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
 
     case .error:
         print("SDK error event:", eventData)
+        // Initialization failures carry event_sub_type "initialization_error",
+        // launch failures carry "launch_error". Details are in event_payload.
+        // See "Initialization error events" and "Launch error events" below.
 
     case .customEvent:
         // Bot-driven custom events (e.g. a CALLBACK_EVENT sent from your bot flow) arrive here.
@@ -142,6 +145,44 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
     }
 }
 ```
+
+### Initialization error events
+
+When `initialize(...)` fails, the SDK emits an `.error` event even if you did not pass an `errorHandler`. The event has the same details the handler receives:
+
+```swift
+case .error:
+    let subType = eventData[NCWPublicEventKeys.eventSubType.rawValue] as? String
+    if subType == "initialization_error" {
+        let details = eventData[NCWPublicEventKeys.eventPayload.rawValue] as? [String: Any]
+        print("Initialization failed:", details?["exceptionCode"] ?? "-", details?["statusMessage"] ?? "-")
+    }
+```
+
+| Key | Description |
+| --- | --- |
+| `event_sub_type` | `initialization_error` for these events (`launch_error` for [launch errors](#launch-error-events)). Other `.error` events do not carry this value. |
+| `event_payload` | Dictionary with `type`, `statusCode`, `statusMessage`, `error` and `exceptionCode`. Fields without a value are omitted. |
+| `error_details` | A single readable summary string, for example `Code: 403 \| Bot reference ID is invalid or not found.`. |
+
+> ℹ️ A failed initialization can also produce a general `.error` event describing the failed request. Use `event_sub_type` to tell the two apart. The values are listed in [Usage](usage.md#optional-handle-initialization-errors).
+
+---
+
+### Launch error events
+
+When `launch(...)` cannot show the chat, the SDK emits an `.error` event even if you did not pass an `errorHandler`. It has the same details the handler receives, in the same format as [initialization error events](#initialization-error-events), with `event_sub_type` set to `launch_error`.
+
+```swift
+case .error:
+    let subType = eventData[NCWPublicEventKeys.eventSubType.rawValue] as? String
+    if subType == "launch_error" {
+        let details = eventData[NCWPublicEventKeys.eventPayload.rawValue] as? [String: Any]
+        print("Launch failed:", details?["exceptionCode"] ?? "-", details?["statusMessage"] ?? "-")
+    }
+```
+
+---
 
 ### Send Events to SDK
 

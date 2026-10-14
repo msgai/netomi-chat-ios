@@ -40,6 +40,53 @@ NetomiChat.shared.initialize(
 > 🔹 Most visual styling can be configured via the Netomi Dashboard.
 > To customize it locally in code, see [UI Theming](ui-theming.md).
 
+### (Optional) Handle Initialization Errors
+
+`initialize(...)` accepts an optional `errorHandler`. It is called on the main thread, once per failure, when initialization cannot succeed. Existing calls without a handler keep working unchanged.
+
+```swift
+NetomiChat.shared.initialize(
+    botRefId: "YOUR_BOT_REF_ID",
+    env: .USProd,
+    errorHandler: { error in
+        print("Initialization failed:", error.localizedDescription)
+        print("Type:", error.type ?? "-")
+        print("Code:", error.exceptionCode ?? "-")
+        print("Status:", error.statusCode.map(String.init) ?? "-")
+        print("Message:", error.statusMessage ?? "-")
+    }
+)
+```
+
+The handler is also available together with `isDynamicEnv`:
+
+```swift
+NetomiChat.shared.initialize(
+    botRefId: "YOUR_BOT_REF_ID",
+    env: .USProd,
+    isDynamicEnv: true,
+    errorHandler: { error in print("Initialization error:", error) }
+)
+```
+
+The same error is also delivered as an `.error` event through `getEventUpdatesFromSDK`, whether or not you pass a handler. See [Events & Authentication](events-and-auth.md#initialization-error-events).
+
+| Situation | `type` | `exceptionCode` | `statusCode` | `statusMessage` |
+| --- | --- | --- | --- | --- |
+| `botRefId` is empty or blank. Reported immediately, before `initialize` returns. | `invalid_state` | `REQUIRED_BOT_REFERENCE_ID` | none | `Bot reference ID is required to launch the SDK.` |
+| `botRefId` is invalid or unknown | `invalid_state` | `INVALID_BOT_REFERENCE_ID` | `403` | `Bot reference ID is invalid or not found.` |
+| `isDynamicEnv: true`, but dynamic configuration is not enabled or incomplete for the bot | `invalid_state` | `DYNAMIC_CONFIG_NOT_AVAILABLE` | none | `Dynamic bot configuration is not enabled or properly configured for the current bot.` |
+| No internet connection | `network_unavailable` | `NO_NETWORK` | `-1009` | "check your network" message |
+| Request timed out | `config_fetch_failed` | `BOT_CONFIG_FETCH_FAILED` | `-1001` | timeout message |
+| Connection lost | `config_fetch_failed` | `BOT_CONFIG_FETCH_FAILED` | `-1005` | connection-lost message |
+| Any other failure loading the bot configuration | `config_fetch_failed` | `BOT_CONFIG_FETCH_FAILED` | HTTP or system code | Server or system message |
+
+If the server returns its own `type` or `exceptionCode`, those values are passed through unchanged.
+
+- **Timing:** an empty `botRefId` is reported immediately. Other errors arrive shortly after `initialize` returns.
+- **Once per failure:** each failure is reported once, and repeating `initialize` with the same values does nothing.
+- **`launch()`:** works as before and reports its own errors through its `errorHandler`.
+
 ### (Optional) Check Initialization State
 
 Use `isInitialized(botRefId:environment:isDynamicEnv:)` only when your app needs to check whether the SDK is already initialized for a specific configuration.

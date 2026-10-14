@@ -42,8 +42,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://github.com/msgai/netomi-chat-ios/releases/download/v2.0.0/NetomiCore.xcframework.zip",
-            checksum: "e82dcbd7e2d182ffd1622cb756eb2bebdc32bb8d528041a44e1673685bfb06bc"
+            url: "https://github.com/msgai/netomi-chat-ios/releases/download/v2.1.0/NetomiCore.xcframework.zip",
+            checksum: "5a7a6bfaac98c7d1167a476305ea5012a1ee554f43c112ccf1f84e379814ba63"
         ),
         .target(
             name: "Netomi",

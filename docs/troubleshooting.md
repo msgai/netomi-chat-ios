@@ -57,6 +57,8 @@ NetomiChat.shared.launch(
 )
 ```
 
+The same error is also delivered as an `.error` event through `getEventUpdatesFromSDK` with `event_sub_type` set to `launch_error`, whether or not you pass a handler. See [Events & Authentication](events-and-auth.md#launch-error-events).
+
 > The async variants (`launchAsync` / `launchWithQueryAsync`) return `false` when the chat could not be presented at this time.
 
 ---
@@ -65,7 +67,7 @@ NetomiChat.shared.launch(
 
 | Symptom | Likely cause | Resolution |
 | --- | --- | --- |
-| Chat won't launch, or `launchAsync` returns `false` | SDK not initialized, invalid `botRefId`/`env`, or bot config could not be fetched | Confirm `initialize(...)` ran with valid credentials before `launch()`. Pass an `errorHandler` to `launch` and inspect `NCWErrorData`. Set log level to `.info`. |
+| Chat won't launch, or `launchAsync` returns `false` | SDK not initialized, invalid `botRefId`/`env`, or bot config could not be fetched | Pass an `errorHandler` to `initialize(...)` and to `launch` and inspect `NCWErrorData`. For example, `REQUIRED_BOT_REFERENCE_ID` or `INVALID_BOT_REFERENCE_ID` means the `botRefId` is wrong. See [Usage](usage.md#optional-handle-initialization-errors). Set log level to `.info`. |
 | No bot messages arrive | Real-time connection or session not established (network/auth) | Check device connectivity. For authenticated bots, confirm the JWT flow. Watch for the `.error` event and review `.info` logs. |
 | Reauthorization keeps repeating | Missing or expired JWT on `.reauthorizationSuccess` | Respond to `.reauthorizationRequest` with a **fresh, valid** JWT via `sendEventToSdk(type: .reauthorizationSuccess, jwt:)`. See [Events & Authentication](events-and-auth.md). |
 | `sendEventToSdk(...)` throws | Missing JWT, missing/duplicate custom event name, or non-JSON payload | Handle `NetomiEventError`: provide a JWT for `.reauthorizationSuccess`, give a non-reserved `eventName` for `.custom`, and ensure `data` is JSON-serializable. |
