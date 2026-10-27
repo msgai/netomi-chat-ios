@@ -276,6 +276,38 @@ NetomiChat.shared.theme(.dark).updateOtherConfiguration(config: darkOtherConfig)
 
 ---
 
+## 🧩 Connection Status Banner
+
+Styling for the banner shown while the chat is connecting, connected, or has lost its connection. Each
+state has its own background and text color. The banner text itself comes from the localized
+connection-status strings, which are unchanged.
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.connectionStatusConfig.warningColor = .systemYellow   // "Connecting" background
+otherConfig.connectionStatusConfig.successColor = .systemGreen    // "Connected" background
+otherConfig.connectionStatusConfig.errorColor = .systemRed        // "Connection lost" background
+otherConfig.connectionStatusConfig.warningTextColor = .white
+otherConfig.connectionStatusConfig.successTextColor = .white
+otherConfig.connectionStatusConfig.errorTextColor = .white
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+You only need to set the colors you want to change; everything else keeps its default.
+
+> 🔹 Colors configured through the Dashboard accept standard 6-digit (`RRGGBB`) hex as well as 8-digit
+> (`RRGGBBAA`) hex for colors that need transparency. The alpha channel is the last two digits.
+
+**Dark mode override**:
+
+```swift
+var darkOtherConfig = NCWOtherConfiguration()
+darkOtherConfig.connectionStatusConfig.errorColor = UIColor(red: 1, green: 0.54, blue: 0.46, alpha: 1)
+NetomiChat.shared.theme(.dark).updateOtherConfiguration(config: darkOtherConfig)
+```
+
+---
+
 ## 🧩 Alerts
 
 Styling for alert banners shown in the chat.

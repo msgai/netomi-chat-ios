@@ -184,6 +184,25 @@ case .error:
 
 ---
 
+#### JWT rejected mid-chat
+
+When the server rejects the user's JWT (HTTP 401) during an active chat, the SDK sends an `error` event, then shows its session-expired alert and closes the chat.
+
+- Sent before the alert, once per chat even if several requests fail together.
+- `event_sub_type`: `invalid_auth_token_error`. Use this stable value for error handling, logging and analytics.
+- `error_details`: the server's message, or a fixed text starting with `JWT rejected (401)`. Don't match on it.
+- `conversation_id`: included when a conversation exists.
+
+```swift
+case .error:
+    let subType = eventData[NCWPublicEventKeys.eventSubType.rawValue] as? String
+    let details = eventData[NCWPublicEventKeys.errorDetails.rawValue] as? String
+    if subType == "invalid_auth_token_error" {
+        // Log `details` and re-authenticate the user before the next launch.
+    }
+```
+
+---
 ### Send Events to SDK
 
 Use `sendEventToSdk(type:eventName:jwt:data:)` when the SDK expects a response from the host app, such as JWT reauthorization. You can also use it to send a supported custom event.
