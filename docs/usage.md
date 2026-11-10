@@ -75,7 +75,6 @@ The same error is also delivered as an `.error` event through `getEventUpdatesFr
 | --- | --- | --- | --- | --- |
 | `botRefId` is empty or blank. Reported immediately, before `initialize` returns. | `invalid_state` | `REQUIRED_BOT_REFERENCE_ID` | none | `Bot reference ID is required to launch the SDK.` |
 | `botRefId` is invalid or unknown | `invalid_state` | `INVALID_BOT_REFERENCE_ID` | `403` | `Bot reference ID is invalid or not found.` |
-| `isDynamicEnv: true`, but dynamic configuration is not enabled or incomplete for the bot | `invalid_state` | `DYNAMIC_CONFIG_NOT_AVAILABLE` | none | `Dynamic bot configuration is not enabled or properly configured for the current bot.` |
 | No internet connection | `network_unavailable` | `NO_NETWORK` | `-1009` | "check your network" message |
 | Request timed out | `config_fetch_failed` | `BOT_CONFIG_FETCH_FAILED` | `-1001` | timeout message |
 | Connection lost | `config_fetch_failed` | `BOT_CONFIG_FETCH_FAILED` | `-1005` | connection-lost message |

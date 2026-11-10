@@ -174,6 +174,7 @@ botConfig.backgroundColor = .lightGray             // Bot message background
 botConfig.textColor = .black                       // Bot message text color
 botConfig.quickReplyBackgroundColor = .systemGray4 // Quick reply pill color
 botConfig.isFeedbackEnabled = true                 // Enable feedback
+botConfig.feedbackIconColor = .darkGray            // Thumbs up/down feedback icon tint
 NetomiChat.shared.updateBotConfiguration(config: botConfig)
 ```
 
@@ -273,6 +274,145 @@ darkOtherConfig.titleColor = .white
 darkOtherConfig.descriptionColor = .lightGray
 NetomiChat.shared.theme(.dark).updateOtherConfiguration(config: darkOtherConfig)
 ```
+
+`NCWOtherConfiguration` also covers the finer-grained elements below — buttons, dialogs, form fields,
+survey, and status colors. These all go through the same `updateOtherConfiguration(config:)` call; you
+only need to set the properties you want to override, everything else keeps its default.
+
+### Buttons
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.confirmButtonBackgroundColor = .systemBlue       // Primary confirm/submit button
+otherConfig.cancelButtonTextColor = .systemBlue              // End-chat cancel button text
+otherConfig.cancelButtonBackgroundColor = .clear              // End-chat cancel button background
+otherConfig.disabledButtonBackgroundColor = .systemGray4     // Confirm/submit button when disabled
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Dialogs & Bottom Sheets
+
+Covers the Restart Chat sheet, Close Chat confirmation, and other bottom sheets.
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.dialogConfig.backgroundColor = .white              // Sheet background
+otherConfig.dialogConfig.borderColor = .systemGray5            // Sheet border
+otherConfig.dialogConfig.separatorColor = .systemGray5         // Separator lines in sheet lists
+otherConfig.dialogConfig.overlayColor = .black                 // Dimming overlay behind the sheet
+otherConfig.dialogConfig.radioSelectedColor = .black           // Selected radio button
+otherConfig.dialogConfig.radioUnselectedColor = .black         // Unselected radio button
+otherConfig.dialogConfig.closeIconBackgroundColor = .systemGray6 // "X" close icon background
+otherConfig.dialogConfig.closeIconTintColor = .darkGray        // "X" close icon tint
+otherConfig.dialogConfig.arrowColor = .black                   // Disclosure/chevron arrow
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+`radioSelectedColor` / `radioUnselectedColor` also tint the radio buttons in the language picker. If you
+don't set them, the language picker keeps its previous look (tinted with `otherConfig.backgroundColor`),
+so existing integrations are unchanged. Each color is optional on its own: set only one and the other
+keeps the previous tint.
+
+### Settings Toggle
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.toggleConfig.tintColor = .systemGreen  // Toggle/switch on-state track color
+otherConfig.toggleConfig.thumbColor = .white       // Toggle thumb color
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Scroll-to-Bottom Button
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.scrollButtonConfig.backgroundColor = .white
+otherConfig.scrollButtonConfig.borderColor = .systemGray5
+otherConfig.scrollButtonConfig.iconColor = .darkGray
+otherConfig.scrollButtonConfig.shadowColor = .black
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Form Fields
+
+Applies to text fields, text views, date pickers, checkboxes, and survey fields.
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.formFieldConfig.backgroundColor = .white
+otherConfig.formFieldConfig.borderColor = .systemGray5
+otherConfig.formFieldConfig.disabledColor = .systemGray      // Disabled field state
+otherConfig.formFieldConfig.iconTintColor = .darkGray        // Calendar icon, dropdown arrow, secure field show/hide icon
+otherConfig.formFieldConfig.placeholderTextColor = .systemGray // Placeholder text (text, date and dropdown fields)
+otherConfig.formFieldConfig.errorColor = .systemRed          // Validation/error state
+otherConfig.formFieldConfig.submissionSuccessIconTintColor = .systemGreen // Form submitted checkmark
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+If `iconTintColor` is not set, the date calendar icon, dropdown arrow and secure field show/hide icon keep following the field's text color, as before.
+
+### Survey & Ratings
+
+If `surveyConfig.submissionSuccessIconTintColor` isn't set, the survey checkmark uses
+`formFieldConfig.submissionSuccessIconTintColor`; `surveyConfig.selectedIconColor` defaults to the
+general `backgroundColor` accent.
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.surveyConfig.unselectedIconColor = .systemGray     // Unselected star/emoji/thumbs icon
+otherConfig.surveyConfig.selectedIconColor = .systemBlue       // Selected icon (tint/border/background)
+otherConfig.surveyConfig.selectedTextColor = .white            // Selected numeric rating text
+otherConfig.surveyConfig.skipButtonBackgroundColor = .systemGray6
+otherConfig.surveyConfig.submissionSuccessIconTintColor = .systemGreen // Survey submitted checkmark
+otherConfig.suggestionChipConfig.selectedBackgroundColor = .systemBlue
+otherConfig.suggestionChipConfig.unselectedBackgroundColor = .systemGray6
+otherConfig.suggestionChipConfig.selectedBorderColor = .systemBlue
+otherConfig.suggestionChipConfig.unselectedBorderColor = .systemGray4
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Files & Uploads
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.fileIconConfig.backgroundColor = .white
+otherConfig.fileIconConfig.tintColor = .systemBlue
+otherConfig.uploadIconConfig.backgroundColor = .white
+otherConfig.uploadIconConfig.tintColor = .darkGray
+otherConfig.uploadIconConfig.borderColor = .black.withAlphaComponent(0.18)
+otherConfig.uploadIconConfig.shadowColor = .black.withAlphaComponent(0.05)
+otherConfig.uploadIconConfig.stripedBorderColor = .darkGray    // Upload drop-zone striped border
+otherConfig.uploadIconConfig.stripedBackgroundColor = .systemGray6    // Upload drop-zone fill (default: .clear, transparent as before)
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Media Preview
+
+The connection status banner has its own section, [Connection Status Banner](#-connection-status-banner).
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.mediaPreviewBackgroundColor = .black
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+### Links & Shadows
+
+```swift
+var otherConfig = NCWOtherConfiguration()
+otherConfig.fallbackLinkColor = .systemBlue  // Auto-detected links/phone numbers with no explicit color
+otherConfig.pillShadowColor = .black.withAlphaComponent(0.6) // Date-pill shadow
+otherConfig.surfaceBackgroundColor = .white  // Carousel title/description area, form containers
+NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
+```
+
+> 🔹 All of the colors above support standard 6-digit (`RRGGBB`) hex colors when configured via the
+> Dashboard, as well as 8-digit (`RRGGBBAA`) hex for colors that need transparency (e.g. a subtle shadow
+> or border). The alpha channel is the last two digits.
+
+Each of the groups above can also be overridden separately for dark mode the same way as any other
+`NCWOtherConfiguration` property — apply your dark-specific subset via
+`NetomiChat.shared.theme(.dark).updateOtherConfiguration(config:)`.
 
 ---
 

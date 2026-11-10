@@ -48,7 +48,7 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `2.2.1`
+3. Select the tag or branch: `2.3.0`
 
 4. Choose package products:
 
@@ -87,10 +87,10 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '2.2.1'
+   pod 'NetomiChatSDK', '2.3.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '2.2.1'
+   # pod 'NetomiChatSDK/Analytics', '2.3.0'
    ```
 
 2. Run:
