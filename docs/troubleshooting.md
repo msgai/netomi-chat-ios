@@ -100,6 +100,12 @@ Yes, both are supported.
 **What is the minimum iOS version?**
 iOS 16 or later, built with Xcode 26+. See [Installation](installation.md).
 
+**Which devices are supported?**
+iPhone (including iPhone Duo) and iPad, in portrait and landscape, including iPad Split View, Slide Over and Stage Manager. The chat resizes with your app's window.
+
+**On iPhone Duo or iPad, the chat appears in a small centered window with empty space around it. Why?**
+The chat can only be as large as your app's window, and iOS is showing your whole app in compatibility mode. Build your app with Xcode 27.1+, support all orientations in `UISupportedInterfaceOrientations`, and remove `UIRequiresFullScreen` if it's set.
+
 ### Initialization & launch
 
 **Do I need to call `initialize(...)` more than once?**

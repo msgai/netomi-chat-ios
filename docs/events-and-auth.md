@@ -202,6 +202,20 @@ case .error:
     }
 ```
 
+#### Attachment clicked
+
+The SDK sends `attachment_clicked` when the user taps the attach button in the chat input and the attachment options sheet opens.
+
+- Sent once per sheet that opens. Taps while the sheet is already open or closing do not send it again.
+- Not sent when the sheet cannot open, for example when file sharing is disabled for the bot.
+- Upload buttons inside forms open the same sheet but do not send this event.
+
+```swift
+case .attachmentClicked:
+    // One event per opened attachment sheet; safe to count directly in a funnel.
+    print("Attachment options opened")
+```
+
 ---
 ### Send Events to SDK
 

@@ -292,12 +292,29 @@ NetomiChat.shared.updateOtherConfiguration(config: otherConfig)
 
 ### Dialogs & Bottom Sheets
 
-Covers the Restart Chat sheet, Close Chat confirmation, and other bottom sheets.
+Covers the Restart Chat sheet, Close Chat confirmation, and other bottom sheets, including the
+attachment action sheet (Camera / Upload from Gallery / Attach from device). The action sheet uses
+`backgroundColor`, `separatorColor` (lines between rows) and `overlayColor`; its row text and icons use
+`otherConfig.titleColor`, like the other sheets. The action sheet does not draw a border, so
+`borderColor` does not affect it (the other dialog sheets still use `borderColor`).
+
+**When these keys are not set:** the attachment action sheet has no earlier themed behaviour to fall back
+to, so it uses the built-in defaults: `backgroundColor` (`#FFFFFF` light / `#1C1C1E` dark),
+`separatorColor` (`#E5E6E8` light / `#5A5A5C` dark), `overlayColor` (black, shown at 40% opacity) and the
+default `otherConfig.titleColor`. It does not inherit `otherConfig.backgroundColor` or any other legacy
+setting. Values supplied by the host app or the bot config are used when present.
+
+**Visual change for existing integrations:** the attachment picker used to be the system action sheet,
+with the system's styling and a Cancel row. It is now this custom sheet, shown as a popover anchored to
+the attach button on regular-width layouts and as a bottom sheet otherwise. There is no Cancel row.
+Dismiss it by tapping the backdrop, dragging it down, using the VoiceOver escape gesture, or pressing
+Esc on a hardware keyboard. The look changes after upgrading, even with no theming code changes. Set
+`dialogConfig` and `titleColor` to match your brand.
 
 ```swift
 var otherConfig = NCWOtherConfiguration()
 otherConfig.dialogConfig.backgroundColor = .white              // Sheet background
-otherConfig.dialogConfig.borderColor = .systemGray5            // Sheet border
+otherConfig.dialogConfig.borderColor = .systemGray5            // Border of other dialog sheets (not the attachment action sheet)
 otherConfig.dialogConfig.separatorColor = .systemGray5         // Separator lines in sheet lists
 otherConfig.dialogConfig.overlayColor = .black                 // Dimming overlay behind the sheet
 otherConfig.dialogConfig.radioSelectedColor = .black           // Selected radio button

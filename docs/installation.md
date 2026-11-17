@@ -31,6 +31,7 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
 - UIKit or SwiftUI (both supported by the SDK)
 - Swift Package Manager. Manual framework integration is not supported because the SDK depends on managed third-party packages. CocoaPods is no longer supported for new integrations — see [Option 2](#option-2--cocoapods-no-longer-supported) if you're migrating an existing CocoaPods integration.
 - Your Bot Credentials from Netomi (`botRefId`, `environment`)
+- For iPhone Duo and iPad multitasking: build with **Xcode 27.1+**, support all orientations in `UISupportedInterfaceOrientations`, and don't set `UIRequiresFullScreen`. The chat follows your app's window size (Split View, Stage Manager, iPhone Duo fold/unfold); otherwise iOS shows your app — and the chat inside it — in a centered, letterboxed window.
 
 > **Important:** Do not add Lottie or Netomi binary frameworks manually when using `NetomiChatSDK`; the package manages those dependencies for you.
 
@@ -48,7 +49,7 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `2.3.0`
+3. Select the tag or branch: `2.4.0`
 
 4. Choose package products:
 
@@ -87,10 +88,10 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '2.3.0'
+   pod 'NetomiChatSDK', '2.4.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '2.3.0'
+   # pod 'NetomiChatSDK/Analytics', '2.4.0'
    ```
 
 2. Run:
