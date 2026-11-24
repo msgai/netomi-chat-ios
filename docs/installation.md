@@ -49,7 +49,7 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
    https://github.com/msgai/netomi-chat-ios.git
    ```
 
-3. Select the tag or branch: `2.4.0`
+3. Select the tag or branch: `2.5.0`
 
 4. Choose package products:
 
@@ -88,10 +88,10 @@ Netomi's own CocoaPods sunset, and CocoaPods.org's own infrastructure change, ar
 
    ```ruby
    # Base SDK without optional analytics
-   pod 'NetomiChatSDK', '2.4.0'
+   pod 'NetomiChatSDK', '2.5.0'
 
    # Optional analytics support. Mixpanel is the current provider.
-   # pod 'NetomiChatSDK/Analytics', '2.4.0'
+   # pod 'NetomiChatSDK/Analytics', '2.5.0'
    ```
 
 2. Run:
@@ -157,8 +157,8 @@ CocoaPods support has ended. Move existing `NetomiChatSDK` CocoaPods integration
 
 | Dependency | Version Range |
 | --- | --- |
-| Mixpanel Swift (optional) | `6.4.0..<7.0.0` |
-| Microsoft Cognitive Services Speech SDK (optional) | `1.51.1..<1.52.0` |
+| Mixpanel Swift (optional) | `7.1.0..<8.0.0` (Swift Package Manager), `6.4.0..<6.5.0` (CocoaPods) |
+| Microsoft Cognitive Services Speech SDK (optional) | `1.53.0..<1.54.0` |
 
 Do not add separate versions of these dependencies unless `Netomi` support asks you to do so. Each optional dependency is installed only when its corresponding product/subspec (`NetomiAnalytics`, `NetomiVoiceSTT`) is selected.
 

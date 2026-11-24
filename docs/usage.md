@@ -69,7 +69,7 @@ NetomiChat.shared.initialize(
 )
 ```
 
-The same error is also delivered as an `.error` event through `getEventUpdatesFromSDK`, whether or not you pass a handler. See [Events & Authentication](events-and-auth.md#initialization-error-events).
+The same error is also delivered as an `.error` event through `getEventUpdatesFromSDK`, whether or not you pass a handler. See [Events & Authentication](events-and-auth.md#initialization-error-events). Sensitive values in the error text are masked with `***` in both the handler and the event; see [Sensitive values in error events](events-and-auth.md#sensitive-values-in-error-events).
 
 | Situation | `type` | `exceptionCode` | `statusCode` | `statusMessage` |
 | --- | --- | --- | --- | --- |
@@ -148,6 +148,7 @@ NetomiChat.shared.launch(
 
 - `errorHandler` is invoked **only if the chat cannot be shown**.
 - It is **not** a completion callback.
+- Sensitive values in the error text are masked with `***`, the same as in the `.error` event; see [Sensitive values in error events](events-and-auth.md#sensitive-values-in-error-events).
 
 ### 🔹 With Initial Query
 

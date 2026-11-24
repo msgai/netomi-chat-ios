@@ -31,19 +31,19 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/mixpanel/mixpanel-swift.git",
-            .upToNextMajor(from: "6.4.0")
+            .upToNextMajor(from: "7.1.0")
         ),
         // Only the optional "NetomiVoiceSTT" target below depends on this.
         .package(
             url: "https://github.com/microsoft/speech-sdk-spm",
-            .upToNextMinor(from: "1.51.1")
+            .upToNextMinor(from: "1.53.0")
         )
     ],
     targets: [
         .binaryTarget(
             name: "NetomiCore",
-            url: "https://github.com/msgai/netomi-chat-ios/releases/download/v2.4.0/NetomiCore.xcframework.zip",
-            checksum: "3202cc5ab3274ce199ce969e98d68c55d3a1050abbe051c0de3bbf26bb302c2a"
+            url: "https://github.com/msgai/netomi-chat-ios/releases/download/v2.5.0/NetomiCore.xcframework.zip",
+            checksum: "b0dd7e2cfee47b855b56306faaba3dd5d6b09d969e4d9656520a293d58d1e28b"
         ),
         .target(
             name: "Netomi",

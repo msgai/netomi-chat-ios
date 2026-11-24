@@ -122,7 +122,9 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
         }
 
     case .reauthorizationResponse:
-        print("Reauthorization response received")
+        // `flow_completed` is false when the request failed or the server rejected the new JWT.
+        let completed = eventData[NCWPublicEventKeys.flowCompleted.rawValue] as? Bool ?? false
+        print("Reauthorization response received, completed:", completed)
 
     case .chatOpened:
         print("Chat opened")
@@ -134,6 +136,7 @@ NetomiChat.shared.getEventUpdatesFromSDK = { [weak self] event in
         print("SDK error event:", eventData)
         // Initialization failures carry event_sub_type "initialization_error",
         // launch failures carry "launch_error". Details are in event_payload.
+        // Sensitive values in the details are masked ("***") before delivery.
         // See "Initialization error events" and "Launch error events" below.
 
     case .customEvent:
@@ -182,13 +185,46 @@ case .error:
     }
 ```
 
+### Sensitive values in error events
+
+Error text can echo parts of a request or response. Before an `.error` event is delivered to `getEventUpdatesFromSDK`, the SDK replaces sensitive values in `error_details` and in the text fields of `event_payload` with `***`. This covers tokens, API keys, passwords and passphrases, authorization header values (Bearer, Basic and Digest), session identifiers, one-time and verification codes, AWS access key ids, signed URLs and their signing parameters (S3 `X-Amz-*` signing parameters, CloudFront `Signature`, `Policy` and `Key-Pair-Id`, GCS `X-Goog-Signature` and `X-Goog-Credential`, and any value under `presigned_url`, `signed_url` or `x-cdn-url`), passwords inside URLs (`https://user:password@host`), key material, cookies (`cookie`, `set-cookie`), credentials and user identifiers (`credentials`, `x-user-id`, `x-csrf-token`, `customer_id`, `bot_ref_id`), personal and financial data (`email`, `phone`, `phone_number`, `mobile_number`, `dob`, `date_of_birth`, `iban`, `routing_number`, `account_number`, `bank_account`, `pan`, `card_number`, `credit_card`, `creditCardNumber`, `expiry_date`, `cvv`, `cvc`, `ssn`), US identifiers (`social_security_number`, `tax_id`, `tin`, `itin`, `ein`, `driver_license`, `drivers_license`, `license_number`, `passport`, `passport_number`), health and insurance numbers (`medical_record_number`, `mrn`, `medicare_number`, `medicaid_number`, `mbi`, `insurance_id`, `policy_number`), postal addresses (`street_address`, `home_address`, `billing_address`, `shipping_address`, `mailing_address`, `zip_code`, `postal_code`), phone numbers, and Social Security numbers written as `123-45-6789` even with no key before them. Keys are matched in any case and with `-`, `_` or camelCase spelling (`Customer-Id`, `customerId` and `CUSTOMER_ID` are the same key), and even with a prefix (`user_token`, `dbPassword`, `userEmail`). Keys of three letters or fewer, such as `key`, `pin` and `pan`, and `phone` match only as a whole word, so fields such as `keyboard`, `span` or `microphone` are not masked. An unquoted `key=value` value is masked through any `,`, `)` or `}` in it; for passwords, cookies and postal addresses it is masked to the end of the line, for signed-URL keys the whole URL is masked, and for card, account, phone, Social Security and tax numbers the whole number is masked even when it contains spaces. The `errorHandler` of `initialize(...)` and `launch(...)` receives the same masked values, so the handler and the event stay identical.
+
+| Before masking | You receive |
+| --- | --- |
+| `rejected token=abc123` | `rejected token="***"` |
+| `Authorization: Bearer eyJhbGci...` | `Authorization: "***"` |
+| `rejected Bearer abc123` (any length) | `rejected Bearer ***` |
+| `x-api-key: abc123` | `x-api-key: "***"` |
+| `Invalid token: eyJhbGci...` | `Invalid token: ***` |
+| `https://admin:s3cret@db.example.com/path` | `https://admin:***@db.example.com/path` |
+| `AKIAIOSFODNN7EXAMPLE rejected` | `*** rejected` |
+| `password: hunter2` | `password: ***` |
+| `call +1 415-555-2671` or `call (415) 555-2671` | `call ***` |
+| `card_number=4111 1111 1111 1111` | `card_number="***"` |
+| `Cookie: session=abc123; theme=dark` | `Cookie: "***"` |
+| `presignedUrl=https://b.s3.amazonaws.com/f?X-Amz-Signature=abc&X-Amz-Date=20261117T000000Z` | `presignedUrl="***"` |
+| `https://cdn.example.com/f?Expires=1700000000&Signature=abc&Key-Pair-Id=APKA1` | `https://cdn.example.com/f?Expires=1700000000&Signature="***"&Key-Pair-Id="***"` |
+| `SSN on file 123-45-6789`, `taxId: 12-3456789` | `SSN on file ***`, `taxId: "***"` |
+| `email: jane@example.com`, `customerId: C-42` | `email: ***`, `customerId: "***"` |
+| `Invalid email: must contain @` | `Invalid email: must contain @` (unchanged) |
+| `Invalid token: expired` | `Invalid token: expired` (unchanged) |
+| Payload field `"token": "abc123"` or `"token": {"inner": "abc"}` | Same field, value `***` |
+
+A masked `key=value` or `key: value` pair is usually written with quotes around the mask (`token="***"`). If you parse error text, expect the quotes. The exception is the `word: value` form of the ordinary words listed below, which is written without quotes (`password: ***`).
+
+The event shape, `event_sub_type`, `conversation_id`, `statusCode` and `exceptionCode` are not changed, and text without sensitive values arrives as it was. Ordinary words such as `token`, `key`, `secret`, `password`, `jwt`, `policy`, `bucket`, `otp`, `pin`, `signature`, `passphrase`, `credentials`, `email`, `phone`, `pan`, `dob` or `passport` always hide the value after them in `name=value` or quoted JSON (`"name": "value"`) form. In `name: value` form they hide it only when it looks like a credential or personal data: quoted, containing a digit, 20 or more characters long, or, after `email`, containing `@`. Descriptive text such as `Missing key: botId` or `Invalid email: must contain @` therefore stays readable. Phone numbers are masked only when they are phone-shaped (an international `+` number, or `415-555-2671`, `415.555.2671`, `415 555 2671`, `(415) 555-2671`, optionally with a `+<country>` or `1` prefix) and hold at least 7 digits. Timestamps and offsets (`2026-11-13T10:00:00+05:30`), IP addresses, UUIDs, version strings and plain digit runs such as order numbers stay readable, and so does a card number with no `card_number`-style key before it. The same rules apply to the SDK's console logs.
+
+Key names match in any case and with `-`, `_` or camelCase spellings (`api_key`, `apiKey` and `X-API-Key` are the same key). Values the SDK cannot inspect, such as raw binary data inside an event payload, arrive as `***`. Event text and payloads are always delivered, masked rather than dropped.
+
 ---
 
 #### JWT rejected mid-chat
 
-When the server rejects the user's JWT (HTTP 401) during an active chat, the SDK sends an `error` event, then shows its session-expired alert and closes the chat.
+When the server rejects the user's JWT (HTTP 401) during an active chat, the SDK sends an `error` event, then shows its session-expired alert and closes the chat. This applies to any request the chat sends, including messages, feedback, surveys, restart and closing an external-link webview. If the user is ending the chat themselves, the chat ends as usual and you still get the `error` event, but no alert is shown. If the End Chat request itself is rejected, the chat closes straight away without waiting for the bot's reply, so the end-chat survey is not shown. If the user's answer to the end-chat survey, or their skip, is rejected, the chat also closes straight away and `.surveySubmitted` / `.surveySkipped` is not sent: you get only the `error` event.
 
 - Sent before the alert, once per chat even if several requests fail together.
+- After a successful reauthorization, a later rejection sends the event again and shows the alert. If the alert is already showing, a late rejection from an earlier request is ignored.
+- If the server rejects the JWT you sent with `.reauthorizationSuccess`, you get `.reauthorizationResponse` with `flow_completed` set to `false`, then this `error` event, then the alert. Don't treat that `.reauthorizationResponse` as a completed reauthorization.
 - `event_sub_type`: `invalid_auth_token_error`. Use this stable value for error handling, logging and analytics.
 - `error_details`: the server's message, or a fixed text starting with `JWT rejected (401)`. Don't match on it.
 - `conversation_id`: included when a conversation exists.

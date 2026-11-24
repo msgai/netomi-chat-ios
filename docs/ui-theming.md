@@ -125,10 +125,31 @@ The app bar at the top of the chat.
 var header = NCWHeaderConfiguration()
 header.backgroundColor = .systemBlue           // Header background color
 header.isGradientApplied = true                // Enable gradient effect
+header.gradientDirection = 8                   // Optional: gradient direction (0-8, see table below)
 header.isBackPressPopupEnabled = true          // Confirm on back
 header.navigationIcon = UIImage(named: "logo") // Optional: custom logo icon
 NetomiChat.shared.updateHeaderConfiguration(config: header)
 ```
+
+**Gradient direction**
+
+`gradientDirection` is an optional `Int` that picks which way the header gradient runs. It is used only when `isGradientApplied` is `true` and gradient colors are available; otherwise the header shows its solid `backgroundColor`.
+
+| Value | Gradient runs from → to |
+| --- | --- |
+| `0` | Bottom-right → top-left |
+| `1` | Bottom → top |
+| `2` | Bottom-left → top-right |
+| `3` | Right → left |
+| `5` | Left → right |
+| `6` | Top-right → bottom-left |
+| `7` | Top → bottom |
+| `8` | Top-left → bottom-right |
+
+- **Not set, or any other value** (including `4`, which has no direction, and negative numbers): Left → right, the same as `5`.
+- **Value `0` is valid** and is not treated as "not set".
+- **Single gradient color:** the direction is ignored. The header blends from your color to a lighter shade of it.
+- **Where the value comes from:** a value you set in code overrides the one configured in the Dashboard; if you set none, the Dashboard value is used.
 
 **Dark mode override** — optional, wins over the default above only while the chat is in dark mode:
 
